@@ -1,0 +1,43 @@
+
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $sidebar-width;
+	height: 100%;
+	padding: $padding;
+	padding-top:$top-padding;
+	// border-right: 1px solid $medium-light-grey;
+	@include box-shadow(1px, 0, 0, $light-grey);
+	.title {
+		font-size: 33px;
+		text-align: center;
+	}
+	#top-links, #bottom-links {
+		width: 100%;
+		.link {
+			@include font($proxima, 20px);
+			line-height: 2em;
+			text-align: left;
+			&:hover, &.active {
+				text-decoration: underline;
+			}
+			
+		}
+		.link-container {
+			cursor: pointer !important;
+		}
+	}
+	#top-links {
+		position: relative;
+		padding: $padding;
+	}
+	#bottom-links {
+		position: absolute;
+		bottom: 0;
+		padding: 2*$padding;
+		left: 0;
+	}
+}
+
+

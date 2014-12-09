@@ -1,0 +1,185 @@
+@mixin font($family, $size:"", $color:"", $hover:"" ) {
+	font-family: $family;
+	font-weight: normal;
+	font-style: normal;
+	@if $size != "" {
+		font-size: $size;
+	}
+	@if $color != "" {
+		color: $color;
+	}
+	@if $hover != "" {
+		&:hover {
+			color: $hover;
+		}
+	}
+}
+
+@mixin inline-list($float:"left") {
+	ul {
+		overflow: auto;
+		li {
+			float: $float;
+			display: inline;
+		}
+	}
+}
+
+@mixin clear-context() {
+	&:after {
+		content: " ";
+	}
+}
+
+@mixin arrow-top($size, $bkg, $right, $border-width:"", $border-color:"") {
+	position: relative;
+	background: $bkg;
+	@if $border-width != "" {
+		border: $border-width solid$border-color;
+		
+		&:after, &:before {
+			bottom: 100%;
+			right:$right;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		&:after {
+			border-color: rgba(0,0,0, 0);
+			border-bottom-color: $bkg;
+			border-width: $size;
+			margin-right: -$size;
+		}
+		&:before {
+			border-color: rgba(194, 225, 245, 0);
+			border-bottom-color:$border-color;
+			border-width: $size + $border-width;
+			margin-right: -$size - $border-width;
+		}
+
+	} @else {
+		&:after {
+			bottom: 100%;
+			right:$right;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(0,0,0, 0);
+			border-bottom-color: $bkg;
+			border-width: $size;
+			margin-right: -$size;
+		}
+	}
+}
+
+@mixin animate($name, $duration, $delay:"0", $fxn:"linear") {
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-timing-function: $fxn;
+	-webkit-animation-delay: $delay;
+
+	/* Standard syntax */
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $fxn;
+	animation-delay: $delay;
+}
+
+@mixin transition($opts) {
+	transition: $opts;
+   -moz-transition: $opts;
+   -webkit-transition: $opts;
+}
+
+@mixin background-image-cover($url, $fallback:"") {
+	background: unquote($fallback) url($url) no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@mixin rotate( $degrees ) {
+	-webkit-transform: rotate(#{$degrees}deg);
+	-moz-transform: rotate(#{$degrees}deg);
+	-ms-transform: rotate(#{$degrees}deg);
+	-o-transform: rotate(#{$degrees}deg);
+	transform: rotate(#{$degrees}deg);
+
+	filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+	zoom: 1;
+ }
+
+@mixin filter($filter) { 
+	-webkit-filter: unquote($filter);
+	-moz-filter: unquote($filter);
+	-ms-filter: unquote($filter);
+	-o-filter: unquote($filter);
+	filter: unquote($filter);
+}
+
+@mixin column($width, $float:left) {
+	float: $float;
+	width: $width;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow:$top $left $blur $color #{$inset};
+	-moz-box-shadow:$top $left $blur $color #{$inset};
+	box-shadow:$top $left $blur $color #{$inset};
+}
+@mixin box-shadow-raw($args...) {
+	-webkit-box-shadow:$args;
+	-moz-box-shadow:$args;
+	box-shadow:$args;
+}
+
+@mixin png-shadow($left, $top, $spread, $color, $opacity: 1) {
+    -webkit-filter: drop-shadow($left $top $spread rgba($color,$opacity));
+            filter: drop-shadow($left $top $spread rgba($color,$opacity));
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=#{$left}, OffY=#{$top}, Color=#{$color})";
+        filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=#{$left}, OffY=#{$top}, Color=#{$color})";
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

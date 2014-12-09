@@ -1,0 +1,20 @@
+<div>
+	<h1 class="title">{{{ title }}}</h1>
+	<div id="top-links">
+		{{#each toplinks}}
+			<div class="link-container">
+				<h3 id="{{id}}" class="link"><a {{ifExists blank "target='_blank'"}} href="{{href}}">{{{title}}}</a></h3>
+			</div>
+		{{/each}}
+	</div>
+	
+	<div id="bottom-links">
+		{{#each bottomlinks}}
+			<div class="link-container">
+				<h3 id="{{id}}" class="link"><a {{ifExists blank "target='_blank'"}} href="{{href}}">{{{title}}}</a></h3>
+			</div>
+		{{/each}}
+		{{!-- <div id="source">Source on Github</div> --}}
+	</div>
+
+</div>

@@ -1,0 +1,32 @@
+
+// Global -------------------------------
+$background-color: #272527;
+$base-font-size: 12px;
+$min-width: 300px;
+$sidebar-width: 240px;
+$padding: 20px;
+$top-padding: $padding * 1.5;
+
+// Colors -------------------------------
+
+$white: #fff;
+$black: #000;
+$light-blue: #72a0de;
+$blue: #005ede;
+$light-grey: #d6d6da;
+$medium-light-grey: #979799;
+$medium-grey: #575757;
+$dark-grey: #3f3d3d;
+$very-dark-grey: #2a2a2a;
+$most-dark-grey: #151415;
+$red: #ff0000;
+
+// Fonts --------------------------------
+
+$base-fallback: helvetica, arial, sans-serif;
+
+$block-font: telegrafico, $base-fallback;
+$proxima: proxima, $base-fallback;
+$lovelo: lovelo, $base-fallback;
+$nexa: nexa, $base-fallback;
+$raleway: raleway, $base-fallback;

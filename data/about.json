@@ -1,0 +1,12 @@
+{
+	"title": "About",
+	"id": "about",
+	"subheader": "",
+	"body": [
+		"<p class='down-2'>I am a Class of 2017 Course 6-3 (computer science!) major that occasionally makes things. I like speakers, all things web, computer vision, and questionably smart choices.</p>",
+		"<img class='down-1' src='/assets/me.jpg'>",
+		"<p class='down-1'>I'm the one with the nerf gun.<p>"
+	]
+
+	 
+}

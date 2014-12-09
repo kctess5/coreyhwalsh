@@ -1,0 +1,27 @@
+<div class="{{id}}">
+	<h2 class="title">{{title}}</h2>
+	{{#if subheader}}
+		<h3 class="subheader">...{{{subheader}}}</h3>
+	{{/if}}
+	{{#if body}}
+		{{{join body}}}
+	{{/if}}
+	{{#if articles}}
+	{{#each articles}}
+		<div id="{{id}}" class="article {{ifExists detailed "detailed"}} {{ifExists href "linked"}}">
+			<h3 class="article-title">
+			{{#if detailed}}
+				<a class="details" href="#{{../../id}}/{{id}}">{{{title}}}</a>
+			{{else}}
+				{{#if href}}
+					<a class="details" target="_blank" href="{{href}}">{{{title}}}</a>
+				{{else}}
+					{{{title}}}
+				{{/if}}
+			{{/if}}
+			</h3>
+			<p  class="article-description">{{{description}}}</p>
+		</div>
+	{{/each}}
+	{{/if}}
+</div>

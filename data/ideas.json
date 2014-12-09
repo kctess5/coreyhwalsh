@@ -1,0 +1,26 @@
+{
+	"title": "Ideas",
+	"id": "ideas",
+	"subheader": "Things I *might* get around to",
+	"articles": [{
+		"title": "Real-time in Browser Depth Map via UVC",
+		"date": "",
+		"description": "Think stereoscopic webcams + FPGA + image registration pretending to be a normal webcam"
+	},{
+		"title": "LED Blinder 2.0",
+		"date": "",
+		"description": "So that I can remind myself why I don't do hardware"
+	},{
+		"title": "Fancy Markov Generated Rap",
+		"date": "",
+		"description": "If Lil-B can do it, it MUST be possible"
+	},{
+		"title": "USB to Browser through Web Audio API",
+		"date": "",
+		"description": "Because browser limitations are annoying."
+	},{
+		"title": "",
+		"date": "",
+		"description": ""
+	}]
+}
