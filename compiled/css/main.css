@@ -221,6 +221,11 @@ html, body {
 body {
   padding-left: 240px;
 }
+@media only screen and (max-width: 850px) {
+  body {
+    padding-left: 180px;
+  }
+}
 
 h1 {
   font-family: nexa, helvetica, arial, sans-serif;
@@ -297,20 +302,6 @@ a.underline {
   text-indent: 10px;
 }
 
-#source {
-  line-height: 1em !important;
-  position: absolute;
-  opacity: .5;
-  bottom: 15px;
-  left: 91px;
-  text-align: center;
-}
-#source:hover {
-  opacity: 1;
-  text-decoration: none !important;
-  cursor: pointer;
-}
-
 .social {
   color: #979799;
 }
@@ -323,9 +314,13 @@ a.underline {
   height: 100%;
   padding: 20px;
   padding-top: 30px;
+  overflow: hidden;
   -webkit-box-shadow: 1px 0 0 #d6d6da ;
   -moz-box-shadow: 1px 0 0 #d6d6da ;
   box-shadow: 1px 0 0 #d6d6da ;
+}
+#sidebar.active {
+  display: block !important;
 }
 #sidebar .title {
   font-size: 33px;
@@ -358,6 +353,19 @@ a.underline {
   padding: 40px;
   left: 0;
 }
+#sidebar #source {
+  line-height: 1em !important;
+  position: absolute;
+  opacity: .5;
+  bottom: 15px;
+  left: 91px;
+  text-align: center;
+}
+#sidebar #source:hover {
+  opacity: 1;
+  text-decoration: none !important;
+  cursor: pointer;
+}
 
 #content {
   height: 100%;
@@ -373,7 +381,11 @@ a.underline {
   padding-bottom: 40px;
 }
 #content .content {
+  overflow-x: hidden;
   width: 100%;
+}
+#content .content #container {
+  min-width: 240px;
 }
 #content .content .title {
   font-family: proxima, helvetica, arial, sans-serif;
@@ -391,6 +403,8 @@ a.underline {
   margin-left: 15px;
   display: inline-block;
   font-style: italic;
+  line-height: 1.5em;
+  margin-top: 5px;
 }
 #content .content .article {
   margin-top: 18px;
@@ -398,10 +412,10 @@ a.underline {
 #content .content .article.detailed, #content .content .article.linked {
   color: #005ede;
 }
-#content .content .article.detailed.hover, #content .content .article.linked.hover {
+#content .content .article.detailed:hover, #content .content .article.linked:hover {
   cursor: pointer;
 }
-#content .content .article.detailed.hover .article-title, #content .content .article.linked.hover .article-title {
+#content .content .article.detailed:hover .article-title, #content .content .article.linked:hover .article-title {
   text-decoration: underline;
 }
 #content .content .article .article-title {
@@ -425,6 +439,9 @@ a.underline {
   max-height: 700px;
   max-width: 100%;
 }
+#content img.full-width {
+  max-height: none;
+}
 #content a {
   color: #005ede;
 }
@@ -442,6 +459,8 @@ a.underline {
 }
 
 #content .detailed-content {
+  min-width: 280px;
+  background-color: white;
   overflow-y: scroll;
   position: absolute;
   width: 50%;
@@ -452,8 +471,6 @@ a.underline {
   -webkit-box-shadow: -1px 0 0 #d6d6da ;
   -moz-box-shadow: -1px 0 0 #d6d6da ;
   box-shadow: -1px 0 0 #d6d6da ;
-  padding: 26px;
-  padding-top: 30px;
 }
 #content .detailed-content .title {
   margin-bottom: 12px;
@@ -461,6 +478,75 @@ a.underline {
   font-weight: normal;
   font-style: normal;
   font-size: 28px;
+}
+
+#menu-icon {
+  opacity: .4;
+  color: black;
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  margin-left: -48px;
+}
+#menu-icon:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+#menu-icon * {
+  display: inline-block;
+}
+#menu-icon img {
+  height: 15px;
+  margin-bottom: 1px;
+}
+#menu-icon h3 {
+  color: black;
+  font-size: 30px;
+  line-height: .5em;
+  margin-left: 3px;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    padding-left: 180px;
+  }
+
+  #sidebar {
+    width: 180px;
+    overflow: hidden;
+  }
+  #sidebar .title {
+    font-size: 23px;
+    text-align: center;
+  }
+  #sidebar #source {
+    left: 61px;
+  }
+}
+@media only screen and (max-width: 744px) {
+  body {
+    padding-left: 0;
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  #content .content {
+    padding-top: 60px;
+  }
+}
+@media only screen and (min-width: 744px) {
+  #menu-icon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 402px) {
+  #content .content, .detailed-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 20px !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

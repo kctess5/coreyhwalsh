@@ -240,6 +240,9 @@ html, body {
 
 body {
     padding-left: $sidebar-width;
+    @media only screen and (max-width : 850px) {
+        padding-left: $sidebar-width * .75;
+    }
 }
 
 h1 {
@@ -300,19 +303,7 @@ a.underline {
     text-indent: 10px;
 }
 
-#source {
-    line-height: 1em !important;
-    position: absolute;
-    opacity: .5;    
-    bottom: 15px;
-    left: ($sidebar-width - 58)/2;
-    text-align: center;
-    &:hover {
-        opacity: 1;
-        text-decoration: none !important;
-        cursor: pointer;
-    }
-}
+
 
 .social {
     color: $medium-light-grey;

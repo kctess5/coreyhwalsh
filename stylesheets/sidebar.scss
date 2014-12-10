@@ -7,6 +7,10 @@
 	height: 100%;
 	padding: $padding;
 	padding-top:$top-padding;
+	overflow: hidden;
+	&.active {
+		display: block !important;
+	}
 	// border-right: 1px solid $medium-light-grey;
 	@include box-shadow(1px, 0, 0, $light-grey);
 	.title {
@@ -37,6 +41,19 @@
 		bottom: 0;
 		padding: 2*$padding;
 		left: 0;
+	}
+	#source {
+	    line-height: 1em !important;
+	    position: absolute;
+	    opacity: .5;    
+	    bottom: 15px;
+	    left: ($sidebar-width - 58)/2;
+	    text-align: center;
+	    &:hover {
+	        opacity: 1;
+	        text-decoration: none !important;
+	        cursor: pointer;
+	    }
 	}
 }
 

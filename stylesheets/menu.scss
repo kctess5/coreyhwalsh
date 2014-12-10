@@ -1,0 +1,40 @@
+
+// #menu-icon {
+// 	position: absolute;
+// 	left: 50%;
+// 	margin-left: -$menu-icon-size / 2;
+// 	top: $menu-icon-size / 3;
+// 	opacity: .5;
+// 	height: $menu-icon-size;
+// }
+
+#menu-icon {
+	opacity: .4;
+	color: black;
+	// width: 100%;
+	position: absolute;
+	top: 22px;
+	left: 50%;
+	margin-left: -48px;
+	&:hover {
+		opacity: .7;
+		cursor: pointer;
+	} 
+	* {
+		display: inline-block;
+	}
+	img {
+		height: 15px;
+		margin-bottom: 1px;
+	}
+	h3 {
+		// text-align: center;
+		color: black;
+		font-size: 30px;
+		line-height: .5em;
+		// margin-bottom: 16px;
+		margin-left: 3px;
+	}
+}
+
+// circular6, 27, 37, 48

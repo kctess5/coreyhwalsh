@@ -11,6 +11,10 @@
 		padding-bottom: $padding * 2;
 	}
 	.content {
+		overflow-x: hidden;
+		#container {
+			min-width: 240px;
+		}
 		width: 100%;
 		.title {
 			@include font($proxima, 33px);
@@ -22,12 +26,14 @@
 			margin-left: 15px;
 			display: inline-block;
 			font-style: italic;
+			line-height: 1.5em;
+			margin-top: 5px;
 		}
 		.article {
 			margin-top: 18px;
 			&.detailed, &.linked {
 				color: $blue;
-				&.hover {
+				&:hover {
 					cursor: pointer;
 					.article-title {
 						text-decoration: underline;
@@ -57,6 +63,9 @@
 	img {
 		max-height: 700px;
 		max-width: 100%;
+		&.full-width {
+			max-height: none;
+		}
 	}
 
 	a {
