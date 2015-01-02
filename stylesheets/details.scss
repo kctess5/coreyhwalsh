@@ -10,7 +10,17 @@
 	display: none;
 	@include box-shadow(-1px, 0, 0, $light-grey);
 	.title {
-		margin-bottom: 12px;
+		margin-bottom: $padding*1.1;
 		@include font($proxima, 28px);
 	}
+	.external-icon {
+		height: 18px;
+		margin-bottom: -2px;
+	}
+	img {
+		max-height: none;
+	}
 }
+
+//"<p><a target='_blank' href='http://keithandcassie.us'>KeithAndCassie.us Website</a></p>",
+//"<p><a target='_blank' href='http://mikeysrun.com'>Mikey's Run Website</a></p>",

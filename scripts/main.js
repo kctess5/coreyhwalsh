@@ -1,6 +1,10 @@
 var helpers = require("./helpers");
 var sidebar = helpers.compileTemplate("sidebar");
-var hash = window.location.hash.substr(1).split("/");
+var getURL = function(input) {
+	input = input || window.location.hash;
+	return input.substr(1).split("/");
+}
+var hash = getURL();
 
 function OpenInNewTab(url) {
   var win = window.open(url, '_blank');
@@ -16,7 +20,8 @@ var replaceAndScroll = function(el, html) {
 	$(el).html(html).hide();
 	setTimeout(function(){ // really strange hack... doesn't work (always) without it... idk man
 		$(document).scrollTop(0);
-	}, 0)
+	}, 0);
+	$(document).scrollTop(0);
 	$(el).fadeIn(200)
 }
 var swapFor = function(id, template) {
@@ -41,7 +46,8 @@ var loadDetails = function(pageId, articleId, template) {
 		var html = template(article);
 		replaceAndScroll("#content .detailed-content", html)
 	}
-	resizeContent()
+	resizeContent();
+	bind();
 }
 
 var hideDetails = function() {
@@ -51,7 +57,6 @@ var hideDetails = function() {
 
 var smallWidth = function(e) {
 	if ($("#content .content").outerWidth() < 125) {
-		console.log("hide")
 		e.stopPropagation(); 
 		e.preventDefault(); 
 		hideDetails();
@@ -60,12 +65,11 @@ var smallWidth = function(e) {
 }
 
 var reset = function(){
-	console.log("reset")
 	$("body").css("padding-left", "");
 }
 
 var bind = function() {
-	$(".article.detailed").click(function(e) {
+	$(".article.detailed").off("click").click(function(e) {
 		if (smallWidth(e)) return;
 		var pageId = $(this).parent("div").attr("class");
 		var articleId = $(this).attr("id");
@@ -75,7 +79,8 @@ var bind = function() {
 		}
 		loadDetails(pageId, articleId, "details")
 	});
-	$(".article.linked").click(function(e) {
+	$(".article.linked").off("click").click(function(e) {
+
 		if (smallWidth(e)) return;
 		var href = $(e.target).attr("href");
 		if (!href) { // didn't click on link
@@ -83,16 +88,29 @@ var bind = function() {
 			OpenInNewTab(url);
 		}
 	});
-	$("#menu-icon").click(function(e){
+	$("#menu-icon").off("click").click(function(e){
 		$("#sidebar").toggleClass("active");
 		var isActive = $("#sidebar").hasClass("active");
 		$("body").css("padding-left", isActive ? "180px" : "");
 	});
-	$("#content .content").click( function( e ) {
+	$("#content .content").off("click").click( function( e ) {
 		var parent = $(e.target).parents('.detailed').get()[0];
 		var isArticle = $(e.target).is(".detailed");
 
 		if ( parent == undefined && !isArticle ) hideDetails();
+	});
+	$(".meta").off("click").click(function(){
+		var h = $(this).attr("href");
+		var url = getURL(h);
+		if (url[0]) open(url);
+	});
+	$("img").off("click").click(function(e){
+		var image = e.currentTarget.currentSrc;
+		$("#lightbox-container").show();
+		$("#lightbox").css("background-image", "url("+image+")");
+	});
+	$("#lightbox-container").off("click").click(function(){
+		$(this).hide();
 	});
 
 }
@@ -120,17 +138,21 @@ var minimizeSidebar = function(cond) {
 	if (cond) $("#sidebar").fadeOut(100);
 }
 
-$("#sidebar").append(sidebar)
-if (hash[0]) swapFor(hash[0], "content");
-else swapFor("about", "content"); // default to about page
+$("#sidebar").append(sidebar);
 
-if (hash[1]) loadDetails(hash[0],hash[1], "details");
-bind();
+var open = function(loc) {
+	if (loc[0]) swapFor(loc[0], "content");
+	else swapFor("about", "content"); // default to about page
+
+	if (loc[1]) loadDetails(loc[0],loc[1], "details");
+	bind();
+}
+
+open(hash)
 resizeContent();
 
 $(".link").click(function() {
 	var id = $(this).attr("id");
-	console.log($("#sidebar").hasClass("active"),  $(window).width() < 460)
 	if ($("#sidebar").hasClass("active") && $(window).width() < 460) {
 		minimizeSidebar();
 	}

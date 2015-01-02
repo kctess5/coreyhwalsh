@@ -16,16 +16,17 @@
 	{{/if}}
 	{{#if articles}}
 	{{#each articles}}
-		<div id="{{id}}" class="article {{ifExists detailed "detailed"}} {{ifExists href "linked"}}">
+		<div id="{{id}}" class="article {{ifExists detailed "detailed"}}">
 			<h3 class="article-title">
 			{{#if detailed}}
 				<a class="details" href="#{{../../id}}/{{id}}">{{{title}}}</a>
 			{{else}}
-				{{#if href}}
+				{{{title}}}
+				{{!-- {{#if href}}
 					<a class="details" target="_blank" href="{{href}}">{{{title}}}</a>
 				{{else}}
 					{{{title}}}
-				{{/if}}
+				{{/if}} --}}
 			{{/if}}
 			</h3>
 			<p  class="article-description">{{{description}}}</p>

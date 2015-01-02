@@ -221,11 +221,6 @@ html, body {
 body {
   padding-left: 240px;
 }
-@media only screen and (max-width: 850px) {
-  body {
-    padding-left: 180px;
-  }
-}
 
 h1 {
   font-family: nexa, helvetica, arial, sans-serif;
@@ -282,6 +277,32 @@ a.underline {
   text-decoration: none !important;
 }
 
+.noscript {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+.noscript .no-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 90%;
+  left: 5%;
+}
+.noscript .no-container h3 {
+  font-weight: 900;
+}
+.noscript p {
+  font-size: 14px;
+}
+.noscript a {
+  color: #005ede;
+}
+
 .cursor {
   background: url(/img/gps.png);
   background-size: 16px 16px;
@@ -304,6 +325,27 @@ a.underline {
 
 .social {
   color: #979799;
+}
+
+img {
+  cursor: pointer;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #sidebar {
@@ -375,6 +417,7 @@ a.underline {
 #content .content, #content .detailed-content {
   position: absolute;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
   padding: 26px;
   padding-top: 30px;
@@ -457,6 +500,11 @@ a.underline {
 #content .down-3 {
   margin-top: 30px;
 }
+#content .shadow {
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+}
 
 #content .detailed-content {
   min-width: 280px;
@@ -473,11 +521,18 @@ a.underline {
   box-shadow: -1px 0 0 #d6d6da ;
 }
 #content .detailed-content .title {
-  margin-bottom: 12px;
+  margin-bottom: 22px;
   font-family: proxima, helvetica, arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 28px;
+}
+#content .detailed-content .external-icon {
+  height: 18px;
+  margin-bottom: -2px;
+}
+#content .detailed-content img {
+  max-height: none;
 }
 
 #menu-icon {
@@ -547,6 +602,32 @@ a.underline {
     padding-right: 16px !important;
     padding-bottom: 20px !important;
   }
+}
+#lightbox-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 3%;
+  display: none;
+}
+
+#lightbox {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+}
+
+#dismiss {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

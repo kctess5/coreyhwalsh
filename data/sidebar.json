@@ -9,6 +9,10 @@
 		"id": "ideas",
 		"href": "#ideas"
 	}, {
+		"title": "Random",
+		"id": "random",
+		"href": "#random"
+	}, {
 		"title": "About",
 		"id": "about",
 		"href": "#about"

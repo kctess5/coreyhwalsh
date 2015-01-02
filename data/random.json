@@ -1,0 +1,40 @@
+{
+	"title": "Random",
+	"id": "random",
+	"subheader": "everything... else?",
+	"body": [],
+	"articles": [{
+		"title": "Adorable Animals",
+		"id": "animals",
+		"date": "",
+		"description": "So fluffy!",
+		"detailed": [
+			"<img class='full-width shadow' src='/assets/fluff/trudi.jpg'>"
+		]
+	}, {
+		"title": "Classes I'm taking",
+		"id": "classes",
+		"date": "",
+		"description": "The woes of course six-dom",
+		"detailed": [
+			"<p>6.857: Network and Computer Security</p>",
+			"<p>6.856: Randomized Algorithms</p>",
+			"<p>6.344: Digital Image Processing</p>",
+			"<p>6.004: Computation Structures</p>",
+			"<p>6.UAT: Oral Communication</p>",
+			"<p>CMS.633: Digital Humanities</p>"
+		]
+	}, {
+		"title": "Classes I've taken",
+		"id": "classes-taken",
+		"date": "",
+		"description": "The woes of course six-dom (cont...)",
+		"detailed": [
+			"<p>6.01: Introduction to Electrical Engineering and Computer Science</p>",
+			"<p>6.006: Intro to Algorithms</p>",
+			"<p>6.042: Discrete Mathematics</p>",
+			"<p>18.06: Linear Algebra</p>",
+			"<p>All General Institute Requirements</p>"
+		]
+	}]
+}

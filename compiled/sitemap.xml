@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+  <loc>http://rayban.vision/ </loc>
+  <priority>1</priority>
+</url>
+
+<url>
+  <loc>http://rayban.vision/#projects </loc>
+  <priority>0.88</priority>
+</url>
+
+<url>
+  <loc>http://rayban.vision/#about </loc>
+  <priority>0.75</priority>
+</url>
+
+<url>
+  <loc>http://rayban.vision/#contact </loc>
+  <priority>0.63</priority>
+</url>
+
+<url>
+  <loc>http://rayban.vision/#ideas</loc>
+  <priority>0.5</priority>
+</url>
+
+</urlset> 
