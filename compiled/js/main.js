@@ -241,7 +241,7 @@ var bind = function() {
 		var url = getURL(h);
 		if (url[0]) open(url);
 	});
-	$("img").off("click").click(function(e){
+	$("img.shadow").off("click").click(function(e){
 		var image = e.currentTarget.currentSrc;
 		$("#lightbox-container").show();
 		$("#lightbox").css("background-image", "url("+image+")");

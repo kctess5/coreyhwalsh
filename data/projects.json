@@ -23,8 +23,8 @@
 		"date": "",
 		"description": "Alpair 7.3 Fullrange Driver + Folded Tabaq",
 		"detailed": [
-			"<img src='/assets/desktop3.jpg'>",
-			"<p class='full-width down-1'>I recently got sick of not building speakers, so I decided to have another go at it and make my desk a nice setup. I wanted something that was small(ish), could work without a subwoofer, and wasn't too expensive. I've always wanted to use the venerable <a class='blue' target='_blank' href='https://www.madisoundspeakerstore.com/approx-4-fullrange/markaudio-alpair-7a-gold-cone-4-full-range/'>Mark Audio Alpair 7.3</a>; considering their price and reputaion for making good bass I decided that it was time. <br><br> I've made <a class='blue' target='_blank' href='http://www.coolcat.dk/bjoern/TABAQ%20BOX%20Cabinet%20build.pdf'>this specific cabinet design</a> before, so I immediately thought of pairing it with the Alpairs. Shout out and many thanks to Bjørn Johannesen! A small amount of internet sleuthing later I convinced myself that that was the right choice, and modeled it in SolidWorks. Turns out waterjetting MDF is NOT such a great idea...</p>",
+			"<img class='shadow' src='/assets/desktop3.jpg'>",
+			"<p class='full-width down-1'>I recently got sick of not building speakers, so I decided to have another go at it and make my desk a nice setup. I wanted something that was small(ish), could work without a subwoofer, and wasn't too expensive. I've always wanted to use the venerable <a class='blue' target='_blank' href='https://www.madisoundspeakerstore.com/approx-4-fullrange/markaudio-alpair-7a-gold-cone-4-full-range/'>Mark Audio Alpair 7.3</a>; considering their price and reputation for making good bass I decided that it was time. <br><br> I've made <a class='blue' target='_blank' href='http://www.coolcat.dk/bjoern/TABAQ%20BOX%20Cabinet%20build.pdf'>this specific cabinet design</a> before, so I immediately thought of pairing it with the Alpairs. Shout out and many thanks to Bjørn Johannesen! A small amount of internet sleuthing later I convinced myself that that was the right choice, and modeled it in SolidWorks. Turns out waterjetting MDF is NOT such a great idea...</p>",
 			"<img class='down-1 shadow' src='/assets/desktop1.jpg'>",
 			"<img class='full-width shadow' src='/assets/desktop2.jpg'>"
 		]
@@ -44,7 +44,7 @@
 		"description": "A fundraiser to support those affected by the Boston Marathon bombing.",
 		"detailed": [
 			
-			"<p class='down-1'>In response to the events of the 2013 Boston Marathon, Harris Stolzenberg and I created Mikey's Run - a fundraiser to support the victims, inspired Harris's brother Mikey, a quadruple amputee and athelete. Thousands of contributors from around the world funded our campaign and sponsored Harris in the 2014 Marathon. All in all, we raised around $230,000 (including 100K from Oprah) which went directly to the Scott Rigsby Foundation to fund long term rehabilitation costs.</p>"],
+			"<p class='down-1'>In response to the events of the 2013 Boston Marathon, Harris Stolzenberg and I created Mikey's Run - a fundraiser to support the victims, inspired Harris's brother Mikey, a quadruple amputee and athlete. Thousands of contributors from around the world funded our campaign and sponsored Harris in the 2014 Marathon. All in all, we raised around $230,000 (including 100K from Oprah) which went directly to the Scott Rigsby Foundation to fund long term rehabilitation costs.</p>"],
 		"href": "http://mikeysrun.com"
 	},{
 		"title": "Football Stadium Sound System",
@@ -166,7 +166,8 @@
 		"id": "twitter-mining",
 		"date": "",
 		"description": "Moderately derpy, somewhat entertaining class project",
-		"detailed": ""
+		"detailed": "<p>This heroku app finds the most common words on twitter and plots them by position on the map. The code for this is a bit hacky, but it's entertaining to watch.</p>",
+		"href": "http://twitter-mining.herokuapp.com"
 	},{
 		"title": "Kitchen Lighting System",
 		"id": "kitchen-lights",
