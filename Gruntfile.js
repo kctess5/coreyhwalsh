@@ -29,7 +29,8 @@ module.exports = function(grunt) {
 		},
 		browserify: {
 			options: {
-				debug: true
+				debug: false,
+				transform: ["uglifyify"]
 			},
 			main: {
 				src: [ 'scripts/init.js' ],
@@ -38,7 +39,8 @@ module.exports = function(grunt) {
 		},
 		sass: {
 			options: {
-				style: 'expanded'
+				style: 'compressed',
+				sourcemap: 'none'
 			},
 			views: {
 				files: {

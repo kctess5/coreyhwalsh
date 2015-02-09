@@ -16,7 +16,7 @@
 	{{/if}}
 	{{#if articles}}
 	{{#each articles}}
-		<div id="{{id}}" class="article {{ifExists detailed "detailed"}}">
+		<div id="{{id}}" data-template="{{template}}" class="article {{ifExists detailed "detailed"}} {{class}}">
 			<h3 class="article-title">
 			{{#if detailed}}
 				<a class="details" href="#{{../../id}}/{{id}}">{{{title}}}</a>

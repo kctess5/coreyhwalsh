@@ -1,0 +1,19 @@
+<div>
+	<h2 class="title">
+		{{!-- {{{title}}} --}}
+		{{!-- {{ifExists href "linked"}} --}}
+		{{#if href}}
+			<a target="_blank" href="{{href}}">{{{title}}}
+			<img class="external-icon" src="/assets/external1.png"></a>
+		{{else}}
+			{{{title}}}
+		{{/if}}
+	</h2>
+	{{!-- {{#if href}}
+		<img src="/assets/external.png">
+	{{/if}} --}}
+	<p>Course Number: {{number}}</p>
+	<p>Course Title: {{course-name}}</p>
+	<p>Credits: {{units}}</p>
+	{{{join description}}}
+</div>

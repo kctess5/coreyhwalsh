@@ -12,6 +12,10 @@
 		"title": "Random",
 		"id": "random",
 		"href": "#random"
+	},{
+		"title": "Classes",
+		"id": "classes",
+		"href": "#classes"
 	}, {
 		"title": "About",
 		"id": "about",

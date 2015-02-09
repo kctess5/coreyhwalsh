@@ -55,3 +55,21 @@
 	// 	padding-top: $menu-icon-size*1.5 !important;
 	// }
 }
+
+@media only screen and (max-height : 435px) {
+	#top-links, #bottom-links {
+		.link {
+			@include font($proxima, 18px);
+			line-height: 1.75em !important;
+		}
+	}
+}
+
+@media only screen and (max-height : 400px) {
+	#top-links, #bottom-links {
+		.link {
+			@include font($proxima, 17px);
+			line-height: 1.5em !important;
+		}
+	}
+}

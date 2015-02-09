@@ -8,6 +8,7 @@
 	padding: $padding;
 	padding-top:$top-padding;
 	overflow: hidden;
+	min-height: 362px;
 	&.active {
 		display: block !important;
 	}

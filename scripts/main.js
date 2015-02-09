@@ -1,10 +1,38 @@
 var helpers = require("./helpers");
 var sidebar = helpers.compileTemplate("sidebar");
+
 var getURL = function(input) {
 	input = input || window.location.hash;
-	return input.substr(1).split("/");
+	var h = input.substr(1).split("/");
+	return h;
 }
-var hash = getURL();
+
+var redirects = {
+	'random': {
+		'classes': 'classes',
+		'classes-taken': 'classes'
+	}
+}
+
+var redirect = function(newHash) {
+	if (!newHash || !(typeof newHash == 'string')) return;
+	window.location.hash = '#' + newHash;
+	open(getURL())
+	resizeContent()
+	return true;
+}
+
+var resolveRedirects = function(h) {
+	var oldHash = getURL(h);
+
+	if (!oldHash[0]) return;
+
+	var red = redirects[ oldHash[0] ];
+
+	if (oldHash[1] && red) red = red[ oldHash[1] ] ;
+
+	return redirect(red);
+}
 
 function OpenInNewTab(url) {
   var win = window.open(url, '_blank');
@@ -34,6 +62,9 @@ var swapFor = function(id, template) {
 
 var loadDetails = function(pageId, articleId, template) {
 	$("#content .content").css("width", "50%");
+
+	var possible = $('#' + articleId).data('template');
+	if (possible && Templates[possible]) template = possible;
 
 	var template = Templates[template],
 		articles = data[pageId].articles;
@@ -74,6 +105,9 @@ var bind = function() {
 		var pageId = $(this).parent("div").attr("class");
 		var articleId = $(this).attr("id");
 		window.location.hash = "#"+pageId+"/"+articleId;
+
+		if (resolveRedirects()) return; // stop this process if we redirect
+
 		if ($(window).width() < 745) {
 			minimizeSidebar(true);
 		}
@@ -102,6 +136,9 @@ var bind = function() {
 	$(".meta").off("click").click(function(){
 		var h = $(this).attr("href");
 		var url = getURL(h);
+
+		if (resolveRedirects(h)) return;
+
 		if (url[0]) open(url);
 	});
 	$("img.shadow").off("click").click(function(e){
@@ -148,8 +185,12 @@ var open = function(loc) {
 	bind();
 }
 
-open(hash)
-resizeContent();
+var hash = getURL();
+
+if (!resolveRedirects()) {
+	open(hash)
+	resizeContent();
+}
 
 $(".link").click(function() {
 	var id = $(this).attr("id");
