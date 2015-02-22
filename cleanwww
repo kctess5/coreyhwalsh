@@ -1,0 +1,4 @@
+rm -rf data scripts stylesheets templates node_modules .sass-cache
+rm *.js .gitignore *.json *.md
+mv compiled/* .
+rm -r compiled
