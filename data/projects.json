@@ -20,7 +20,7 @@
 	},{
 		"title": "Sublime Text Plugin + Google MobWrite - <i>in progress</i>",
 		"id": "sublime-plugin",
-		"date": "",
+		"date": "2015-2-2",
 		"description": "Like Google Docs, but with Sublime Text.",
 		"detailed": [
 			"<p><a target='_blank' href='https://github.com/kctess5/SubSync'>github repo: https://github.com/kctess5/SubSync</a> (in progress)</p>",
@@ -31,7 +31,7 @@
 	},{
 		"title": "Twitter Sort-Response",
 		"id": "twitter-response",
-		"date": "",
+		"date": "2015-01-14",
 		"description": "Not the sorting algorithm they need, the sorting algorithm they <i>deserve</i>",
 		"detailed": [
 			"<p>Github user ExPHAT recently created <a href='https://github.com/ExPHAT/twitter-sort'>Twitter Sort,</a> so I made this...</p>"
@@ -40,7 +40,7 @@
 	},{
 		"title": "Desktop Speakers",
 		"id": "desktop-speakers",
-		"date": "",
+		"date": "2014-11-05",
 		"description": "Alpair 7.3 Fullrange Driver + Folded Tabaq",
 		"detailed": [
 			"<img class='shadow' src='/assets/desktop3.jpg'>",
@@ -51,7 +51,7 @@
 	},{
 		"title": "SciEx.mit.edu",
 		"id": "sciex",
-		"date": "",
+		"date": "2014",
 		"description": "A website for MIT's SciEx student video group",
 		"detailed": [
 			"<p class='down-1'>A mostly informative site, with some fun JavaScripts. SciEx = \"scientia\" (science) + \"exhibio\" (to show)</p>"
@@ -60,7 +60,7 @@
 	},{
 		"title": "KeithAndCassie.us",
 		"id": "keithandcassie",
-		"date": "",
+		"date": "2014",
 		"description": "A wedding announcement for my brother + (now) wife.",
 		"detailed": [
 			"<p class='down-1'>Keith asked me to make this website in anticipation of his wedding. I had a bit of fun with it and this was the result...</p>"
@@ -69,7 +69,7 @@
 	},{
 		"title": "Mikey's Run",
 		"id": "mikeysrun",
-		"date": "",
+		"date": "2013-4-15",
 		"description": "A fundraiser to support those affected by the Boston Marathon bombing.",
 		"detailed": [
 			
@@ -78,7 +78,7 @@
 	},{
 		"title": "Football Stadium Sound System",
 		"id": "stadium-sound",
-		"date": "",
+		"date": "2013",
 		"description": "Senior project gone horribly awesome",
 		"detailed": [
 			"<div class='embed-container'><iframe src='http://www.youtube.com/embed/AIgY99MDAqI' frameborder='0' allowfullscreen></iframe></div>",
@@ -100,7 +100,7 @@
 	},{
 		"title": "The Aikos",
 		"id": "aikos",
-		"date": "",
+		"date": "2012",
 		"description": "Very spiffy Fostex Horns, currently living in California.",
 		"detailed": [
 			"<p>Hands down my favorite pair of speakers I've built so far. They sound just as good as they look.</p>",
@@ -110,7 +110,7 @@
 	},{
 		"title": "Sofa Subwoofer",
 		"id": "sofa-sub",
-		"date": "",
+		"date": "2012",
 		"description": "You see Ivan, when subwoofer in couch, you never run out of wubs.",
 		"detailed": [
 			"<p>One of my favorite builds. A truly massive negatively-tapered horn hidden in a couch. This was the \"yolo, let's build a massive horn\" high school project designed for nothing less than massive wubs and sub-20hz bass.</p>",
@@ -155,13 +155,56 @@
 	},{
 		"title": "Vinyl Line Arrays",
 		"id": "line-arrays",
-		"date": "",
+		"date": "2012",
 		"description": "My first ever speakers!",
 		"detailed": [
 			"<p>Imperfect but lovable line arrays that was my first real build. The woofers are Tang Band something-er-others that were once upon a time on Parts-Express buyout. These things go loud! They performed admirably as the main sound system at an outdoor dance party (with some help from a MASSIVE Brahm Exodus Anarchy-powered sealed subwoofer).</p>",
 			"<img class='down-1 full-width shadow' src='/assets/v1.jpg'>",
 			"<img class='down-1 full-width shadow' src='/assets/v2.jpg'>",
 			"<img class='down-1 full-width shadow' src='/assets/v3.jpg'>"
+		]
+	},{
+		"title": "Kitchen Lighting System",
+		"id": "kitchen-lights",
+		"date": "2011-10-17",
+		"description": "Because who doesn't want to have a rave whilst chopping tomatoes.",
+		"detailed": ["<div class='embed-container'><iframe src='http://www.youtube.com/embed/hW9ygYUFkhk' frameborder='0' allowfullscreen></iframe></div>"]
+	},{
+		"title": "LED Blinder 1.0",
+		"id": "led-blinder",
+		"date": "2011-7-13",
+		"description": "An early foray",
+		"detailed": [
+			"<div class='embed-container'><iframe src='http://www.youtube.com/embed/ZxeKui1IL0w' frameborder='0' allowfullscreen></iframe></div>",
+			"<p class='down-2'>I made this sophomore year of high school so that I could have the coolest room lighting system on the block. While fairly unreliable, it proved to be a somewhat successful project. It was the inspiration behind the <a class='meta' href='#projects/beat-detection'>Processing Beat Detection algorithm</a> which is actually running on the laptop on the wall in this video.</p>"
+		]
+	},{
+		"title": "Processing Beat Detection",
+		"id": "beat-detection",
+		"date": "2013-3-15",
+		"description": "A relatively early attempt at signal analysis",
+		"detailed": [
+			"<div class='down-1 embed-container'><iframe src='http://www.youtube.com/embed/QVX2F6kUaRQ' frameborder='0' allowfullscreen></iframe></div>",
+			"<p class='down-2'>The 2.0 version of the algorithm. It is a predictive algorithm that monitors many frequency bands at the same time for \"local beats\" and then combines all of that information to detect \"global beats.\"<br><br>This version of the code (above) was used by Frog Design at the 2013 SxSW kickoff party.<br><br>Interested? Check out the source code on <a href='https://github.com/kctess5/Processing-Beat-Detection' target='_blank'>Github</a>.</p>",
+			"<div class='down-3 embed-container'><iframe src='http://www.youtube.com/embed/GtMZPCQ84Qc' frameborder='0' allowfullscreen></iframe></div>",
+			"<p class='down-2'>The earlier iteration of the algorithm. Basically just an implementation of the Minim audio analysis library.</p>"
+			
+		]
+	},{
+		"title": "Twitter Mining",
+		"id": "twitter-mining",
+		"date": "2013-10-28",
+		"description": "Moderately derpy, somewhat entertaining class project",
+		"detailed": "<p>This heroku app finds the most common words on twitter and plots them by position on the map. The code for this is a bit hacky, but it's entertaining to watch.</p>",
+		"href": "http://twitter-mining.herokuapp.com"
+	},{
+		"title": "Ski Bench",
+		"id": "ski-bench",
+		"date": "2013",
+		"description": "A fun and useful weekend project.",
+		"detailed": [
+			"<p>We had old skis, I had time... poof! a bench appears. Currently living at our cabin in Big Bear, CA.</p>",
+			"<img class='down-1 full-width shadow' src='/assets/bench.jpg'>"
 		]
 	},{
 		"title": "Photography",
@@ -173,56 +216,13 @@
 	},{
 		"title": "Just a tad of Rocketry",
 		"id": "rockets",
-		"date": "",
+		"date": "2014",
 		"description": "There was that one time I did rocket team for a few months...",
 		"detailed": [
 			"<img class='down-1 full-width shadow' src='/assets/r1.jpg'>",
 			"<img class='down-1 full-width shadow' src='/assets/r2.jpg'>",
 			"<img class='down-1 full-width shadow' src='/assets/r3.jpg'>",
 			"<img class='down-1 full-width shadow' src='/assets/r4.jpg'>"
-		]
-	},{
-		"title": "Ski Bench",
-		"id": "ski-bench",
-		"date": "",
-		"description": "A fun and useful weekend project.",
-		"detailed": [
-			"<p>We had old skis, I had time... poof! a bench appears. Currently living at our cabin in Big Bear, CA.</p>",
-			"<img class='down-1 full-width shadow' src='/assets/bench.jpg'>"
-		]
-	},{
-		"title": "Twitter Mining",
-		"id": "twitter-mining",
-		"date": "",
-		"description": "Moderately derpy, somewhat entertaining class project",
-		"detailed": "<p>This heroku app finds the most common words on twitter and plots them by position on the map. The code for this is a bit hacky, but it's entertaining to watch.</p>",
-		"href": "http://twitter-mining.herokuapp.com"
-	},{
-		"title": "Kitchen Lighting System",
-		"id": "kitchen-lights",
-		"date": "",
-		"description": "Because who doesn't want to have a rave whilst chopping tomatoes.",
-		"detailed": ["<div class='embed-container'><iframe src='http://www.youtube.com/embed/hW9ygYUFkhk' frameborder='0' allowfullscreen></iframe></div>"]
-	},{
-		"title": "LED Blinder 1.0",
-		"id": "led-blinder",
-		"date": "",
-		"description": "An early foray",
-		"detailed": [
-			"<div class='embed-container'><iframe src='http://www.youtube.com/embed/ZxeKui1IL0w' frameborder='0' allowfullscreen></iframe></div>",
-			"<p class='down-2'>I made this sophomore year of high school so that I could have the coolest room lighting system on the block. While fairly unreliable, it proved to be a somewhat successful project. It was the inspiration behind the <a class='meta' href='#projects/beat-detection'>Processing Beat Detection algorithm</a> which is actually running on the laptop on the wall in this video.</p>"
-		]
-	},{
-		"title": "Processing Beat Detection",
-		"id": "beat-detection",
-		"date": "",
-		"description": "A relatively early attempt at signal analysis",
-		"detailed": [
-			"<div class='down-1 embed-container'><iframe src='http://www.youtube.com/embed/QVX2F6kUaRQ' frameborder='0' allowfullscreen></iframe></div>",
-			"<p class='down-2'>The 2.0 version of the algorithm. It is a predictive algorithm that monitors many frequency bands at the same time for \"local beats\" and then combines all of that information to detect \"global beats.\"<br><br>This version of the code (above) was used by Frog Design at the 2013 SxSW kickoff party.<br><br>Interested? Check out the source code on <a href='https://github.com/kctess5/Processing-Beat-Detection' target='_blank'>Github</a>.</p>",
-			"<div class='down-3 embed-container'><iframe src='http://www.youtube.com/embed/GtMZPCQ84Qc' frameborder='0' allowfullscreen></iframe></div>",
-			"<p class='down-2'>The earlier iteration of the algorithm. Basically just an implementation of the Minim audio analysis library.</p>"
-			
 		]
 	}]
 }

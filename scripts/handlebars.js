@@ -1,5 +1,5 @@
 // var helpers  = require('./index');
-// var moment   = require('moment');
+var moment   = require('moment');
 
 var getIdentifier = function() {
 	var input = window.location.hash;
@@ -11,9 +11,6 @@ module.exports = function(Handlebars) {
 	var oldEach = Handlebars.helpers.each;
 	Handlebars.logger.level = 0;
 	return {
-		disqus_identifier: function() {
-			return getIdentifier();
-		},
 		downcase: function(string){
 			return new Handlebars.SafeString(string.toLowerCase());
 		},
@@ -42,9 +39,21 @@ module.exports = function(Handlebars) {
 				accum += block.fn(i);
 			return accum;
 		},
-		// timeAgo: function(timestamp){
-		// 	return moment(timestamp).fromNow();
-		// },
+		timeAgo: function(timestamp){
+			return moment(timestamp).fromNow();
+		},
+		formatDate: function(timestamp){
+			var stampYear = parseInt(timestamp.substring(0,4));
+			var currentYear = new Date().getFullYear();
+
+			if (timestamp.length <= 5)
+				return String(stampYear)
+
+			if (stampYear == currentYear)
+				return moment(timestamp).format("MMM Do");
+			else
+				return moment(timestamp).format("MMM Do, YYYY");
+		},
 		parseDur: function(duration) {
 			return helpers.prettyDuration(duration);
 		},

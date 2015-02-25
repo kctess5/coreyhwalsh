@@ -20,8 +20,10 @@
 			<h3 class="article-title">
 			{{#if detailed}}
 				<a class="details" href="#{{../../id}}/{{id}}">{{{title}}}</a>
+				{{#if date}} <span class="date">- {{formatDate date}}</span>{{/if}}
 			{{else}}
 				{{{title}}}
+				{{#if date}} <span class="date">- {{timeAgo date}}</span>{{/if}}
 				{{!-- {{#if href}}
 					<a class="details" target="_blank" href="{{href}}">{{{title}}}</a>
 				{{else}}
@@ -29,8 +31,10 @@
 				{{/if}} --}}
 			{{/if}}
 			</h3>
-			<p  class="article-description">{{{description}}}</p>
+			<p class="article-description">{{{description}}}</p>
 		</div>
 	{{/each}}
 	{{/if}}
 </div>
+
+

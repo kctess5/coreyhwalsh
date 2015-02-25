@@ -1,0 +1,10 @@
+{
+	"files": [
+		"./data.json", "./whatever.json"
+	],
+	"directories": [
+		"full://path.to/directory_config.json"
+	]
+}
+
+// paths may either be relative or absolute

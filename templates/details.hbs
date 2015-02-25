@@ -9,13 +9,15 @@
 			{{{title}}}
 		{{/if}}
 	</h2>
-	{{!-- {{#if href}}
-		<img src="/assets/external.png">
-	{{/if}} --}}
+
+
+	{{#if date}}
+		<p class="date">Created {{timeAgo date}}</p>
+	{{/if}}
 
 	{{{join detailed}}}
 
-	<div id="show-comments"><p>Show Comments</p><span class="disqus-comment-count" data-disqus-identifier="{{disqus_identifier "test"}}"></span></div>
+	<div id="show-comments"><p>Show Comments</p></div>
 
 	<div id="disqus_thread"></div>
 </div>

@@ -1,8 +1,28 @@
-{
+{ 
 	"title": "Ideas",
 	"id": "ideas",
 	"subheader": "Things I *might* get around to",
 	"articles": [{
+		"title": "Sublime Text Web-Development Workflow Tools",
+		"id": "Workflow",
+		"date": "2015-2-25",
+		"description": "A (currently coagulating) cespool of nice sounding workflow tools.",
+		"detailed": [
+			"<p><b>Related file opener:</b></p>",
+			"<p>Imagine that if when you Control-click a sublime file, the ones related to it open. I picture this being useful for things like Backbone.js, where you have models, views, styles, templates, etc all for related components. If when I clicked on a UI element's model, all of it's related files opened up, that would be awesome. There's probably already something similar to this, so I need to spend a bit of time searching.</p>"
+		]
+	},{
+		"title": "Phantom.js snapshot ascii rendering + Sublime",
+		"id": "phantom",
+		"date": "2015-2-25",
+		"description": "Sublime Text as a web browser",
+		"detailed": [
+			"<p>Basically, think sublime plugin that wraps a Phantom.js instance. When things change, a snapshot is taken of the rendered HTML, which is then rasterized into colored ascii. This ascii gets saved to a file, and that file gets opened/reloaded in a Sublime Text window.</p>",
+			"<p class='down-1'>pseudo-bash$ Phantom.shapshot() | ImgToAscii > temp.txt<br>pseudo-bash$ Sublime.reload(temp.txt)</p>",
+			"<p class='down-2'>While this alone would be cool to see, I bet this could be made into a sort of UI for other Sublime Plugins that need GUI interfaces. Would make for an interesting weekend project. Hmmmm....</p>"
+		]
+
+	},{
 		"title": "Real-time in Browser Depth Map via UVC",
 		"date": "",
 		"description": "Think stereoscopic webcams + FPGA + image registration pretending to be a normal webcam"
@@ -12,11 +32,11 @@
 		"description": "So that I can remind myself why I don't do hardware"
 	},{
 		"title": "Fancy Markov Generated Rap",
-		"date": "",
+		"date": "2014-11-12",
 		"description": "If Lil-B can do it, it MUST be possible"
 	},{
 		"title": "USB to Browser through Web Audio API",
-		"date": "",
+		"date": "2014-10-22",
 		"description": "Because browser limitations are annoying."
 	},{
 		"title": "",
