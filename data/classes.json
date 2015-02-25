@@ -121,7 +121,7 @@
 		"course-name": "Physics II"
 	}, {
 		"title": "18.06 Linear Algebra",
-		"id": "c-",
+		"id": "c-1806",
 		"description": [],
 		"rating": "★★★★★",
 		"class": "class",
@@ -132,7 +132,7 @@
 		"course-name": "Linear Algebra"
 	}, {
 		"title": "21W.789 Communicating with Mobile Tech",
-		"id": "c-",
+		"id": "c-21789",
 		"description": [],
 		"class": "class",
 		"detailed": true,
