@@ -20,7 +20,7 @@
 	},{
 		"title": "Sublime Text Plugin + Google MobWrite - <i>in progress</i>",
 		"id": "sublime-plugin",
-		"date": "2015-2-2",
+		"date": "2015-02-02",
 		"description": "Like Google Docs, but with Sublime Text.",
 		"detailed": [
 			"<p><a target='_blank' href='https://github.com/kctess5/SubSync'>github repo: https://github.com/kctess5/SubSync</a> (in progress)</p>",
@@ -172,7 +172,7 @@
 	},{
 		"title": "LED Blinder 1.0",
 		"id": "led-blinder",
-		"date": "2011-7-13",
+		"date": "2011-07-13",
 		"description": "An early foray",
 		"detailed": [
 			"<div class='embed-container'><iframe src='http://www.youtube.com/embed/ZxeKui1IL0w' frameborder='0' allowfullscreen></iframe></div>",
@@ -181,7 +181,7 @@
 	},{
 		"title": "Processing Beat Detection",
 		"id": "beat-detection",
-		"date": "2013-3-15",
+		"date": "2013-03-15",
 		"description": "A relatively early attempt at signal analysis",
 		"detailed": [
 			"<div class='down-1 embed-container'><iframe src='http://www.youtube.com/embed/QVX2F6kUaRQ' frameborder='0' allowfullscreen></iframe></div>",

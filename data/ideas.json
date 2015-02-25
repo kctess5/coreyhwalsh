@@ -5,7 +5,7 @@
 	"articles": [{
 		"title": "Sublime Text Web-Development Workflow Tools",
 		"id": "Workflow",
-		"date": "2015-2-25",
+		"date": "2015-02-25",
 		"description": "A (currently coagulating) cespool of nice sounding workflow tools.",
 		"detailed": [
 			"<p><b>Related file opener:</b></p>",
@@ -14,7 +14,7 @@
 	},{
 		"title": "Phantom.js snapshot ascii rendering + Sublime",
 		"id": "phantom",
-		"date": "2015-2-25",
+		"date": "2015-02-25",
 		"description": "Sublime Text as a web browser",
 		"detailed": [
 			"<p>Basically, think sublime plugin that wraps a Phantom.js instance. When things change, a snapshot is taken of the rendered HTML, which is then rasterized into colored ascii. This ascii gets saved to a file, and that file gets opened/reloaded in a Sublime Text window.</p>",
