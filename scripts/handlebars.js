@@ -1,10 +1,19 @@
 // var helpers  = require('./index');
 // var moment   = require('moment');
 
+var getIdentifier = function() {
+	var input = window.location.hash;
+	var h = input.substr(1).split("/");
+	return h.join("");
+}
+
 module.exports = function(Handlebars) {
 	var oldEach = Handlebars.helpers.each;
 	Handlebars.logger.level = 0;
 	return {
+		disqus_identifier: function() {
+			return getIdentifier();
+		},
 		downcase: function(string){
 			return new Handlebars.SafeString(string.toLowerCase());
 		},

@@ -101,13 +101,15 @@ this["Templates"]["details"] = Handlebars.template({"1":function(depth0,helpers,
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helperMissing=helpers.helperMissing, buffer = "<div>\n	<h2 class=\"title\">\n";
+  var stack1, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<div>\n	<h2 class=\"title\">\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.href : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "	</h2>\n\n	";
   stack1 = ((helpers.join || (depth0 && depth0.join) || helperMissing).call(depth0, (depth0 != null ? depth0.detailed : depth0), {"name":"join","hash":{},"data":data}));
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n</div>";
+  return buffer + "\n\n	<div id=\"show-comments\"><p>Show Comments</p><span class=\"disqus-comment-count\" data-disqus-identifier=\""
+    + escapeExpression(((helpers.disqus_identifier || (depth0 && depth0.disqus_identifier) || helperMissing).call(depth0, "test", {"name":"disqus_identifier","hash":{},"data":data})))
+    + "\"></span></div>\n\n	<div id=\"disqus_thread\"></div>\n</div>\n\n";
 },"useData":true});
 
 this["Templates"]["sidebar"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {

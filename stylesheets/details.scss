@@ -20,6 +20,20 @@
 	img {
 		max-height: none;
 	}
+	#disqus_thread {
+		margin-top: 30px;
+		display: none;
+	}
+	#show-comments {
+		width: 100%;
+		text-align: center;
+		margin-top: 15px;
+		p {
+			color: $blue;
+			cursor: pointer;
+			font-size: 20px;
+		}
+	}
 }
 
 //"<p><a target='_blank' href='http://keithandcassie.us'>KeithAndCassie.us Website</a></p>",

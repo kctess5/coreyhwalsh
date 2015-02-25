@@ -1,4 +1,5 @@
 var helpers = require("./helpers");
+var disqus = require('./disqus');
 var sidebar = helpers.compileTemplate("sidebar");
 
 var getURL = function(input) {
@@ -149,7 +150,10 @@ var bind = function() {
 	$("#lightbox-container").off("click").click(function(){
 		$(this).hide();
 	});
-
+	$("#show-comments").off('click').click(function() {
+		disqus.load();
+		$(this).hide();
+	});
 }
 
 var resizeContent = function() {
