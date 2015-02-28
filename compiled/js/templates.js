@@ -1,5 +1,4 @@
-this["Templates"] = this["Templates"] || {};
-
+this["Templates"] = this["Templates"] || {}; this["Templates"] = this["Templates"] || {};
 this["Templates"]["class"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "			<a target=\"_blank\" href=\""
     + escapeExpression(((helper = (helper = helpers.href || (depth0 != null ? depth0.href : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"href","hash":{},"data":data}) : helper)))
@@ -35,7 +34,6 @@ this["Templates"]["class"] = Handlebars.template({"1":function(depth0,helpers,pa
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n</div>";
 },"useData":true});
-
 this["Templates"]["content"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, buffer = "		<h3 class=\"subheader\">...";
   stack1 = ((helper = (helper = helpers.subheader || (depth0 != null ? depth0.subheader : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"subheader","hash":{},"data":data}) : helper));
@@ -111,7 +109,6 @@ this["Templates"]["content"] = Handlebars.template({"1":function(depth0,helpers,
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</div>\n\n\n";
 },"useData":true,"useDepths":true});
-
 this["Templates"]["details"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "			<a target=\"_blank\" href=\""
     + escapeExpression(((helper = (helper = helpers.href || (depth0 != null ? depth0.href : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"href","hash":{},"data":data}) : helper)))
@@ -141,7 +138,6 @@ this["Templates"]["details"] = Handlebars.template({"1":function(depth0,helpers,
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n\n	<div id=\"show-comments\"><p>Show Comments</p></div>\n\n	<div id=\"disqus_thread\"></div>\n</div>\n\n";
 },"useData":true});
-
 this["Templates"]["sidebar"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "			<div class=\"link-container\">\n				<h3 id=\""
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))

@@ -13,4 +13,10 @@ if (config.ENV == "dev") {
 	config.logging.importantParams = ["method", "params", "query", "body", "path", "host"]
 }
 
+config.blog = {
+	"title": "Blog",
+	"id": "blog",
+	"subheader": "Things I say"
+}
+
 module.exports = config;

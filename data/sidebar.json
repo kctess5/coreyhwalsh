@@ -21,6 +21,10 @@
 		"id": "about",
 		"href": "#about"
 	}, {
+		"title": "Blog",
+		"id": "blog",
+		"href": "#blog"
+	}, {
 		"title": "Resume",
 		"id": "resume",
 		"href": "/assets/corey_walsh_resume.pdf",

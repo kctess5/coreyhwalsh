@@ -37,8 +37,9 @@ footer, header, hgroup, menu, nav, section {
 	box-sizing: border-box;
 }
 
-html {
-	min-width: $min-width;
+html, body, #sidebar{
+	// min-width: $min-width;
+	min-height: $min-height;
 }
 
 body {
