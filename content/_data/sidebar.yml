@@ -1,0 +1,50 @@
+title: Corey Walsh
+
+default:
+  target: _self
+
+toplinks: 
+  - 
+    title: "Projects"
+    id: "projects"
+    href: "#projects"
+  - 
+    title: "Ideas"
+    id: "ideas"
+    href: "#ideas"
+  - 
+    title: "Random"
+    id: "random"
+    href: "#random"
+  - 
+    title: "Classes"
+    id: "classes"
+    href: "#classes"
+  - 
+    title: "About"
+    id: "about"
+    href: "#about"
+  - 
+    title: "Blog"
+    id: "blog"
+    href: "#blog"
+  - 
+    title: "Resume"
+    id: "resume"
+    href: "/assets/corey_walsh_resume.pdf"
+    target: _blank
+bottomlinks: 
+  - 
+    title: "Contact"
+    id: "contact"
+    href: "#contact"
+  - 
+    title: "Github"
+    id: "git"
+    href: "https://github.com/kctess5"
+    target: _blank
+  - 
+    title: "<span style='font-size: 10px;'>Source code</span>"
+    id: "source"
+    href: "https://github.com/kctess5/coreyhwalsh"
+    target: _blank

@@ -1,3 +1,8 @@
+---
+title:  "Aww yis, a new blog!"
+date:   2015-02-27
+id:     new_blog
+---
 Hello world, as they say.
 <br><br>
 I'd like to give a big shoutout to [Gulp](http://gulpjs.com), specifically because it's what compiles these blog posts from Markdown, but more generally because it's aweseome.

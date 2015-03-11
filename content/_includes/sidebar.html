@@ -1,0 +1,21 @@
+{% assign sidebar = site.data.sidebar %}
+
+<div id="sidebar">
+  <h1 class="main title"><a href="/">{{ sidebar.title }}</a></h1>
+  <div id="top-links">
+    {% for toplink in sidebar.toplinks %}
+      <div class="link-container">
+        <h3 id="{{ toplink.id }}" class="link"><a target="{% if toplink.target %}{{ toplink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ toplink.href }}">{{ toplink.title }}</a></h3>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <div id="bottom-links">
+    {% for bottomlink in sidebar.bottomlinks %}
+      <div class="link-container">
+        <h3 id="{{ bottomlink.id }}" class="link"><a target="{% if bottomlink.target %}{{ bottomlink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ bottomlink.href }}">{{ bottomlink.title }}</a></h3>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>

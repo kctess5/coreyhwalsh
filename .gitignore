@@ -4,3 +4,4 @@ node_modules/
 Archive.zip
 s3_website.yml
 deploy.sh
+_site
