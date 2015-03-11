@@ -1,0 +1,20 @@
+# Site settings
+title: Corey H. Walsh
+email: coreyhwalsh@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  L33t Haxor, student, and philosoraptor.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://rayban.vision" # the base hostname & protocol for your site
+github_username:  kctess5
+# Meta
+type: blog
+favicon:
+    dir: /favicons/
+    version: "0"
+    tile_color: "#da532c"
+google:
+    analytics_id: UA-47443701-4
+# Build settings
+markdown: kramdown
+
+
