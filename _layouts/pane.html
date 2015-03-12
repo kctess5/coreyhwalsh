@@ -1,0 +1,23 @@
+<div class="pane" data-title="{{ page.title }}" data-date="{{ page.date }}" data-comments="{{ page.comments }}">
+	<h2 class="title">
+		{% if page.href %}
+			<a target="_blank" href="{{ page.href }}">{{ page.title }}
+			<img class="external-icon" src="/assets/external1.png"></a>
+		{% else %}
+			{{ page.title }}
+		{% endif %}
+	</h2>
+	{% if page.subtitle %}
+		<h3 class="subheader">...{{ page.subtitle }}</h3>
+	{% endif %}
+	{% if page.date %}
+		<p class="date">Created {{ page.date }}</p>
+	{% endif %}
+
+	{{ content }}
+
+	{% if page.comments %}
+		<div id="show-comments"><p>Show Comments</p></div>
+		<div id="disqus_thread"></div>
+	{% endif %}
+</div>

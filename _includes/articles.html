@@ -1,0 +1,22 @@
+{% assign articles = site.pages | where:"dir", page.dir %}
+
+{% for article in articles %}
+{% if article.name != "index.html" %}
+
+	{% capture datestring %}{% if article.date %}<span class="date">- {{ article.date }}</span>{% endif %}{% endcapture %}
+
+	<div id="{{ article.id }}" class="article {{ifExists detailed "detailed"}} {{ article.class }}">
+		<h3 class="article-title">
+		{% if article.content != "" %}
+			<a class="details" href="#{{ page.id }}/{{ article.id }}">{{ article.title }}</a>{{ datestring }}
+		{% else %}
+			{{ article.title }}{{ datestring }}
+		{% endif %}
+		</h3>
+		{% if article.description %}
+		<p class="article-description">{{ article.description }}</p>
+		{% endif %}
+	</div>
+
+{% endif %}
+{% endfor %}

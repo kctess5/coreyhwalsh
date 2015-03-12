@@ -6,6 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://rayban.vision" # the base hostname & protocol for your site
 github_username:  kctess5
+port: 2000
 
 scripts:
     root: "/js/"
@@ -26,9 +27,38 @@ google:
 markdown: kramdown
 
 # Directory Config
-source:      ./content
+source:      .
 destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
-data_source: ./_data
+data_source: ./content/_data
 collections: null
+exclude: 
+    - gulpfile.js
+    - package.json
+    - README.md
+    - server.js
+
+defaults:
+  -
+    scope:
+      path: "content" # an empty string here means all files in the project
+    values:
+      layout: pane
+  -
+    scope:
+      path: content/blog # an empty string here means all files in the project
+    values:
+      layout: pane
+      comments: true
+  -
+    scope:
+      path: content/classes # an empty string here means all files in the project
+    values:
+      layout: pane
+  -
+    scope:
+      path: content/ideas # an empty string here means all files in the project
+    values:
+      layout: pane
+      comments: true
