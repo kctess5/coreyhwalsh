@@ -1,6 +1,5 @@
 ---
 title: "Phantom.js snapshot ascii rendering + Sublime"
-id: "phantom"
 date: "2015-02-25"
 description: "Sublime Text as a web browser"
 ---

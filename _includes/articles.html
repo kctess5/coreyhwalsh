@@ -7,14 +7,18 @@
 
 	{% capture href %}{{ article.path | replace: "content/", "" | split: "." | first }}{% endcapture %}
 
-	<div id="{{ article.id }}" class="article {% if article.content != "" %}linked{% endif %} {{ article.class }}">
-		<h3 class="article-title">
-		{% if article.content != "" %}
-			<a class="details" href="/#!/{{ href }}">{{ article.title }}</a>{{ datestring }}
+	{% capture content %}{{ article.content | strip_newlines }}{% endcapture %}
+
+	<div id="{{ article.id }}" class="article {% if content != "" %}linked{% endif %} {{ article.class }}">
+
+		{% if content == "" %}
+			<h3 class="article-title">{{ article.title }}{{ datestring }}</h3>
 		{% else %}
-			{{ article.title }}{{ datestring }}
+			<a class="details" href="/#!/{{ href }}">
+				<h3 class="article-title">{{ article.title }}{{ datestring }}</h3>
+			</a>
 		{% endif %}
-		</h3>
+
 		{% if article.description %}
 		<p class="article-description">{{ article.description }}</p>
 		{% endif %}

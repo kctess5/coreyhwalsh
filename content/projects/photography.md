@@ -1,6 +1,5 @@
 ---
 title: "Photography"
-date: ""
 description: "Sometimes I take pictures"
 href: "https://www.flickr.com/photos/96683714@N08"
 ---
