@@ -1,7 +1,6 @@
 ---
 title:  "Aww yis, a new blog!"
 date:   2015-02-27
-id:     new_blog
 ---
 Hello world, as they say.
 <br><br>

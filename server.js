@@ -6,11 +6,14 @@
 // call the packages we need
 var express    = require('express');
 var app        = express();
-console.log(__dirname + '/compiled');
-app.use(express.static(__dirname + '/compiled/'));
+
+var yaml = require('js-yaml');
+var fs   = require('fs');
+
+app.use(express.static(__dirname + '/_compiled/'));
 app.use(express.logger('dev'));
 
-app.config = require("./config");
+app.config = yaml.safeLoad(fs.readFileSync('./_config.yml', 'utf8'));
 
 function start() {
 	app.listen( app.config.port );

@@ -7,27 +7,27 @@ toplinks:
   - 
     title: "Projects"
     id: "projects"
-    href: "#projects"
+    href: "/#!/projects"
   - 
     title: "Ideas"
     id: "ideas"
-    href: "#ideas"
+    href: "/#!/ideas"
   - 
     title: "Random"
     id: "random"
-    href: "#random"
+    href: "/#!/random"
   - 
     title: "Classes"
     id: "classes"
-    href: "#classes"
+    href: "/#!/classes"
   - 
     title: "About"
     id: "about"
-    href: "#about"
+    href: "/#!/about"
   - 
     title: "Blog"
     id: "blog"
-    href: "#blog"
+    href: "/#!/blog"
   - 
     title: "Resume"
     id: "resume"
@@ -37,7 +37,7 @@ bottomlinks:
   - 
     title: "Contact"
     id: "contact"
-    href: "#contact"
+    href: "/#!/contact"
   - 
     title: "Github"
     id: "git"

@@ -7,10 +7,12 @@ var browserify = require('browserify'),
 	uglify     = require('gulp-uglify'),
 	gulpif     = require('gulp-if'),
 	size       = require('gulp-size'),
-	// print      = require('gulp-print'),
+	print      = require('gulp-print'),
 	jsoncombine = require('gulp-jsoncombine'),
 	minifyHTML = require('gulp-minify-html'),
-	jekyll     = require('gulp-jekyll');
+	jekyll     = require('gulp-jekyll'),
+	watch      = require('gulp-watch'),
+	aggregate  = require('gulp-aggregate');
 
 var notifier = require('node-notifier');
 // var handlebars = require('gulp-handlebars');
@@ -55,20 +57,20 @@ module.exports = function(gulp, paths, options) {
 			.pipe(gulpif(options.size == true && options.minified == true, size()))
 			.pipe(rename({suffix: '.min'}))
 			.pipe(gulp.dest(paths.pub.js))
-			.on('finish', function(){
-				if (error) return;
-				require("child_process").exec("osascript " +
-					"-e 'tell application \"Google Chrome\" " +
-					"to tell the active tab of its first window' " +
-					"-e 'reload' " +
-					"-e 'end tell'");
-			})	
+			// .on('finish', function(){
+			// 	if (error) return;
+			// 	require("child_process").exec("osascript " +
+			// 		"-e 'tell application \"Google Chrome\" " +
+			// 		"to tell the active tab of its first window' " +
+			// 		"-e 'reload' " +
+			// 		"-e 'end tell'");
+			// })	
 	};
 	var bundleAll = function(arr){ _.each(arr, bundle); };
 
 	gulp.task('browserify', function() {
 		bundleAll([
-			'./scripts/init.js'
+			'./_scripts/init.js'
 		]);
 	});
 
@@ -96,51 +98,74 @@ module.exports = function(gulp, paths, options) {
 	});
 
 	gulp.task('compile-watch', function() {
-		gulp.watch(paths.client.sass, ['sass', 'reload']);
+		gulp.watch(paths.client.sass, ['sass']);
 		gulp.watch(paths.client.js,   ['browserify']);
-		gulp.watch(['blog/*.md', 'blog/*.json'], ['blog']);
-		gulp.watch('data/*.json', ['data', 'reload'])
+		gulp.watch(['_site/content/**/*.html', '!_site/content/index.html'], ['compile-jekyll']);
+		
+		// gulp.watch('_site/content/index.html', ['copy-root-assets']);
+		// gulp.watch('content/_data/*', ['jekyll-build']);
+
+		// gulp.watch('_compiled/**/*', ['reload']);
 
 		gulp.watch([
-			'README.md',
-			// 'app/*.md',
-			// 'server/*.md',
-			// '../*.md'
+			'README.md'
 		], ['readme'])
 
 		gulp.watch('templates/*.hbs',   ['templates']);
 	});
 
-	gulp.task('jekll-build', function() {
-		return gulp.src(['./index.html', './_layouts/*.html', './_posts/*.{markdown,md}'])
-			.pipe(jekyll({
-				source: './',
-				destination: './_site/',
-				bundleExec: true
-			}))
-			.pipe(gulp.dest('./_site/'));
+	gulp.task('jekyll-watch', function() {
+		return require("child_process").exec('jekyll build --watch');
 	});
 
-	gulp.task('comile-jekyl', 'jekll-build', function() {
-		var opts = {
-			conditionals: true,
-			spare:true
-		};
+	gulp.task('jekyll-build', function() {
+		return require("child_process").exec('jekyll build');
+	});
+
+	var opts = {
+		conditionals: true,
+		spare:true
+	};
+
+	gulp.task('compile-jekyll', function() {
+		
 
 		return gulp.src(['_site/content/**/*.html', '!_site/content/index.html'])
-				   .pipe(minifyHTML(opts))
-				   .pipe(tap(function(file, t) {
-						var filestring = file.contents.toString('ascii');
-						file.contents = new Buffer(JSON.stringify(filestring));
-				   }))
-				   .pipe(jsoncombine('content.json', function(data) {
-						return new Buffer(data);
-					}))
-				   .pipe(gulp.dest('_compiled/jekyll'));
+			.pipe(minifyHTML(opts))
+			.pipe(tap(function(file, t) {
+				var filestring = file.contents.toString('ascii');
+				file.contents = new Buffer(JSON.stringify(filestring));
+			}))
+			.pipe(jsoncombine('content.json', function(data) {
+				return new Buffer(JSON.stringify(data));
+			}))
+			.pipe(gulp.dest('_compiled/data/'));
 	});
 
-	gulp.task('compile', ['browserify', 'sass', 'compile-jekyl'])
-	gulp.task('compile-dev', ['compile', 'compile-watch'])
+	var copyAssets = function() {
+		gulp.src(['_site/content/*.*', '!_site/content/*.html'])
+			.pipe(gulp.dest('_compiled'));
+		gulp.src('_site/content/*.html')
+			.pipe(minifyHTML(opts))
+			.pipe(gulp.dest('_compiled'));
+	};
+
+	gulp.task('watch-root-assets', function() {
+		watch([
+		'_site/content/index.html'
+		])
+		.pipe(aggregate({debounce: 100}, function() {
+			console.log("Debounced Root Assets")
+			copyAssets();
+		}));
+	});
+
+	gulp.task('copy-root-assets', function() {
+		copyAssets();
+	});
+
+	gulp.task('compile', ['jekyll-build', 'copy-root-assets', 'browserify', 'sass', 'compile-jekyll']);
+	gulp.task('compile-dev', ['compile', 'jekyll-watch', 'compile-watch', 'watch-root-assets']);
 };
 
 

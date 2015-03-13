@@ -1,10 +1,8 @@
-// console.log(Templates, $)
-var helpers = require("./helpers");
-var hbsHelpers = require("./handlebars");
+require('./zepto.min.js');
 
-helpers.registerHelpers(hbsHelpers);
-
-$.getJSON( "data/data.json", function( data ) {
+$.getJSON( "data/content.json", function( data ) {
 	window.data = data;
 	require("./main");
+}, function(e) {
+	console.log("ERROR FETCHING DATA");
 });

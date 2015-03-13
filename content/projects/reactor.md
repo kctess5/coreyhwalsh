@@ -1,6 +1,5 @@
 ---
 title: "Reactor - <i>in progress</i>"
-id:    "reactor"
 date:  2015-02-27
 description: "A new website for MIT K12 Videos"
 ---

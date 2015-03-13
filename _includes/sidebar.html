@@ -5,7 +5,7 @@
   <div id="top-links">
     {% for toplink in sidebar.toplinks %}
       <div class="link-container">
-        <h3 id="{{ toplink.id }}" class="link"><a target="{% if toplink.target %}{{ toplink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ toplink.href }}">{{ toplink.title }}</a></h3>
+        <a target="{% if toplink.target %}{{ toplink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ toplink.href }}"><h3 id="{{ toplink.id }}">{{ toplink.title }}</h3></a>
       </div>
     {% endfor %}
   </div>
@@ -13,7 +13,7 @@
   <div id="bottom-links">
     {% for bottomlink in sidebar.bottomlinks %}
       <div class="link-container">
-        <h3 id="{{ bottomlink.id }}" class="link"><a target="{% if bottomlink.target %}{{ bottomlink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ bottomlink.href }}">{{ bottomlink.title }}</a></h3>
+        <a target="{% if bottomlink.target %}{{ bottomlink.target }}{% else %}{{ sidebar.default.target }}{% endif %}" href="{{ bottomlink.href }}"><h3 id="{{ bottomlink.id }}">{{ bottomlink.title }}</h3></a>
       </div>
     {% endfor %}
   </div>
