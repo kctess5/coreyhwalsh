@@ -133,7 +133,7 @@ module.exports = function(gulp, paths, options) {
 		return gulp.src(['_site/content/**/*.html', '!_site/content/index.html'])
 			.pipe(minifyHTML(opts))
 			.pipe(tap(function(file, t) {
-				var filestring = file.contents.toString('ascii');
+				var filestring = file.contents.toString();
 				file.contents = new Buffer(JSON.stringify(filestring));
 			}))
 			.pipe(jsoncombine('content.json', function(data) {

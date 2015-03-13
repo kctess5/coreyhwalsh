@@ -1,0 +1,29 @@
+.article {
+	margin-bottom: 18px;
+	&.linked {
+		color: $blue;
+		&:hover {
+			cursor: pointer;
+			.article-title {
+				text-decoration: underline;
+			}
+		}
+	}
+	.article-title {
+		line-height: 1.5em;
+	}
+	.article-description {
+		font-size: 16px;
+		line-height: 1.25em;
+		font-weight: 200;
+		letter-spacing: .5px;
+	}
+	&.divider {
+		font-size: 1.25em;
+		color: rgba(0,0,0,.5);
+		margin-top: 25px;
+	}
+	&.class {
+		margin-top: 15px;
+	}
+}

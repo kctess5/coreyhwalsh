@@ -3,12 +3,14 @@
 {% for article in articles %}
 {% if article.name != "index.html" %}
 
-	{% capture datestring %}{% if article.date %}<span class="date">- {{ article.date }}</span>{% endif %}{% endcapture %}
+	{% capture datestring %}{% if article.date %} <span class="date">- {{ article.date }}</span>{% endif %}{% endcapture %}
 
-	<div id="{{ article.id }}" class="article {{ifExists detailed "detailed"}} {{ article.class }}">
+	{% capture href %}{{ article.path | replace: "content/", "" | split: "." | first }}{% endcapture %}
+
+	<div id="{{ article.id }}" class="article {% if article.content != "" %}linked{% endif %} {{ article.class }}">
 		<h3 class="article-title">
 		{% if article.content != "" %}
-			<a class="details" href="#{{ page.id }}/{{ article.id }}">{{ article.title }}</a>{{ datestring }}
+			<a class="details" href="/#!/{{ href }}">{{ article.title }}</a>{{ datestring }}
 		{% else %}
 			{{ article.title }}{{ datestring }}
 		{% endif %}

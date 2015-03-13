@@ -1,30 +1,51 @@
+'use strict';
+
 var disqus = require('./disqus');
-var utils = require('underscore');
 
 console.log('Hello!');
 
-// $("#content").empty();
+var Pane = function(key) {
+	this.$content = $(window.data[key]);
+	this.key = key;
 
-var getPanes = function() {
+	this.bind();
 };
 
+Pane.prototype.inject = function($el, last) {
+	// if (last) this.$content.css('opacity', 0);
+	$el.append(this.$content);
+	// if (last) this.$content.fadeIn(100);
+};
 
-var Pane = function(key) {
-	this.content = window.data[key];
-	this.key = key;
+Pane.prototype.only = function() {
+	this.$content.addClass('only');
+};
+
+Pane.prototype.bind = function() {
+	var pane = this;
+	this.$content.find('#show-comments').off('click').click(function() {
+		disqus.load(pane);
+		$(this).hide();
+	});
 };
 
 var Panes = function(sel, dflt) {
 	this.$el = $(sel);
 	this.defaultPane = dflt;
-
-	this.render();
 };
 
 Panes.prototype.render = function(href) {
 	var url = this.getURL(href);
 	
-	this.getPanes(url);
+	var panes = this.getPanes(url);
+
+	this.$el.empty();
+
+	for (var i = 0; i < panes.length; i++) {
+		panes[i].inject(this.$el, i === panes.length - 1);
+	}
+
+	if (panes.length === 1) panes[0].only();
 
 	this.bind();
 };
@@ -33,8 +54,6 @@ Panes.prototype.getPane = function(key) {
 	if (key in window.data) return new Pane(key);
 	else if (key + "/index" in window.data) return new Pane(key + "/index");
 };
-
-
 
 Panes.prototype.getPanes = function(url) {
 	'use strict';
@@ -60,6 +79,7 @@ Panes.prototype.getURL = function(href) {
 	
 	return url;
 };
+
 Panes.prototype.setURL = function(href) {
 	window.location = href;
 };
@@ -67,10 +87,12 @@ Panes.prototype.setURL = function(href) {
 Panes.prototype.bind = function() {
 	var _this = this;
 
-	$('a').off('click').on('click', function(e) {
-		e.preventDefault();
-
+	$('a').off('click').click(function(e) {
 		var href = $(this).attr("href");
+
+		if ($(this).attr('target') === "_blank") return
+
+		e.preventDefault();
 
 		_this.setURL(href);
 		_this.render(href);
@@ -78,3 +100,4 @@ Panes.prototype.bind = function() {
 };
 
 var main = new Panes("#content", 'about');
+main.render();

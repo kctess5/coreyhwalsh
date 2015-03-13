@@ -403,162 +403,140 @@ img {
       text-decoration: none !important;
       cursor: pointer; }
 
-/* line 1, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
+/* line 1, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
 #content {
-  height: 100%;
+  position: relative;
   width: 100%;
-  position: relative; }
-  /* line 5, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .content, #content .detailed-content {
-    position: absolute;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-    padding: 26px;
-    padding-top: 30px;
-    padding-bottom: 40px; }
-  /* line 14, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .content {
-    overflow-x: hidden;
-    width: 100%; }
-    /* line 16, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content #container {
-      min-width: 240px; }
-    /* line 20, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content .title {
-      font-family: proxima, helvetica, arial, sans-serif;
-      font-weight: normal;
-      font-style: normal;
-      font-size: 33px;
-      font-weight: 900;
-      display: inline-block; }
-    /* line 25, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content .subheader {
-      font-family: proxima, helvetica, arial, sans-serif;
-      font-weight: normal;
-      font-style: normal;
-      font-size: 20px;
-      margin-left: 15px;
-      display: inline-block;
-      font-style: italic;
-      line-height: 1.5em;
-      margin-top: 5px; }
-    /* line 33, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content .article {
-      margin-top: 18px; }
-      /* line 35, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-      #content .content .article.detailed, #content .content .article.linked {
-        color: #005ede; }
-        /* line 37, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-        #content .content .article.detailed:hover, #content .content .article.linked:hover {
-          cursor: pointer; }
-          /* line 39, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-          #content .content .article.detailed:hover .article-title, #content .content .article.linked:hover .article-title {
-            text-decoration: underline; }
-      /* line 44, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-      #content .content .article .article-title {
-        line-height: 1.5em; }
-      /* line 47, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-      #content .content .article .article-description {
-        font-size: 16px;
-        line-height: 1.25em;
-        font-weight: 200;
-        letter-spacing: 0.5px; }
-      /* line 53, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-      #content .content .article.divider {
-        font-size: 1.25em;
-        color: rgba(0, 0, 0, 0.5);
-        margin-top: 25px; }
-      /* line 58, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-      #content .content .article.class {
-        margin-top: 15px; }
-    /* line 62, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content .center {
-      text-align: center; }
-    /* line 65, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content .content .date {
-      color: rgba(0, 0, 0, 0.5);
-      text-decoration: none !important; }
-  /* line 72, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content img.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-  /* line 77, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content img {
-    max-height: 700px;
-    max-width: 100%; }
-    /* line 81, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-    #content img.full-width {
-      max-height: none; }
-  /* line 86, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content a {
-    color: #005ede; }
-  /* line 90, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .body {
-    margin-top: 20px; }
-  /* line 93, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .down-1 {
-    margin-top: 10px; }
-  /* line 96, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .down-2 {
-    margin-top: 20px; }
-  /* line 99, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .down-3 {
-    margin-top: 30px; }
-  /* line 102, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/content */
-  #content .shadow {
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
-    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ; }
+  height: 100%; }
 
-/* line 1, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-#content .detailed-content {
-  min-width: 280px;
-  background-color: white;
+/* line 7, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane {
   overflow-y: scroll;
-  position: absolute;
-  width: 50%;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
-  right: 0;
-  top: 0;
-  display: none;
-  -webkit-box-shadow: -1px 0 0 #d6d6da ;
-  -moz-box-shadow: -1px 0 0 #d6d6da ;
-  box-shadow: -1px 0 0 #d6d6da ; }
-  /* line 12, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content .title {
-    margin-bottom: 22px;
-    font-family: proxima, helvetica, arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 28px; }
-  /* line 16, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content .external-icon {
-    height: 18px;
-    margin-bottom: -2px; }
-  /* line 20, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content img {
+  width: 50%;
+  max-width: 900px;
+  min-width: 240px;
+  padding: 26px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  display: inline-block; }
+  /* line 18, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+  .pane:not(:first-child) {
+    -webkit-box-shadow: -1px 0 0 #d6d6da ;
+    -moz-box-shadow: -1px 0 0 #d6d6da ;
+    box-shadow: -1px 0 0 #d6d6da ; }
+  /* line 21, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+  .pane a {
+    color: #005ede; }
+  /* line 24, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+  .pane.only {
+    width: 100%; }
+
+/* line 30, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .title {
+  margin-bottom: 20px;
+  font-family: proxima, helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;
+  display: inline-block; }
+/* line 35, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .subheader {
+  font-family: proxima, helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  margin-left: 15px;
+  display: inline-block;
+  font-style: italic;
+  line-height: 1.5em;
+  margin-top: 5px; }
+/* line 43, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .external-icon {
+  height: 18px;
+  margin-bottom: -2px; }
+/* line 47, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane #disqus_thread {
+  margin-top: 30px;
+  display: none; }
+/* line 51, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane #show-comments {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px; }
+  /* line 55, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+  .pane #show-comments p {
+    color: #005ede;
+    cursor: pointer;
+    font-size: 20px; }
+/* line 61, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .date {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.5); }
+/* line 67, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+/* line 72, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane img {
+  max-height: none;
+  max-width: 100%; }
+  /* line 76, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+  .pane img.full-width {
     max-height: none; }
-  /* line 23, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content #disqus_thread {
-    margin-top: 30px;
-    display: none; }
-  /* line 27, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content #show-comments {
-    width: 100%;
-    text-align: center;
+/* line 81, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane a {
+  color: #005ede; }
+/* line 85, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .body {
+  margin-top: 20px; }
+/* line 88, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .down-1 {
+  margin-top: 10px; }
+/* line 91, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .down-2 {
+  margin-top: 20px; }
+/* line 94, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .down-3 {
+  margin-top: 30px; }
+/* line 97, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/pane */
+.pane .shadow {
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ; }
+
+/* line 1, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+.article {
+  margin-bottom: 18px; }
+  /* line 3, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+  .article.linked {
+    color: #005ede; }
+    /* line 5, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+    .article.linked:hover {
+      cursor: pointer; }
+      /* line 7, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+      .article.linked:hover .article-title {
+        text-decoration: underline; }
+  /* line 12, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+  .article .article-title {
+    line-height: 1.5em; }
+  /* line 15, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+  .article .article-description {
+    font-size: 16px;
+    line-height: 1.25em;
+    font-weight: 200;
+    letter-spacing: 0.5px; }
+  /* line 21, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+  .article.divider {
+    font-size: 1.25em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 25px; }
+  /* line 26, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/article */
+  .article.class {
     margin-top: 15px; }
-    /* line 31, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-    #content .detailed-content #show-comments p {
-      color: #005ede;
-      cursor: pointer;
-      font-size: 20px; }
-  /* line 37, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/details */
-  #content .detailed-content .date {
-    margin-top: -10px;
-    margin-bottom: 10px;
-    color: rgba(0, 0, 0, 0.5); }
 
 /* line 11, /Users/coreywalsh/Documents/Work/Projects/jekylversion/_stylesheets/menu */
 #menu-icon {
