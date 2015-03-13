@@ -7,16 +7,20 @@ var browserify = require('browserify'),
 	uglify     = require('gulp-uglify'),
 	gulpif     = require('gulp-if'),
 	size       = require('gulp-size'),
-	print      = require('gulp-print'),
-	jsoncombine = require('gulp-jsoncombine');
+	// print      = require('gulp-print'),
+	jsoncombine = require('gulp-jsoncombine'),
+	minifyHTML = require('gulp-minify-html'),
+	jekyll     = require('gulp-jekyll');
 
 var notifier = require('node-notifier');
-var handlebars = require('gulp-handlebars');
-var wrap = require('gulp-wrap');
-var declare = require('gulp-declare');
-var concat = require('gulp-concat');
+// var handlebars = require('gulp-handlebars');
+// var wrap = require('gulp-wrap');
+// var declare = require('gulp-declare');
+// var concat = require('gulp-concat');
 var tap = require('gulp-tap');
-var markdown = require('gulp-markdown');
+// var markdown = require('gulp-markdown');
+
+// var ROOT = require('path').join(__dirname, '../_site/content');
 
 var _ = require("underscore");
 
@@ -42,7 +46,7 @@ module.exports = function(gulp, paths, options) {
 
 				// end this stream
 				this.emit('end');
-		    })
+			})
 			.pipe(source(filename)) //Pass desired output filename to vinyl-source-stream
 			.pipe(buffer())
 			.pipe(print(function(){ console.log("Bundling "+ path+filename); }))
@@ -54,10 +58,10 @@ module.exports = function(gulp, paths, options) {
 			.on('finish', function(){
 				if (error) return;
 				require("child_process").exec("osascript " +
-				    "-e 'tell application \"Google Chrome\" " +
-				    "to tell the active tab of its first window' " +
-				    "-e 'reload' " +
-				    "-e 'end tell'");
+					"-e 'tell application \"Google Chrome\" " +
+					"to tell the active tab of its first window' " +
+					"-e 'reload' " +
+					"-e 'end tell'");
 			})	
 	};
 	var bundleAll = function(arr){ _.each(arr, bundle); };
@@ -87,85 +91,9 @@ module.exports = function(gulp, paths, options) {
 			.pipe(gulp.dest(paths.pub.css));
 	});
 
-
-	gulp.task('templates', function() {
-		return gulp.src(['templates/*.hbs'])
-			   .pipe(print())
-			   .pipe(handlebars())
-			   .pipe(wrap('Handlebars.template(<%= contents %>)'))
-			   .pipe(declare({
-				   	namespace: 'Templates',
-					// root: 'Templates',
-					noRedeclare: true, // Avoid duplicate declarations
-					// processName: 
-			   }))
-			   .pipe(concat('templates.js'))
-			   .pipe(wrap('this["Templates"] = this["Templates"] || {}; <%= contents %>'))
-			   .pipe(gulp.dest(paths.pub.js));
-	});
-
 	gulp.task('readme', function() {
 		require("child_process").exec('doctoc .. --title Contents');
 	});
-
-	gulp.task('blog', function() {
-		var Renderer = require('marked').Renderer;
-
-		Renderer.prototype.heading = function(text, level, raw) {
-		  return '<h'
-		    + level
-		    + '>'
-		    + text
-		    + '</h'
-		    + level
-		    + '>\n';
-		};
-
-		return gulp.src("./blog/*.md")
-			.pipe(markdown({
-				renderer: new Renderer
-			}))
-			.pipe(tap(function(file, t) {
-				var filestring = file.contents.toString('ascii');
-
-				var metaPath = file.path.substring(0, file.path.length - 4) + "json";
-				var metaData = {};
-
-				try {
-					metaData = getJsonFile(metaPath);
-				} catch(err) {
-					console.log("PLEASE INCLUDE A METADATA FILE FOR BLOG POST \"" + file.relative.substring(0, file.relative.length - 5) + "\"")
-				}
-
-				metaData.detailed = [filestring];
-
-
-				file.contents = new Buffer(JSON.stringify(metaData))
-			}))
-			.pipe(jsoncombine('blog.json', function(data) {
-				return new Buffer(JSON.stringify(data));
-			}))
-			.pipe(tap(function(file, t) {
-				var filestring = file.contents.toString('ascii');
-				var contents = JSON.parse(filestring);
-				var contentsArray = Object.keys(contents).map(function(k) { return contents[k] });
-
-				var blog = require('../config').blog;
-
-				blog.articles = contentsArray;
-
-				file.contents = new Buffer(JSON.stringify(blog))
-			}))
-			.pipe(gulp.dest("./data"));
-	})
-
-	gulp.task('data', ['blog'], function() {
-		return gulp.src("./data/*.json")
-			.pipe(jsoncombine('data.json', function(data) {
-				return new Buffer(JSON.stringify(data));
-			}))
-			.pipe(gulp.dest("./compiled/data"));
-	})
 
 	gulp.task('compile-watch', function() {
 		gulp.watch(paths.client.sass, ['sass', 'reload']);
@@ -183,7 +111,35 @@ module.exports = function(gulp, paths, options) {
 		gulp.watch('templates/*.hbs',   ['templates']);
 	});
 
-	gulp.task('compile', ['browserify', 'sass', 'data', 'blog', 'templates'])
+	gulp.task('jekll-build', function() {
+		return gulp.src(['./index.html', './_layouts/*.html', './_posts/*.{markdown,md}'])
+			.pipe(jekyll({
+				source: './',
+				destination: './_site/',
+				bundleExec: true
+			}))
+			.pipe(gulp.dest('./_site/'));
+	});
+
+	gulp.task('comile-jekyl', 'jekll-build', function() {
+		var opts = {
+			conditionals: true,
+			spare:true
+		};
+
+		return gulp.src(['_site/content/**/*.html', '!_site/content/index.html'])
+				   .pipe(minifyHTML(opts))
+				   .pipe(tap(function(file, t) {
+						var filestring = file.contents.toString('ascii');
+						file.contents = new Buffer(JSON.stringify(filestring));
+				   }))
+				   .pipe(jsoncombine('content.json', function(data) {
+						return new Buffer(data);
+					}))
+				   .pipe(gulp.dest('_compiled/jekyll'));
+	});
+
+	gulp.task('compile', ['browserify', 'sass', 'compile-jekyl'])
 	gulp.task('compile-dev', ['compile', 'compile-watch'])
 };
 

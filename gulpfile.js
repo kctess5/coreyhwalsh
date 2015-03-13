@@ -70,7 +70,7 @@ gulp.task('reload', function() {
 
 (function(scripts) {
 	_.each(scripts, function(script) {
-		require('./gulp/' + script )(gulp, paths, options);
+		require('./_gulp/' + script )(gulp, paths, options);
 		devTasks.push(script + '-dev');
 		buildTasks.push(script)
 	});
