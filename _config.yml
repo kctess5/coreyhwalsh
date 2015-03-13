@@ -59,7 +59,7 @@ defaults:
     scope:
       path: content/classes # an empty string here means all files in the project
     values:
-      layout: pane
+      layout: classes
   -
     scope:
       path: content/ideas # an empty string here means all files in the project

@@ -1,0 +1,8 @@
+---
+layout: pane
+---
+<p>Course Number: {{ page.number }}</p>
+<p>Course Title: {{ page.course-name }}</p>
+<p>Credits: {{ page.units }}</p>
+<p>Term Taken: {{ page.semester }}</p>
+{% if page.rating %}<p>Opinionated Rating: {{ page.rating }}</p>{% endif %}

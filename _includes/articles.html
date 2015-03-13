@@ -1,4 +1,4 @@
-{% assign articles = site.pages | where:"dir", page.dir %}
+{% if articles == null %}{% assign articles = site.pages | where:"dir", page.dir %}{% endif %}
 
 {% for article in articles %}
 {% if article.name != "index.html" %}

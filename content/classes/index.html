@@ -1,5 +1,35 @@
 ---
 title: "Classes"
+subtitle: "Past, and Present"
+layout: pane
 ---
 
-{% include articles.html %}
+{% assign classes = site.pages | where:"dir", page.dir %}
+
+<div class="article divider" style="margin-top:0px;"><h3 class="article-title">
+Current - Sophomore Spring - 2015	
+</h3></div>
+
+{% assign articles = classes | where:"semester", "Sophomore Spring - 2015" %}
+{% include articles.html  %}
+
+<div class="article divider"><h3 class="article-title">
+Sophomore Fall - 2014
+</h3></div>
+
+{% assign articles = classes | where:"semester", "Sophomore Fall - 2014" %}
+{% include articles.html  %}
+
+<div class="article divider"><h3 class="article-title">
+Freshman Spring - 2014
+</h3></div>
+
+{% assign articles = classes | where:"semester", "Freshman Spring - 2014" %}
+{% include articles.html  %}
+
+<div class="article divider"><h3 class="article-title">
+Freshman Fall - 2013
+</h3></div>
+
+{% assign articles = classes | where:"semester", "Freshman Fall - 2013" %}
+{% include articles.html  %}
