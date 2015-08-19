@@ -4,12 +4,21 @@
 	"subheader": "Things I actually get around to",
 	"body": ["<p class='down-2 bold'>This page is still in progress! More extended descriptions will be available soon.</p>"],
 	"articles": [{
-		"title": "Stickir - <i>in progress</i>",
-		"id": "stickir",
-		"date": "",
-		"description": "My family's [in progress] startup, doing cool things with technology and construction engineering. More to come on this soon!"
+		"title": "Sample based 2D interpolation engine",
+		"id": "infract",
+		"date": "2015-07-28",
+		"description": "A simple gaussian sample aggregator, giving some interesting outcomes...",
+		"detailed": ["<p>Coming soon.</p>"],
+		"href": "https://github.com/kctess5/Golang-Sample-Interpolation-Engine"
 	},{
-		"title": "Reactor - <i>in progress</i>",
+		"title": "Infract.js - in progress",
+		"id": "infract",
+		"date": "2015-06-7",
+		"description": "A JavaScript plugin bringing interactivity to the browser.",
+		"detailed": ["<p>Coming soon.</p>"],
+		"href": "https://github.com/kctess5/Infract.js"
+	},{
+		"title": "Reactor - in progress",
 		"id": "reactor",
 		"date": "",
 		"description": "A new website for MIT K12 Videos",
@@ -17,18 +26,8 @@
 			"<img class='shadow full-width' src='/assets/main.jpg'>",
 			"<img class='shadow down-2 full-width' src='/assets/showpage.jpg'>"
 		]
-	},{
-		"title": "Sublime Text Plugin + Google MobWrite - <i>in progress</i>",
-		"id": "sublime-plugin",
-		"date": "2015-02-02",
-		"description": "Like Google Docs, but with Sublime Text.",
-		"detailed": [
-			"<p><a target='_blank' href='https://github.com/kctess5/SubSync'>github repo: https://github.com/kctess5/SubSync</a> (in progress)</p>",
-			"<p><a target='_blank' href='https://code.google.com/p/google-mobwrite/'>background: https://code.google.com/p/google-mobwrite</a></p>",
-			"<p class='down-1'>I've wanted to do something with some sort of collaborative edit algorithm for a while now, and I've finally gotten around to doing it. I settled on Google MobWrite because it looks like one of the most powerful options on the market. I originally thought Share.js, but the support for that project, frankly, sucks, so it's not too enticing from that aspect and the code itself doesn't seem quite as thought out as MobWrite.</p>",
-			"<p class='down-1'>Unfortunately, MobWrite doesn't have a Python client library, so I've had to start this whole processing by porting code from the Java and Javascript client stuff. Documentation is a bit lacking, so it's been slow going with lots of ? moments, but this process is almost done. Once I finish it, I will just have to write a bit of UI stuff to let users decide what parts of their code they want to share, and the code to make that acutally work.</p>"
-		]
-	},{
+	},
+	{
 		"title": "Twitter Sort-Response",
 		"id": "twitter-response",
 		"date": "2015-01-14",

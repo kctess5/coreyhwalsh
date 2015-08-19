@@ -65,10 +65,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+.inverted a {
+	color: white;
+}
 a {
 	text-decoration: none;
-	color: inherit;
+	color: black;
 }
 
 p {

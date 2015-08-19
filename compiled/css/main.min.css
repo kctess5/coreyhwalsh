@@ -1,1 +1,793 @@
-a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;box-sizing:border-box;-webkit-font-smoothing:antialiased}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}#sidebar,body,html{min-height:400px}body{font-size:12px;line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}a{text-decoration:none;color:inherit}p{color:#000}@font-face{font-family:telegrafico;src:url(fonts/telegrafico-webfont.eot);src:url(fonts/telegrafico-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/telegrafico-webfont.woff) format('woff'),url(fonts/telegrafico-webfont.ttf) format('truetype'),url(fonts/telegrafico-webfont.svg#telegraficoregular) format('svg');font-weight:400;font-style:normal}@font-face{font-family:proxima;src:url(fonts/typekit-proxima-nova-1-normal-400-webfont.eot);src:url(fonts/typekit-proxima-nova-1-normal-400-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/typekit-proxima-nova-1-normal-400-webfont.woff) format('woff'),url(fonts/typekit-proxima-nova-1-normal-400-webfont.ttf) format('truetype'),url(fonts/typekit-proxima-nova-1-normal-400-webfont.svg#proxima_nova_regularregular) format('svg');font-weight:400;font-style:normal}@font-face{font-family:nexa;src:url(fonts/nexa_bold-webfont.eot);src:url(fonts/nexa_bold-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/nexa_bold-webfont.woff) format('woff'),url(fonts/nexa_bold-webfont.ttf) format('truetype'),url(fonts/nexa_bold-webfont.svg#nexa_boldregular) format('svg');font-weight:700;font-style:normal}@font-face{font-family:nexa;src:url(fonts/nexa_light-webfont.eot);src:url(fonts/nexa_light-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/nexa_light-webfont.woff) format('woff'),url(fonts/nexa_light-webfont.ttf) format('truetype'),url(fonts/nexa_light-webfont.svg#nexa_lightregular) format('svg');font-weight:400;font-style:normal}@font-face{font-family:raleway;src:url(fonts/raleway-medium-webfont.eot);src:url(fonts/raleway-medium-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/raleway-medium-webfont.woff2) format('woff2'),url(fonts/raleway-medium-webfont.woff) format('woff'),url(fonts/raleway-medium-webfont.ttf) format('truetype'),url(fonts/raleway-medium-webfont.svg#ralewaymedium) format('svg');font-weight:500;font-style:normal}@font-face{font-family:raleway;src:url(fonts/raleway-light-webfont.eot);src:url(fonts/raleway-light-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/raleway-light-webfont.woff2) format('woff2'),url(fonts/raleway-light-webfont.woff) format('woff'),url(fonts/raleway-light-webfont.ttf) format('truetype'),url(fonts/raleway-light-webfont.svg#ralewaylight) format('svg');font-weight:200;font-style:normal}@font-face{font-family:raleway;src:url(fonts/raleway-regular-webfont.eot);src:url(fonts/raleway-regular-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/raleway-regular-webfont.woff2) format('woff2'),url(fonts/raleway-regular-webfont.woff) format('woff'),url(fonts/raleway-regular-webfont.ttf) format('truetype'),url(fonts/raleway-regular-webfont.svg#ralewayregular) format('svg');font-weight:400;font-style:normal}@font-face{font-family:raleway;src:url(fonts/raleway-bold-webfont.eot);src:url(fonts/raleway-bold-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/raleway-bold-webfont.woff2) format('woff2'),url(fonts/raleway-bold-webfont.woff) format('woff'),url(fonts/raleway-bold-webfont.ttf) format('truetype'),url(fonts/raleway-bold-webfont.svg#ralewaybold) format('svg');font-weight:800;font-style:normal}@font-face{font-family:raleway;src:url(fonts/raleway-thin-webfont.eot);src:url(fonts/raleway-thin-webfont.eot?#iefix) format('embedded-opentype'),url(fonts/raleway-thin-webfont.woff2) format('woff2'),url(fonts/raleway-thin-webfont.woff) format('woff'),url(fonts/raleway-thin-webfont.ttf) format('truetype'),url(fonts/raleway-thin-webfont.svg#ralewaythin) format('svg');font-weight:100;font-style:normal}@media only screen and (min-width:320px) and (max-width:480px){body{font-size:10px}}@media only screen{body{font-size:10px}}@media only screen and (min-width:640px){body{font-size:11px}}@media only screen and (min-width:900px){body{font-size:12px}}@media only screen and (min-width:1200px){body{font-size:13px}}@media only screen and (min-width:1600px){body{font-size:14px}}@media only screen and (max-height:550px) and (min-width:600px){body{font-size:11px}}@media only screen and (max-height:450px){body{font-size:10px}}.upcase{text-transform:uppercase}.vertical-align-parent{display:table}.vertical-align-child{display:table-cell;vertical-align:middle}.clearfix,.row:after{content:"";display:table;clear:both}.row{display:table;width:100%}body,html{height:100%}body{padding-left:240px}h1{font-family:nexa,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:3.33333em}h2{font-family:nexa,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:2.5em}h3{font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:1.66667em;line-height:2.3em}p{font-family:raleway,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:18px;line-height:1.7em}i{font-style:italic!important}.bold,b{font-style:bold;font-weight:900}a:hover{cursor:pointer}a.blue{color:#005ede}a.underline{text-decoration:underline}.no-underline:hover{text-decoration:none!important}.noscript{position:fixed;top:0;left:0;height:100%;width:100%;background-color:#fff}.noscript .no-container{position:relative;top:50%;transform:translateY(-50%);text-align:center;width:90%;left:5%}.noscript .no-container h3{font-weight:900}.noscript p{font-size:14px}.noscript a{color:#005ede}.cursor{background:url(/img/gps.png) no-repeat;background-size:16px 16px;z-index:1000000;position:fixed;width:16px;height:16px;background-color:rgba(255,0,0,.5);-webkit-border-radius:8px;-moz-border-radius:8px;-ms-border-radius:8px;border-radius:8px;opacity:0}.indent{text-indent:10px}.social{color:#979799}img{cursor:pointer}.embed-container{position:relative;padding-bottom:56.25%;overflow:hidden;max-width:100%;height:auto}.embed-container embed,.embed-container iframe,.embed-container object{position:absolute;top:0;left:0;width:100%;height:100%}#sidebar{position:fixed;top:0;left:0;width:240px;height:100%;padding:30px 20px 20px;overflow:hidden;-webkit-box-shadow:1px 0 0 #d6d6da;-moz-box-shadow:1px 0 0 #d6d6da;box-shadow:1px 0 0 #d6d6da}#sidebar.active{display:block!important}#sidebar .title{font-size:33px;text-align:center}#sidebar #bottom-links,#sidebar #top-links{width:100%}#sidebar #bottom-links .link,#sidebar #top-links .link{font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:20px;line-height:2em;text-align:left}#sidebar #bottom-links .link.active,#sidebar #bottom-links .link:hover,#sidebar #top-links .link.active,#sidebar #top-links .link:hover{text-decoration:underline}#sidebar #bottom-links .link-container,#sidebar #top-links .link-container{cursor:pointer!important}#sidebar #top-links{position:relative;padding:20px}#sidebar #bottom-links{position:absolute;bottom:0;padding:40px;left:0}#sidebar #source{line-height:1em!important;position:absolute;opacity:.5;bottom:15px;left:91px;text-align:center}#sidebar #source:hover{opacity:1;text-decoration:none!important;cursor:pointer}#content{height:100%;width:100%;position:relative}#content .content,#content .detailed-content{position:absolute;overflow-y:scroll;-webkit-overflow-scrolling:touch;height:100%;padding:30px 26px 40px}#content .content{overflow-x:hidden;width:100%}#content .content #container{min-width:240px}#content .content .title{font-family:proxima,helvetica,arial,sans-serif;font-style:normal;font-size:33px;font-weight:900;display:inline-block}#content .content .subheader{font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-size:20px;margin-left:15px;display:inline-block;font-style:italic;line-height:1.5em;margin-top:5px}#content .content .article{margin-top:18px}#content .content .article.detailed,#content .content .article.linked{color:#005ede}#content .content .article.detailed:hover,#content .content .article.linked:hover{cursor:pointer}#content .content .article.detailed:hover .article-title,#content .content .article.linked:hover .article-title{text-decoration:underline}#content .content .article .article-title{line-height:1.5em}#content .content .article .article-description{font-size:16px;line-height:1.25em;font-weight:200;letter-spacing:.5px}#content .content .article.divider{font-size:1.25em;color:rgba(0,0,0,.5);margin-top:25px}#content .content .article.class{margin-top:15px}#content .content .center{text-align:center}#content .content .date{color:rgba(0,0,0,.5);text-decoration:none!important}#content img.center{display:block;margin-left:auto;margin-right:auto}#content img{max-height:700px;max-width:100%}#content img.full-width{max-height:none}#content a{color:#005ede}#content .body{margin-top:20px}#content .down-1{margin-top:10px}#content .down-2{margin-top:20px}#content .down-3{margin-top:30px}#content .shadow{-webkit-box-shadow:0 0 15px rgba(0,0,0,.3);-moz-box-shadow:0 0 15px rgba(0,0,0,.3);box-shadow:0 0 15px rgba(0,0,0,.3)}#content .detailed-content{min-width:280px;background-color:#fff;overflow-y:scroll;position:absolute;width:50%;height:100%;right:0;top:0;display:none;-webkit-box-shadow:-1px 0 0 #d6d6da;-moz-box-shadow:-1px 0 0 #d6d6da;box-shadow:-1px 0 0 #d6d6da}#content .detailed-content .title{margin-bottom:22px;font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:28px}#content .detailed-content .external-icon{height:18px;margin-bottom:-2px}#content .detailed-content img{max-height:none}#content .detailed-content #disqus_thread{margin-top:30px;display:none}#content .detailed-content #show-comments{width:100%;text-align:center;margin-top:15px}#content .detailed-content #show-comments p{color:#005ede;cursor:pointer;font-size:20px}#content .detailed-content .date{margin-top:-10px;margin-bottom:10px;color:rgba(0,0,0,.5)}#menu-icon{opacity:.4;color:#000;position:absolute;top:22px;left:50%;margin-left:-48px}#menu-icon:hover{opacity:.7;cursor:pointer}#menu-icon *{display:inline-block}#menu-icon img{height:15px;margin-bottom:1px}#menu-icon h3{color:#000;font-size:30px;line-height:.5em;margin-left:3px}@media only screen and (max-width:900px){body{padding-left:180px}#sidebar{width:180px;overflow:hidden}#sidebar .title{font-size:23px;text-align:center}#sidebar #source{left:61px}}@media only screen and (max-width:744px){body{padding-left:0}#sidebar{display:none}#content .content{padding-top:60px}}@media only screen and (min-width:744px){#menu-icon{display:none}}@media only screen and (max-width:402px){#content .content,.detailed-content{padding-left:16px!important;padding-right:16px!important;padding-bottom:20px!important}}@media only screen and (max-height:485px){#bottom-links .link,#top-links .link{font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:18px;line-height:1.75em!important}}@media only screen and (max-height:440px){#bottom-links .link,#top-links .link{font-family:proxima,helvetica,arial,sans-serif;font-weight:400;font-style:normal;font-size:17px;line-height:1.5em!important}}#lightbox-container{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);padding:3%;display:none}#lightbox{width:100%;height:100%;background-repeat:no-repeat;background-size:contain;background-position:50%}#dismiss{position:absolute;right:0;top:0;height:30px;display:none}
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain) */
+/* line 17, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, strong, u, i, em, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 30, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 34, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 40, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+html, body, #sidebar {
+  min-height: 400px; }
+
+/* line 45, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+body {
+  font-size: 12px;
+  line-height: 1; }
+
+/* line 50, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+ol, ul {
+  list-style: none; }
+
+/* line 54, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+blockquote, q {
+  quotes: none; }
+
+/* line 59, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none; }
+
+/* line 64, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 68, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+.inverted a {
+  color: white; }
+
+/* line 71, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+a {
+  text-decoration: none;
+  color: black; }
+
+/* line 76, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/reset */
+p {
+  font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  color: #000; }
+
+@font-face {
+  font-family: 'telegrafico';
+  src: url('fonts/telegrafico-webfont.eot');
+  src: url('fonts/telegrafico-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/telegrafico-webfont.woff') format('woff'), url('fonts/telegrafico-webfont.ttf') format('truetype'), url('fonts/telegrafico-webfont.svg#telegraficoregular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'proxima';
+  src: url('fonts/typekit-proxima-nova-1-normal-400-webfont.eot');
+  src: url('fonts/typekit-proxima-nova-1-normal-400-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/typekit-proxima-nova-1-normal-400-webfont.woff') format('woff'), url('fonts/typekit-proxima-nova-1-normal-400-webfont.ttf') format('truetype'), url('fonts/typekit-proxima-nova-1-normal-400-webfont.svg#proxima_nova_regularregular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'nexa';
+  src: url('fonts/nexa_bold-webfont.eot');
+  src: url('fonts/nexa_bold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/nexa_bold-webfont.woff') format('woff'), url('fonts/nexa_bold-webfont.ttf') format('truetype'), url('fonts/nexa_bold-webfont.svg#nexa_boldregular') format('svg');
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'nexa';
+  src: url('fonts/nexa_light-webfont.eot');
+  src: url('fonts/nexa_light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/nexa_light-webfont.woff') format('woff'), url('fonts/nexa_light-webfont.ttf') format('truetype'), url('fonts/nexa_light-webfont.svg#nexa_lightregular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on December 9, 2014 */
+@font-face {
+  font-family: 'raleway';
+  src: url('fonts/raleway-medium-webfont.eot');
+  src: url('fonts/raleway-medium-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-medium-webfont.woff2') format('woff2'), url('fonts/raleway-medium-webfont.woff') format('woff'), url('fonts/raleway-medium-webfont.ttf') format('truetype'), url('fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'raleway';
+  src: url('fonts/raleway-light-webfont.eot');
+  src: url('fonts/raleway-light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-light-webfont.woff2') format('woff2'), url('fonts/raleway-light-webfont.woff') format('woff'), url('fonts/raleway-light-webfont.ttf') format('truetype'), url('fonts/raleway-light-webfont.svg#ralewaylight') format('svg');
+  font-weight: 200;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'raleway';
+  src: url('fonts/raleway-regular-webfont.eot');
+  src: url('fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-regular-webfont.woff2') format('woff2'), url('fonts/raleway-regular-webfont.woff') format('woff'), url('fonts/raleway-regular-webfont.ttf') format('truetype'), url('fonts/raleway-regular-webfont.svg#ralewayregular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'raleway';
+  src: url('fonts/raleway-bold-webfont.eot');
+  src: url('fonts/raleway-bold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-bold-webfont.woff2') format('woff2'), url('fonts/raleway-bold-webfont.woff') format('woff'), url('fonts/raleway-bold-webfont.ttf') format('truetype'), url('fonts/raleway-bold-webfont.svg#ralewaybold') format('svg');
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'raleway';
+  src: url('fonts/raleway-thin-webfont.eot');
+  src: url('fonts/raleway-thin-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-thin-webfont.woff2') format('woff2'), url('fonts/raleway-thin-webfont.woff') format('woff'), url('fonts/raleway-thin-webfont.ttf') format('truetype'), url('fonts/raleway-thin-webfont.svg#ralewaythin') format('svg');
+  font-weight: 100;
+  font-style: normal; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* line 111, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 10px; }
+ }
+
+/* Smartphones (landscape) ----------- */
+/* Smartphones (portrait) ----------- */
+/* iPads (portrait and landscape) ----------- */
+/* iPads (landscape) ----------- */
+/* iPads (portrait) ----------- */
+/* Desktops and laptops ----------- */
+/* Large screens ----------- */
+/* iPhone 4 ----------- */
+@media only screen {
+  /* line 171, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 10px; }
+ }
+
+@media only screen and (min-width: 640px) {
+  /* line 177, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 11px; }
+ }
+
+@media only screen and (min-width: 900px) {
+  /* line 183, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 12px; }
+ }
+
+@media only screen and (min-width: 1200px) {
+  /* line 188, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 13px; }
+ }
+
+@media only screen and (min-width: 1600px) {
+  /* line 193, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 14px; }
+ }
+
+@media only screen and (max-height: 550px) and (min-width: 600px) {
+  /* line 200, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 11px; }
+ }
+
+@media only screen and (max-height: 450px) {
+  /* line 206, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  body {
+    font-size: 10px; }
+ }
+
+/* line 211, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.upcase {
+  text-transform: uppercase; }
+
+/* line 215, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.vertical-align-parent {
+  display: table; }
+
+/* line 218, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.vertical-align-child {
+  display: table-cell;
+  vertical-align: middle; }
+
+/* line 223, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.clearfix, .row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* line 229, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.row {
+  display: table;
+  width: 100%; }
+
+/* line 237, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+html, body {
+  height: 100%; }
+
+/* line 241, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+body {
+  padding-left: 240px; }
+
+/* line 245, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+h1, h2, h3, p, span {
+  color: #000; }
+
+/* line 250, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.inverted h1, .inverted h2, .inverted h3, .inverted p, .inverted span {
+  color: #fff; }
+
+/* line 255, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+h1 {
+  font-family: nexa, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 3.33333em; }
+
+/* line 259, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+h2 {
+  font-family: nexa, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2.5em; }
+
+/* line 263, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+h3 {
+  font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.66667em;
+  line-height: 2.3em; }
+
+/* line 268, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+p {
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.6em;
+  font-weight: 200; }
+
+/* line 273, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+i, em {
+  font-style: italic !important; }
+
+/* line 277, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+b, strong, .bold {
+  font-style: bold;
+  font-weight: 900; }
+
+/* line 282, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+a:hover {
+  cursor: pointer; }
+
+/* line 286, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.inverted a.blue {
+  color: #DEA700; }
+
+/* line 289, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+a.blue {
+  color: #005ede; }
+
+/* line 292, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+a.underline {
+  text-decoration: underline; }
+
+/* line 296, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.no-underline:hover {
+  text-decoration: none !important; }
+
+/* line 300, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.noscript {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white; }
+  /* line 305, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  .noscript .no-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 90%;
+    left: 5%; }
+    /* line 312, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+    .noscript .no-container h3 {
+      font-weight: 900; }
+  /* line 317, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  .noscript p {
+    font-size: 14px; }
+  /* line 320, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+  .noscript a {
+    color: #005ede; }
+
+/* line 325, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.cursor {
+  background: url(/img/gps.png);
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  z-index: 1000000;
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(255, 0, 0, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  opacity: 0; }
+
+/* line 338, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.indent {
+  text-indent: 10px; }
+
+/* line 342, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.social {
+  color: #979799; }
+
+/* line 346, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+img {
+  cursor: pointer; }
+
+/* line 350, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto; }
+
+/* line 350, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/* line 360, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.inverted .inverter {
+  -webkit-filter: invert(100%);
+  -moz-filter: invert(100%);
+  -ms-filter: invert(100%);
+  -o-filter: invert(100%);
+  filter: invert(100%);
+  background-image: url(/assets/light.png); }
+
+/* line 364, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+.inverter {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background-image: url(/assets/dark.png);
+  background-size: 32px 32px; }
+
+/* line 377, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+body {
+  background-color: white;
+  color: black; }
+
+/* line 382, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/global */
+body.inverted {
+  background-color: black;
+  color: white; }
+
+/* line 2, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  padding: 20px;
+  padding-top: 30px;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 0 0 #d6d6da ;
+  -moz-box-shadow: 1px 0 0 #d6d6da ;
+  box-shadow: 1px 0 0 #d6d6da ; }
+  /* line 11, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar.active {
+    display: block !important; }
+  /* line 16, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar .title {
+    font-size: 33px;
+    text-align: center; }
+  /* line 20, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar #top-links, #sidebar #bottom-links {
+    width: 100%; }
+    /* line 22, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+    #sidebar #top-links .link, #sidebar #bottom-links .link {
+      font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 2em;
+      text-align: left; }
+      /* line 26, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+      #sidebar #top-links .link:hover, #sidebar #top-links .link.active, #sidebar #bottom-links .link:hover, #sidebar #bottom-links .link.active {
+        text-decoration: underline; }
+    /* line 31, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+    #sidebar #top-links .link-container, #sidebar #bottom-links .link-container {
+      cursor: pointer !important; }
+  /* line 35, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar #top-links {
+    position: relative;
+    padding: 20px; }
+  /* line 39, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar #bottom-links {
+    position: absolute;
+    bottom: 0;
+    padding: 40px;
+    left: 0; }
+  /* line 45, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+  #sidebar #source {
+    line-height: 1em !important;
+    position: absolute;
+    opacity: 0.5;
+    bottom: 15px;
+    left: 91px;
+    text-align: center; }
+    /* line 52, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/sidebar */
+    #sidebar #source:hover {
+      opacity: 1;
+      text-decoration: none !important;
+      cursor: pointer; }
+
+/* line 1, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+#content a {
+  color: #005ede; }
+
+/* line 5, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+.inverted #content a {
+  color: #DEA700; }
+
+/* line 9, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+.inverted #content .content .date {
+  color: rgba(255, 255, 255, 0.5); }
+
+/* line 13, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+#content {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  /* line 17, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content p {
+    font-family: 'Helvetica Neue', helvetica, arial, sans-serif; }
+  /* line 20, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .content, #content .detailed-content {
+    position: absolute;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    padding: 26px;
+    padding-top: 30px;
+    padding-bottom: 40px; }
+  /* line 29, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .content {
+    overflow-x: hidden;
+    width: 100%; }
+    /* line 31, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content #container {
+      min-width: 240px; }
+    /* line 35, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content .title {
+      font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 33px;
+      font-weight: 900;
+      display: inline-block; }
+    /* line 40, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content .subheader {
+      font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      margin-left: 15px;
+      display: inline-block;
+      font-style: italic;
+      line-height: 1.5em;
+      margin-top: 5px; }
+    /* line 48, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content .article {
+      margin-top: 18px; }
+      /* line 51, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+      #content .content .article.detailed:hover, #content .content .article.linked:hover {
+        cursor: pointer; }
+        /* line 53, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+        #content .content .article.detailed:hover .article-title, #content .content .article.linked:hover .article-title {
+          text-decoration: underline; }
+      /* line 58, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+      #content .content .article .article-title {
+        line-height: 1.5em; }
+      /* line 61, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+      #content .content .article .article-description {
+        font-size: 16px;
+        line-height: 1.25em;
+        font-weight: 200;
+        letter-spacing: 0.5px; }
+      /* line 67, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+      #content .content .article.divider {
+        font-size: 1.25em;
+        color: rgba(0, 0, 0, 0.5);
+        margin-top: 25px; }
+      /* line 72, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+      #content .content .article.class {
+        margin-top: 15px; }
+    /* line 76, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content .center {
+      text-align: center; }
+    /* line 79, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content .content .date {
+      color: rgba(0, 0, 0, 0.5);
+      text-decoration: none !important; }
+  /* line 86, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  /* line 91, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content img {
+    max-height: 700px;
+    max-width: 100%; }
+    /* line 95, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+    #content img.full-width {
+      max-height: none; }
+  /* line 99, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .body {
+    margin-top: 20px; }
+  /* line 102, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .down-1 {
+    margin-top: 10px; }
+  /* line 105, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .down-2 {
+    margin-top: 20px; }
+  /* line 108, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .down-3 {
+    margin-top: 30px; }
+  /* line 111, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/content */
+  #content .shadow {
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) ; }
+
+/* line 1, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+.inverted #content .detailed-content {
+  background-color: black; }
+
+/* line 5, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+.inverted #content .detailed-content #show-comments p {
+  color: #DEA700; }
+
+/* line 9, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+.inverted #content .detailed-content .date {
+  color: rgba(255, 255, 255, 0.5); }
+
+/* line 13, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+#content .detailed-content {
+  min-width: 280px;
+  background-color: white;
+  overflow-y: scroll;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: none;
+  -webkit-box-shadow: -1px 0 0 #d6d6da ;
+  -moz-box-shadow: -1px 0 0 #d6d6da ;
+  box-shadow: -1px 0 0 #d6d6da ; }
+  /* line 14, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content p {
+    margin-bottom: 13px; }
+  /* line 27, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content .title {
+    margin-bottom: 22px;
+    font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px; }
+  /* line 31, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content .external-icon {
+    height: 18px;
+    margin-bottom: -2px; }
+  /* line 35, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content img {
+    max-height: none; }
+  /* line 38, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content #disqus_thread {
+    margin-top: 30px;
+    display: none; }
+  /* line 42, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content #show-comments {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px; }
+    /* line 46, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+    #content .detailed-content #show-comments p {
+      color: #005ede;
+      cursor: pointer;
+      font-size: 20px; }
+  /* line 52, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/details */
+  #content .detailed-content .date {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.5); }
+
+/* line 11, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/menu */
+#menu-icon {
+  opacity: 0.4;
+  color: black;
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  margin-left: -48px; }
+  /* line 19, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/menu */
+  #menu-icon:hover {
+    opacity: 0.7;
+    cursor: pointer; }
+  /* line 23, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/menu */
+  #menu-icon * {
+    display: inline-block; }
+  /* line 26, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/menu */
+  #menu-icon img {
+    height: 15px;
+    margin-bottom: 1px; }
+  /* line 30, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/menu */
+  #menu-icon h3 {
+    font-size: 30px;
+    line-height: 0.5em;
+    margin-left: 3px; }
+
+@media only screen and (max-width: 900px) {
+  /* line 2, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  body {
+    padding-left: 180px; }
+
+  /* line 5, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #sidebar {
+    width: 180px;
+    overflow: hidden; }
+    /* line 8, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+    #sidebar .title {
+      font-size: 23px;
+      text-align: center; }
+    /* line 12, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+    #sidebar #source {
+      left: 61px; }
+ }
+
+@media only screen and (max-width: 744px) {
+  /* line 18, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  body {
+    padding-left: 0; }
+
+  /* line 21, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #sidebar {
+    display: none; }
+
+  /* line 24, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #content .content {
+    padding-top: 60px; }
+ }
+
+@media only screen and (min-width: 744px) {
+  /* line 30, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #menu-icon {
+    display: none; }
+ }
+
+@media only screen and (max-width: 402px) {
+  /* line 37, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #content .content, .detailed-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 20px !important; }
+ }
+
+@media only screen and (max-height: 485px) {
+  /* line 47, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #top-links .link, #bottom-links .link {
+    font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.75em !important; }
+ }
+
+@media only screen and (max-height: 440px) {
+  /* line 56, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/resize */
+  #top-links .link, #bottom-links .link {
+    font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 1.5em !important; }
+ }
+
+/* line 1, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/lightbox */
+#lightbox-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 3%;
+  display: none; }
+
+/* line 10, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/lightbox */
+#lightbox {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%; }
+
+/* line 19, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/lightbox */
+#dismiss {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  display: none; }
+
+/* line 17, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+.content .about#container {
+  max-width: 1000px; }
+  /* line 19, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container h1 {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: proxima, 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-weight: 500; }
+  /* line 26, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container h2.subtitle {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 1.7em;
+    font-family: 'Helvetica Neue', helvetica, arial, sans-serif !important; }
+  /* line 34, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container p b, .content .about#container p strong {
+    font-weight: 500;
+    font-size: 0.8em;
+    color: #787878; }
+  /* line 47, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.gblue {
+    color: #0266C8; }
+  /* line 50, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.gred {
+    color: #F90101; }
+  /* line 53, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.gyellow {
+    color: #F2B50F; }
+  /* line 56, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.ggreen {
+    color: #00933B; }
+  /* line 59, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.hgreen {
+    color: #66AA33; }
+  /* line 62, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.mred {
+    color: #993333; }
+  /* line 65, /Users/coreywalsh/Documents/Work/Projects/coreyhwalsh/stylesheets/main.scss */
+  .content .about#container span.mcred {
+    color: #ff6740; }

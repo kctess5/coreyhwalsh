@@ -2,7 +2,20 @@
 	"title": "Ideas",
 	"id": "ideas",
 	"subheader": "Things I *might* get around to",
-	"articles": [{
+	"articles": [
+	{
+		"title": "Reap millions by modernizing applications for the government",
+		"id": "government_tech_debt",
+		"date": "2015-06-24",
+		"description": "Software firm + government contract + emulating runtime environments?",
+		"detailed": [
+			"<p>Apparently <a href='http://www.itworld.com/article/2939255/windows/the-us-navys-warfare-systems-command-just-paid-millions-to-stay-on-windows-xp.html' target='_blank'>the Navy is paying Microsoft millions of dollars to support Windows XP</a> because their applications rely on it.",
+			"<br><br><b>Step 1:</b> Migrate existing applications to some kind of emulated runtime so they can run on a modern OS (this may be easier said than done.) ",
+			"<br><b>Step 2:</b> Replace terrible old applications with new ones that don't suck. ",
+			"<br><b>Step 3:</b> ??? ",
+			"<br><b>Step 4:</b> PROFIT!!!!!!</p>"
+		]
+	},{
 		"title": "Sublime Text Plugin for sidebar filtering via filename globbing",
 		"date": "2015-02-26",
 		"description": "That could be cool..."

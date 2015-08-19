@@ -1,7 +1,22 @@
+#content a {
+	color: $blue;
+}
+
+.inverted #content a {
+	color: $inverted-blue;
+}
+
+.inverted #content .content .date {
+	color: rgba($white, .5);
+}
+
 #content {
 	height: 100%;
 	width: 100%;
 	position: relative;
+	p {
+		font-family: $base-fallback;
+	}
 	.content, .detailed-content {
 		position: absolute;
 		overflow-y: scroll;
@@ -33,7 +48,6 @@
 		.article {
 			margin-top: 18px;
 			&.detailed, &.linked {
-				color: $blue;
 				&:hover {
 					cursor: pointer;
 					.article-title {
@@ -82,11 +96,6 @@
 			max-height: none;
 		}
 	}
-
-	a {
-		color: $blue;
-	}
-
 	.body {
 		margin-top: 20px;
 	}	

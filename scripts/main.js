@@ -94,13 +94,16 @@ var smallWidth = function(e) {
 		hideDetails();
 		return true;
 	}
-}
+};
 
 var reset = function(){
-	$("body").css("padding-left", "");
-}
+	$("html").css("padding-left", "");
+};
 
 var bind = function() {
+	$(".inverter").off("click").click(function(e) {
+		$('body').toggleClass("inverted");
+	});
 	$(".article.detailed").off("click").click(function(e) {
 		if (smallWidth(e)) return;
 		var pageId = $(this).parent("div").attr("class");
@@ -112,14 +115,14 @@ var bind = function() {
 		if ($(window).width() < 745) {
 			minimizeSidebar(true);
 		}
-		loadDetails(pageId, articleId, "details")
+		loadDetails(pageId, articleId, "details");
 	});
 	$(".article.linked").off("click").click(function(e) {
 
 		if (smallWidth(e)) return;
 		var href = $(e.target).attr("href");
 		if (!href) { // didn't click on link
-			var url = $(this).find("a").attr("href")
+			var url = $(this).find("a").attr("href");
 			OpenInNewTab(url);
 		}
 	});

@@ -1,4 +1,19 @@
+.inverted #content .detailed-content {
+	background-color: black;
+}
+
+.inverted #content .detailed-content #show-comments p {
+	color: $inverted-blue;
+}
+
+.inverted #content .detailed-content .date {
+	color: rgba($white, .5);
+}
+
 #content .detailed-content {
+	p {
+		margin-bottom: 13px;
+	}
 	min-width: 280px;
 	background-color: white;
 	overflow-y: scroll;

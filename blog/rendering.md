@@ -1,0 +1,25 @@
+I recently stumbled upon some [very interesting literature]() on ray tracing and other rendering techniques. I looked into it a bit; it turns out that there is a [lot](http://maverick.inria.fr/Publications/2005/CPPSS05/cerezo.pdf) of excellent research out there on the subject.
+
+After reading some more papers, including an [excellent 2005 overview](http://maverick.inria.fr/Publications/2005/CPPSS05/cerezo.pdf) of the state of rendering techniques, I've concluded that a ray tracer is the perfect pet project, and here's why:
+
+A simple ray tracer is just that - simple, at least in theory. This makes it approachable.
+
+[Ray tracing](https://www.youtube.com/watch?v=KYekhnLHGms) is a technique for converting a 3D scene into a 2D image. It basically involves simulating the path of a photon backwards from the camera position to the scene. When the virtual photons strike virtual objects in the scene, a set of physics equations are used to model the photon's path through space. Once it's path is determined, the task of rasterization simply involves mixing the radience and color of each point along the way - once again with an equation that models real life. A basic, funcitonal implementation that could render solid 3d objects is not too many hours of work away.
+
+While this process may be conceptually simple, the naive ray tracer is either be vastly simplified, or dreadfully slow, even when accelerated with GPU hardware.
+
+The complexity arises from attempting to render real world effects such as [multiple scattering](https://en.wikipedia.org/wiki/Scattering#Single_and_multiple_scattering) in [participating media](http://www.cescg.org/CESCG-2000/SMaierhofer/node6.html) (e.g. fog, smoke, etc), subsurface scattering, and much more. Once these are considered, a more complicated physics model is often required. Many more samples are required to converge on a solution, and each sample itself expensive to compute.
+
+The silver lining, is that [multiple](http://www.cs.dartmouth.edu/~wjarosz/publications/dissertation/chapter7.pdf) [distinct](https://graphics.stanford.edu/courses/cs348b-03/papers/veach-chapter9.pdf) [methods](http://www.cse.chalmers.se/edu/year/2011/course/TDA361_Computer_Graphics/grid.pdf) can be incrementally applied to optimize performance, and they can often be used in combination. If you're into that kind of thing, this can be quite satisfying.
+
+There are, in fact, **many** potential optimizations that one can apply: [fancy data structures](https://en.wikipedia.org/wiki/Bounding_volume_hierarchy), Monte Carlo methods, heuristics, and many [other](http://iquilezles.org/www/articles/hwinterpolation/hwinterpolation.htm) [tricks](https://en.wikipedia.org/wiki/Volumetric_path_tracing). Quite a few of the options have the interesting trait of being derived from nature - deeply understanding the phsyics of the situation allows us to optimize computations.
+
+While computer science can solve problems, math can eliminate problems before they need to be solved. Sometimes there's non-obvious closed form solutions problems to things one might otherwise approach with monte carlo estimation, for example. The problem of ray tracing [provides plenty of opportunities](https://inst.eecs.berkeley.edu/~cs294-13/fa09/lectures/scribe-lecture3.pdf) to get deep into the math, for practical reasons, if you're into that kind of thing.
+
+The education value doesn't stop there; this gives an excellent opportunity to learn more about concurrency, and GPU programming - areas of increasing importance.
+
+Of course, let's not forget the most important part! Creating a ray tracing engine means that you get to play with it! There are endless, mindblowing uses for ray tracing engines, ranging from proceedural generation and 3d fractals to rendering physical phenomenon like [black holes](http://rantonels.github.io/starless/) or cloud nebulas.
+
+Proceedural generation is a huge goldmine of possiblities, as made astonishingly evident by [Tom Beddard's work with ray marching fractals.](http://sub.blue/fractal-lab) Generated worlds can be virtually navigated with the ray tracing engine. Interactive speeds can be attained by progressively rendering scenes, accelerated with GPUs. Computationally expensive techniques can be used on-demand to create high resolution renders of interesting perspectives.
+
+To wrap it up... If you're looking for an interesting pet project, want to learn a new language, or just want to learn about algorithms, you may want to look into rendering algorithms.
