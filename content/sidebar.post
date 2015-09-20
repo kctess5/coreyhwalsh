@@ -1,0 +1,31 @@
+title: Corey Walsh
+id: sidebar
+---
+
+{% macro link(title, id, link, external) -%}
+{% set post =  posts.get_post(post_id) %}
+<a {% if external == true %}target='_blank' {% endif %}href="{{ link }}"><div class="link-container"><h3 id="{{ id }}" class="link">{{ title }}</h3></div></a>
+{%- endmacro %}
+
+{% macro post_link(post_id) -%}
+{% set post =  posts.get_post(post_id) %}
+{{ link(post.title(), post.id(), '#' + post.id(), false)}}
+{%- endmacro %}
+
+<h1 class="main title"><a href="/">{{ metadata['title'] }}</a></h1>
+
+<div id="top-links">
+{{ post_link('projects') }}
+{{ post_link('ideas') }}
+{{ post_link('classes') }}
+{{ post_link('about') }}
+{{ post_link('blog') }}
+{{ link('Resume', 'resume', '/assets/corey_walsh_resume.pdf', true)}}
+</div>
+
+<div id="bottom-links">
+{{ post_link('contact') }}
+{{ link('Github', 'git', 'https://github.com/kctess5', true) }}
+{{ link("<span style='font-size: 10px;'>Source code</span>", 'source', 'https://github.com/kctess5/coreyhwalsh', true) }}
+
+</div>

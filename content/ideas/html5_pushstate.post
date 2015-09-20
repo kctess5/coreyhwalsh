@@ -1,0 +1,5 @@
+title: HTML5 Pushstate for this website
+subtitle: Would be nice to do away with the '#,' unfortunately this might require a custom (aka node) webserver. Would be a good extension of the below idea.
+date: 2015-02-26
+id: html5_pushstate
+template: post

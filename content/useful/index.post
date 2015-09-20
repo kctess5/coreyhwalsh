@@ -1,0 +1,11 @@
+subtitle: things I think are useful
+id: useful
+title: Useful
+---
+
+<h1 class="title">{{ metadata.title }}</h1>
+{%if metadata.subtitle %}
+<h3 class="subheader">...{{ metadata.subtitle }}</h3>
+{% endif %}
+<br>
+Coming Soon

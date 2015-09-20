@@ -1,0 +1,14 @@
+title: Processing Beat Detection
+subtitle: A relatively early attempt at signal analysis
+date: 2013-03-15
+id: beat-detection
+template: post
+---
+The 2.0 version of the algorithm. It is a predictive algorithm that monitors many frequency bands at the same time for "local beats" and then combines all of that information to detect "global beats."  
+  
+This version of the code (above) was used by Frog Design at the 2013 SxSW kickoff party.  
+  
+Interested? Check out the source code on [Github](https://github.com/kctess5/Processing-Beat-Detection).
+
+The earlier iteration of the algorithm. Basically just an implementation of the Minim audio analysis library.
+

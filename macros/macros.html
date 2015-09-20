@@ -1,0 +1,28 @@
+{% macro date(post) -%}
+    {% if 'date' in post.metadata %}<span class="date">- {{ post.metadata['date'] }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro wrap_link(post) -%}
+{% if post.has_content() == true %}
+<a href="#{{ post.id() }}">{{ caller() }}</a>
+{% else %}
+{{ caller() }}
+{% endif %}
+{%- endmacro %}
+
+{%- macro article_link(post) -%}
+{% call wrap_link(post) %}
+<div data-target="{{ post.id() }}" class="article-link{% if post.has_content() %} detailed{% endif %}">
+<h3 class="article-title">{{ post.metadata['title'] }}{{ date(post) }}</h3>
+<p class="article-description">{{ post.metadata['subtitle'] }}</p>
+</div>
+{% endcall %}
+{%- endmacro %}
+
+{%- macro class_link(post) -%}
+{% call wrap_link(post) %}
+<div data-target="{{ post.id() }}" class="article-link detailed">
+<h3 class="article-title">{{ post.metadata['number'] }} {{ post.metadata['course-name'] }}</h3>
+</div>
+{% endcall %}
+{%- endmacro %}

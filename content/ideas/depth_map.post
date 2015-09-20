@@ -1,0 +1,4 @@
+title: Real-time in Browser Depth Map via UVC
+subtitle: Think stereoscopic webcams + FPGA + image registration pretending to be a normal webcam
+id: depth_map
+template: post

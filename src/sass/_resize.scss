@@ -1,0 +1,83 @@
+@media only screen and (max-width : 900px) {
+    body {
+    	padding-left: $sidebar-width * .75;
+    }
+	#sidebar {
+		width: $sidebar-width * .75;
+		overflow: hidden;
+		.title {
+			font-size: 23px;
+			text-align: center;
+		}
+		#source {
+			left: ($sidebar-width * .75 - 58)/2;
+		}
+	}	
+}
+@media only screen and (max-width : 744px) {
+	body {
+		padding-left: 0;
+		padding-top: 51.25px;
+	}
+	#sidebar {
+		display: none;
+		&.unhidden {
+			display: block;
+		}
+	}
+	#mobile-header {
+		display:table-row;
+	}
+	#content .content {
+		padding-top: 60px;
+	}
+}
+
+@media only screen and (min-width : 744px) {
+	#menu-icon {
+		display: none;
+	}
+}
+
+@media only screen and (max-width : 640px) {
+	body {
+		padding-top: 47.5px;
+	}
+}
+
+@media only screen and (max-width : 402px) {
+	body {
+		padding-left: 0;
+		padding-top: 44.5px;
+	}
+	#mobile-header {
+		padding: 12px;
+		h1, h3 {
+			@include font($nexa, em(26px));
+		}
+	}
+	#content .content, .detailed-content {
+		padding-left: $padding*.8 !important;
+		padding-right: $padding*.8 !important;
+		padding-bottom: $padding !important;
+	}
+
+}
+
+@media only screen and (max-height : 485px) {
+	#top-links, #bottom-links {
+		.link {
+			@include font($proxima, 18px);
+			line-height: 1.75em !important;
+		}
+	}
+}
+
+@media only screen and (max-height : 440px) {
+	#top-links, #bottom-links {
+		.link {
+			@include font($proxima, 17px);
+			line-height: 1.5em !important;
+		}
+	}
+}

@@ -1,0 +1,4 @@
+title: Server Side Rendering for this website
+subtitle: This site site is fully rendered on the client side. It would be nice if it could be rendered server side for no.js support and search engine indexing.
+id: server_side_rendering
+template: post

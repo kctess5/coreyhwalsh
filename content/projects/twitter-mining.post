@@ -1,0 +1,9 @@
+title: Twitter Mining
+subtitle: Moderately derpy, somewhat entertaining class project
+date: 2013-10-28
+href: http://twitter-mining.herokuapp.com
+id: twitter-mining
+template: post
+--- 
+This heroku app finds the most common words on twitter and plots them by position on the map. The code for this is a bit hacky, but it's entertaining to watch.
+

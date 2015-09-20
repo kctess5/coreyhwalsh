@@ -1,0 +1,13 @@
+title: Reap millions by modernizing applications for the government
+subtitle: Software firm + government contract + emulating runtime environments?
+date: 2015-06-24
+id: government_tech_debt
+template: post
+--- 
+
+Apparently [the Navy is paying Microsoft millions of dollars to support Windows XP](http://www.itworld.com/article/2939255/windows/the-us-navys-warfare-systems-command-just-paid-millions-to-stay-on-windows-xp.html) because their applications rely on it.  
+  
+**Step 1:** Migrate existing applications to some kind of emulated runtime so they can run on a modern OS (this may be easier said than done.)   
+**Step 2:** Replace terrible old applications with new ones that don't suck.   
+**Step 3:** ???   
+**Step 4:** PROFIT!!!!!!

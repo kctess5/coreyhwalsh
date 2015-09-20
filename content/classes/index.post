@@ -1,0 +1,36 @@
+subtitle: Past, and Present
+id: classes
+title: Classes
+---
+{% from 'macros.html' import article_link, class_link %}
+
+<h1 class="title">{{ metadata.title }}</h1>
+{%if metadata.subtitle %}
+<h3 class="subheader">...{{ metadata.subtitle }}</h3>
+{% endif %}
+
+<h3 class='divider'>Junior Fall - 2015</h3>
+{% for child in posts.by_semester(children, 5) %}
+{{ class_link(posts.get_post(child)) }}
+{% endfor %}
+
+<h3 class='divider'>Sophomore Spring - 2015</h3>
+{% for child in posts.by_semester(children, 4) %}
+{{ class_link(posts.get_post(child)) }}
+{% endfor %}
+
+<h3 class='divider'>Sophomore Fall - 2014</h3>
+{% for child in posts.by_semester(children, 3) %}
+{{ class_link(posts.get_post(child)) }}
+{% endfor %}
+
+<h3 class='divider'>Freshman Spring - 2014</h3>
+{% for child in posts.by_semester(children, 2) %}
+{{ class_link(posts.get_post(child)) }}
+{% endfor %}
+
+<h3 class='divider'>Freshman Fall - 2013</h3>
+{% for child in posts.by_semester(children, 1) %}
+{{ class_link(posts.get_post(child)) }}
+{% endfor %}
+

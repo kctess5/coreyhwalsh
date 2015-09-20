@@ -1,0 +1,54 @@
+#about {
+	.content-container {
+		max-width: 900px !important;
+	}
+	h1.about-title {
+		margin-top: 24px;
+		text-align: center;
+		font-size: 1.8em;
+		font-family: $proxima;
+		font-weight: 500;
+	}
+	h2.subtitle {
+		margin-top: 25px;
+		margin-bottom: 8px;
+		font-weight: 500;
+		font-size: 1.7em;
+		font-family: $base-fallback !important;
+	}
+	p {
+		b {
+			font-weight: 500;
+			font-size: .8em;
+			color: #787878;
+		}
+		// font-family: $nexa;
+	}
+
+	$gBlue: #0266C8;
+	$gRed: #F90101;
+	$gYellow: #F2B50F;
+	$gGreen: #00933B;
+
+	span.gblue {
+		color: $gBlue;
+	}
+	span.gred {
+		color: $gRed;
+	}
+	span.gyellow {
+		color: $gYellow;
+	}
+	span.ggreen {
+		color: $gGreen;
+	}
+	span.hgreen {
+		color: #66AA33;
+	}
+	span.mred {
+		color: #993333;
+	}
+	span.mcred {
+		color: #ff6740;
+	}
+}

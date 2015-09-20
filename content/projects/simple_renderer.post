@@ -1,0 +1,15 @@
+title: Simple Renderer in Rust
+subtitle: 6.837 Assignment Zero
+date: 2015-09-14
+href: https://github.com/kctess5/Simple_Renderer
+id: simple_renderer
+template: post
+---
+This semester I decided to take 6.837 (Computer Graphics). Normally, the assignements are all done in C++, but I wanted an excuse to learn Rust and this seemed like a decent opportunity.
+
+I've moderately fallen in love with Rust, but that's a topic for another time...
+
+![](/assets/garg.jpg)
+
+This is a pretty simple project that can load .obj files, and render them on the GPU. There is a simple first person camera implementation that allows the user to fly around the model and rotate the camera with the mouse (though I believe this is currently experiencing gimble lock.)
+

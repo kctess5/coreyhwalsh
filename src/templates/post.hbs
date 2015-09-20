@@ -1,0 +1,18 @@
+<div id="{{ metadata.id }}" class="pane">
+<div class='content-container template-post markdown-body'>
+<h2 class="title">
+	{{#if metadata.href}}
+		<a target="_blank" href="{{metadata.href}}">{{{metadata.title}}}
+		<img class="external-icon" src="/assets/external1.png"></a>
+	{{else}}
+		{{{metadata.title}}}
+	{{/if}}
+</h2>
+
+	{{#if metadata.date}}
+		<p class="date">Created {{prettyDate metadata.date }}</p>
+	{{/if}}
+
+{{{ content }}}
+</div>
+</div>

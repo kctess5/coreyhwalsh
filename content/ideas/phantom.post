@@ -1,0 +1,15 @@
+title: Phantom.js snapshot ascii rendering + Sublime
+subtitle: Sublime Text as a web browser
+date: 2015-02-25
+id: phantom
+template: post
+--- 
+Basically, think sublime plugin that wraps a Phantom.js instance. When things change, a snapshot is taken of the rendered HTML, which is then rasterized into colored ascii. This ascii gets saved to a file, and that file gets opened/reloaded in a Sublime Text window.
+
+
+	pseudo$ Phantom.shapshot() | ImgToAscii > temp.txt  
+	pseudo$ Sublime.reload(temp.txt)
+
+
+While this alone would be cool to see, I bet this could be made into a sort of UI for other Sublime Plugins that need GUI interfaces. Would make for an interesting weekend project. Hmmmm....
+

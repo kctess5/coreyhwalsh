@@ -1,0 +1,8 @@
+id: contact
+title: Contact
+---
+<h1 class="title">{{ metadata.title }}</h1>
+<p class='down-2'>Have a burning desire to talk to me? Now you can!<p>
+<p class='down-1 social'>email: <a class='blue underline' href='mailto:chwalsh@mit.edu'>chwalsh@mit.edu</a></p>
+<p class='social'>github: <a class='blue underline' target='_blank' href='https://github.com/kctess5'>kctess5</a></p>
+<p class='social'>flickr: <a class='blue underline' target='_blank' href='https://www.flickr.com/photos/96683714@N08'>coreywalsh1</a></p>

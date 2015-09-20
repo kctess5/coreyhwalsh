@@ -1,0 +1,8 @@
+build/node_modules/
+.sass-cache/
+.DS_Store
+Archive.zip
+s3_website.yml
+deploy.sh
+_archive/
+_compiled/
