@@ -110,6 +110,11 @@ function findParentId(el) {
 	return null;
 }
 
+function OpenInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
 function bindEvents(current_ids, data) {
 	// handle link clicks inside panes
 	$('a').off('click').click(function(e) {
@@ -121,6 +126,12 @@ function bindEvents(current_ids, data) {
 		if (target == "_blank") {
 			return;
 		}
+		if (contains("http", url.slice(0,6))) {
+			OpenInNewTab(url);
+			e.preventDefault();
+			return;
+		}
+		
 		if (contains("/", url)) {
 			open(getURL(url), data);
 			e.preventDefault();

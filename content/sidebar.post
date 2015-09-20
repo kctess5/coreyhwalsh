@@ -27,5 +27,4 @@ id: sidebar
 {{ post_link('contact') }}
 {{ link('Github', 'git', 'https://github.com/kctess5', true) }}
 {{ link("<span style='font-size: 10px;'>Source code</span>", 'source', 'https://github.com/kctess5/coreyhwalsh', true) }}
-
 </div>

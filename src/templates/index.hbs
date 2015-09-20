@@ -1,0 +1,9 @@
+<div id="{{ metadata.id }}" class="pane">
+<div class='content-container'>
+<h1 class="title">{{ metadata.title }}</h1>
+{{#if metadata.subtitle }}
+<h3 class="subheader">...{{ metadata.subtitle }}</h3>
+{{/if}}
+{{{ content }}}
+</div>
+</div>

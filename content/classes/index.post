@@ -1,13 +1,9 @@
 subtitle: Past, and Present
 id: classes
 title: Classes
+template: index
 ---
 {% from 'macros.html' import article_link, class_link %}
-
-<h1 class="title">{{ metadata.title }}</h1>
-{%if metadata.subtitle %}
-<h3 class="subheader">...{{ metadata.subtitle }}</h3>
-{% endif %}
 
 <h3 class='divider'>Junior Fall - 2015</h3>
 {% for child in posts.by_semester(children, 5) %}

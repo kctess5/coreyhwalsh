@@ -1,0 +1,167 @@
+title: Rendering the Graph
+subtitle: Refactoring rayban.vision... again
+date: 2015-09-20
+id: blog-refactor
+template: post
+---
+
+This weekend, I wanted to put up some new projects and other updates to the site as it was over due, and our career fair is coming up. But, as these things usually go, I got fed up with the content management system of the first version of the site, and decided to fix things a bit.
+
+The source code of the latest version (the version you're currently looking at) is [on GitHub](https://github.com/kctess5/coreyhwalsh) if you'd like to take a peek.
+
+## the old
+
+I had a few complaints with the old site ([which is here](https://github.com/kctess5/coreyhwalsh/tree/master)). It looked almost exactly the same, but was very different under the hood.
+
+1. The content management system involved a folder full of JSON files which held both the metadata and the content - in the form of HTML strings. The content was compiled with a smattering of icky Gulp scripts.
+2. The front end rendering pipeline left much to be desired - it was effectively a bunch of hacked together JavaScript to handle UI state changes
+
+All of these factors came together to make modifications difficult. Not only was it difficult to change things on the site itself, the inflexibility meant that I couldn't quickly reuse the site's structure for unrelated class projects or quick info sites.
+
+## the new backend
+
+So I thought about it a bit... and came up with what I thought I wanted:
+
+1. Flexibility
+2. Ease of updating
+3. A simple rendering pipeline
+4. Fast
+
+I was using the JSON format for content management because it could be manipulated easily with Gulp, but it was a huge pain to write. I realized that I could have the best of both worlds - a well structured data format that could be machine parsed, but also be human friendly. I've thought a lot about parsers and compilers recently, so a lot of these ideas arose from the tricks that programming languages use to be expressive and powerful.
+
+### structure the content
+
+Each post has two types of data - metadata and content. For the metadata half of this, I choose YAML for its simplicity and human friendlienss. For the content side of things, markdown was the natural choice. 
+
+The ".post" file for this post looks like this (top is yaml, bottom is markdown):
+
+	title: Rendering the Graph
+	subtitle: Refactoring rayban.vision... again
+	date: 2015-09-20
+	id: blog-refactor
+	template: post
+
+	---
+
+	This weekend, I wanted to put up some new projects and other updates...
+
+This may look familiar to anyone who has played with Jekyl (yes, I know that Jekyl exists).
+
+While this system is very human friendly, it lacks some of the power that the old system had to generate content. Previously, handlebars was used to generate index pages and article listings, but there was no easy way to do this in the new paradigm.
+
+#### macros
+
+I decided to combat this problem with macros - effectively in-line code snippets which can be executed to expand into larger strings of HTML/Markdown. Handlebars can be thought of as a macro language, but it is targeted to JavaScript, and is logic-less so writing functions in the form of helper functions can be tedious, so I went on the prowl for a better option.
+
+I settled on [Jinja 2](http://jinja.pocoo.org/docs/dev/) which is a Python friendly templating language. Using Jinja 2, I could (almost) directly walk the logical representation of the directory structure in order to generate either Markdown or raw HTML. Effectively, the pre-processing step allows me to represent my index pages like this:
+
+	subtitle: Things I actually get around to
+	id: projects
+	title: Projects
+	template: index
+	---
+	{{ "{%" }} from 'macros.html' import article_link {{ "%}" }}
+
+	{{ "{%" }} for child in posts.by_date(children) {{ "%}" }}
+	{{ "{{" }} article_link(posts.get_post(child)) {{ "}}" }}
+	{{ "{%" }} endfor {{ "%}" }}
+
+This expands into a list of HTML links that makes up the article listing pages.
+
+Without going too far into it, the [article_link macro](https://github.com/kctess5/coreyhwalsh/blob/graph/macros/macros.html) just renders a bit of HTML to make a link for that post. I'll mention what the "template" attribute is for a bit later.
+
+The combination of all of these templating languages and rendering stages means that the final site is *very* flexible. If I just need basic Markdown to write a blog post, I can just use that (as I am now). If I need to do more fancy things with generated HTML, I can do that as well, without needing to resort to special case logic to alter the compilation semantics.
+
+For another example, this is the representation of my sidebar:
+
+	<h1 class="main title"><a href="/">{{ "{{" }}" metadata['title'] {{ "}}" }}</a></h1> 
+
+	<div id="top-links">
+	{{ "{{" }}" post_link('projects') {{ "}}" }}
+	{{ "{{" }}" post_link('ideas') {{ "}}" }}
+	{{ "{{" }}" post_link('classes') {{ "}}" }}
+	{{ "{{" }}" post_link('about') {{ "}}" }}
+	{{ "{{" }}" post_link('blog') {{ "}}" }}
+	{{ "{{" }}" link('Resume', 'resume', '/assets/corey_walsh_resume.pdf', true){{ "}}" }}
+	</div>
+
+	<div id="bottom-links">
+	{{ "{{" }}" post_link('contact') {{ "}}" }}
+	{{ "{{" }}" link('Github', 'git', 'https://github.com/kctess5', true) {{ "}}" }}
+	{{ "{{" }}" link("<span style='font-size: 10px;'>Source code</span>", 'source', 'https://github.com/kctess5/coreyhwalsh', true) {{ "}}" }}
+	</div>
+
+Declarative macros are excellent - they allow you to abstract away any form of repeating pattern very quickly. Using that idea, you can write your specification where it makes sense, and that specification simply expands into a full representation. This is easily understandable and easy to modify, but there is no runtime efficiency hit because the expansion is done at compile time.
+
+### migrate the old content
+
+Once I defined my content format, then the first challenge was to migrate the old content. There was enough content in the site already that migrating from json/html files to the new yaml/markdown spec would be a huge pain. Instead, I created a [little python file](https://github.com/kctess5/coreyhwalsh/blob/graph/build/test.py) to do the heavy lifting. I also managed to find a very convenient python package called [html2text](https://github.com/aaronsw/html2text) which converts raw HTML to markdown.
+
+A little bit of cleaning and formatting, and I was good to go with my newly flavored content/ directory. 
+
+### compile!
+
+The next step was to parse that into something useful. In this case, "something useful" corresponds to "json" which will eventually be served to the client and passed into the front-end rendering pipeline.
+
+I decided to ditch Gulp for this, in favor of standard Python. Gulp is good at some things, but in-memory representations of graphs is not one of them. [This is the python script](https://github.com/kctess5/coreyhwalsh/blob/graph/build/compile.py) which does the heavy lifting.
+
+The compilation step has three main steps.
+
+1. Recursively traverse the directory structure of the content/ directory to generate the logical representation
+2. Parse and render the raw file contents into metadata and HTML content.
+3. Serialize the in-memory representation into a JSON
+
+
+## front end rendering pipeline
+
+Now that we have one large .json file containing all of the compiled content, we need to display that somehow. The old version of the site used two "panes" - 'content' and 'detailed content.' The 'content' pane usually held the index pages, and the 'detailed content' pane held specific articles. I liked this UI, but I really hated how it was managed (though a large number of special cases statements).
+
+I decided to purify this idea a bit, and make it more powerful. I decided that the new semantics would be this
+
+- the URL is a "/" separated list of post ids
+- each pane contains the contents of the post with that ID
+- panes are displayed side by side, in order
+
+Now that I had these simple semantics, I set about to make it happen. 
+
+### layout
+
+The biggest challenge is displaying side by side content areas responsively (so that it works on mobile phones as well.) The old system relied on the special-case fact that there were only ever 2 or 1 panes to string together a smattering of JavaScript and CSS to make it all look decent, but this method did not scale to n panes.
+
+I thought about this one for a while, and realized that there were three general states that the UI could be in, depending on the number of panes and the viewport size.
+
+- Optimal: All panes are fully displayed side by side at or above a minimum width (defined in settings)
+- Folded: The topmost pane is displayed at an acceptable width, but subsequent panes are folded underneath
+- Mobile: Only the topmost pane is displayed
+
+I programmed a few classes in JavaScript that encapsulated this idea based off of a settings object that specifies min/max dimensions acceptable for various UI features. Based off of those settings, it's trivial to generate a range of acceptable viewport dimensions to render each kind of layout.
+
+Since the layouts are in order of decreasing "goodness" from a UI point of view, choosing which to use is a simple matter of picking the "best" one that is valid for the given viewport size and number of panes to display. The best layout option that works is asked to generate a specific layout - the pixel locations of the left and right sides of each pane - and a simple piece of JavaScript sets the corresponding attributes on the absolutely positioned divs.
+
+The nice thing about this method, is that it works on a best-effort sort of basis - the layout that is chosen is the best option for that resolution - and it works for n panes. This vastly simplifies the rendering pipeline on the front end. To see it in action, resize the window and see how it changes! You can probably pick out when it jumps between layout types.
+
+### rendering
+
+To do the final render, the pipeline is like this
+
+1. gather ids from the URL
+2. look up the corresponding data, and render it to HTML by running it through template specified by the "template" metadata attribute (these templates add things like post titles and dates)
+3. generate a layout
+4. insert HTML elements with the calculated dimensions, and insert the content
+
+As the user navigates around the site, all my code has to do is repeat this process whenever the URL hash changes.
+
+### UI
+
+One of the most icky parts of the codebase is the part that handles UI and navigation. There is a small amount of special cased logic that changes the state of the website based off of user interaction. As much as I like to write everything as functionally and statelessly as possible, the DOM makes this difficult, and as a result there are a few UI functions which (alas) rely on and mutate global state.
+
+I hope to improve this aspect more when I get more time - for example I think it would be cool if when users hovered over a folded pane that pane became more visible, perhaps by being partially expanded.
+
+## wrapping it up
+
+I have some ideas about how to improve this stuff further - but for now, you can play around with the algorithm by messing with the URL hash. Including arbitrary post ids will in fact render them as specified :)
+
+Feel free to grab my source code and adapt it for your purposes! Ideally that could be done by only modifying the content/ directory and maybe a few macros.
+
+Thanks for reading!
+

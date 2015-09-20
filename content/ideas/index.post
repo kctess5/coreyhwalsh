@@ -1,13 +1,9 @@
 subtitle: Things I *might* get around to
 id: ideas
 title: Ideas
+template: index
 ---
 {% from 'macros.html' import article_link %}
-
-<h1 class="title">{{ metadata.title }}</h1>
-{%if metadata.subtitle %}
-<h3 class="subheader">...{{ metadata.subtitle }}</h3>
-{% endif %}
 
 {% for child in posts.by_date(children) %}
 {{ article_link(posts.get_post(child)) }}
