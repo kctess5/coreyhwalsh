@@ -663,3 +663,12 @@
   position: relative;
   border-color: #4078c0;
 }
+
+.markdown-body {
+  ul, ol {
+    li {
+      @include font($raleway, 18px);
+      font-weight: 200;
+    }
+  }
+}

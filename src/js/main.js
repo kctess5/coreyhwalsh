@@ -40,11 +40,21 @@ function open(ids, data) {
 	// inject new panes
 	for (pane in panes) {
 		$CONTENT.append(panes[pane]);
+		// load any javascripts specified by the 'scripts' parameter of the metadata
+		load_scripts(data[ids[pane]]);
 	}
 	// window.onhashchange = function() {};
 	setUrl(ids);
 	layoutPanes();
 	bindEvents(ids, data);
+}
+
+function load_scripts(data) {
+	if (data.metadata && data.metadata.script) {
+		$.getScript(data.metadata.script, function(){
+		    // console.log('Fetched Script:', data.metadata.script);
+		});
+	}
 }
 
 function navigateTo(ids) {
@@ -141,7 +151,7 @@ function bindEvents(current_ids, data) {
 			e.preventDefault();
 		}
 	});
-	$(".pane img:not(.external-icon)").off("click").click(function(e) {
+	$(".pane img:not(.external-icon):not(.no-lightbox)").off("click").click(function(e) {
 		var image = e.currentTarget.currentSrc;
 		$("#lightbox-container").show();
 		$("#lightbox").css("background-image", "url("+image+")");

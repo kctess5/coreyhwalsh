@@ -2,6 +2,7 @@ title: Aww yis, a new blog!
 subtitle: Isn't it shiny?
 date: 2015-02-27
 id: firstcommit
+template: post
 ---
 Hello world, as they say.  
   

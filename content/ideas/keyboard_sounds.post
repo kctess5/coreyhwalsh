@@ -1,0 +1,12 @@
+title: Infer typed words based on sound
+subtitle: I recently acquired an IBM Model M...
+id: keyboard_sounds
+template: post
+---
+I just got my hands on a Model M mechanical keyboard (which, incidentally, is 3 years older than I am) and I noticed that it sounds fairly distinctive. Additionally, there seems to be slight variations between the sounds that each key makes. Maybe this is due to varied wear, maybe it's manufactoring differences, or maybe it's something else, but it gave me an idea...
+
+It would be fun to try to recover typed words from the Model M with some flavor of machine learning.
+
+It may or may not be possible to infer typed words from a recording of the keyboard being typed upon. This seems like an excellent use case for machine learning - record myself pressing "a" over and over, tell it that that's "a," rinse, repeat.
+
+Given that it should be relatively easy to figure out how many letters were typed, and that the space and backspace keys are especially distinctive, I'd imagine at the very least word length could be deciphered. I suppose if there's too much ambiguity to reliably identify each letter, some form of T9-like algorithm could be used to filter the options further. 

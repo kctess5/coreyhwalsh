@@ -1,0 +1,58 @@
+title: CMS.S62 Project Proposal
+subtitle: What *is* art?
+date: 2015-11-18
+id: art_proposal
+template: post
+---
+This semester, I am taking a class called CMS.S62, or Internet as a Social Artifact. This is my final project proposal brief.
+
+---
+
+Art: "a diverse range of human activities and the products of those activities, usually involving imaginative or technical skill" - Wikipedia
+
+This era of information and technology has caused us to call into question many of our societal preconceptions about what is and is not possible. Profound changes in computational power allow technologists to create works in code that are nearly indiscernible from human conceived art, raising the question of whether or not such works can be considered art in their own right. Furthermore, we must question what might be the primary artifact of such labor, whether it be the output of the machine, or the machine itself.
+
+### Research Question
+
+Can machines make art?
+
+### Topic/Technology
+
+I plan to consider algorithmic art in general, though I will specifically focus on:
+
+- [Neural net 'art'](https://www.reddit.com/r/deepdream)
+- [Fractal 'art'](http://www.webdesignmash.com/art/stunning-examples-of-fractal-art/)
+- [Robotic painting](http://www.informatik.uni-konstanz.de/en/edavid/)
+
+A deepdream image from [Google's Neural Net research](http://googleresearch.blogspot.com/2015/06/inceptionism-going-deeper-into-neural.html?m=0)
+![](/assets/deepdream.jpg)
+
+[Like in a Dream](https://youtu.be/S530Vwa33G0) processed on my GPU with [Neural Style](https://github.com/jcjohnson/neural-style) against [Shipwreck](http://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck)
+![](/assets/animated_gif4.gif)
+
+A photo of the Golden Gate bridge processed with [Neural Style](https://github.com/jcjohnson/neural-style) against [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night)
+![](/assets/golden_gate_starry.png)
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/S530Vwa33G0' frameborder='0' allowfullscreen></iframe></div>
+<style>.embed-container { margin-top: 5px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://player.vimeo.com/video/68859229' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+### Methodology
+
+I plan to start by posing and exploring a few somewhat open ended questions about art in general. In discussing these questions, I plan to reference historical and modern literature, as well as talking with others to gain insights to what art means to my contemporaries. Some of these questions may include (but are not limited to) the following:
+
+- What is art?
+- What is art for?
+- If it can be considered art, is the product or the algorithm itself the 'art'?
+
+I can also draw parallels to a few other things such as:
+
+- The invention of photography and the affect it had on that which was considered art at the time
+- Digital vs film photography
+- Art forgeries
+
+Since this is a potentially open ended question, I will most likely not propose 'the one true answer for all of techno-art' but rather attempt to bring to light many of the factors that should be considered in evaluating the artfulness of any given work. Once I have discussed those topics, I will apply insights gleaned therein to confront the applicability of the word 'art' to the specific technologies in question. 
+
+### Related
+
+[The Work of Art in the Age of Mechanical Reproduction - Walter Benjamin](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm)
+
+[I like by bots like I like my people - Chris Peterson](http://cl.ly/1Z0k30042h05)

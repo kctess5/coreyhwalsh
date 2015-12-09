@@ -1,0 +1,23 @@
+title: Estimating Pi with Buffon's Needle
+subtitle: because why notspo
+date: 2015-11-18
+id: buffons-needle
+template: post
+script: /js/buffon_physics2.min.js
+---
+Recently while wandering the halls of Hacker News, I was pricked by Buffon's Needle. I solved it, and then decided it would be a fun thing to simulate and analyze a bit, so here it goes...
+
+---
+
+<div style='width:100%; height:400px; position:relative' id='buffon-demo'></div>
+
+- pi ~= <span id='pi_estimate'></span>
+
+- Intersected Needles: <span id='intersected_needles'></span> Total Needles: <span id='total_needles'></span>
+
+<div id="chartContainer" style="height: 300px; width:100%;"></div>
+
+<div id="longChartContainer" style="height: 300px; width:100%;"></div>
+
+This demo is made with three.js. In order to keep the memory usage down, I create a pool of needles (represented as a circular array) that are continually added to the scene. Additionally, the needle geometry and material are instanced to avoid unnecessary memory allocations.
+

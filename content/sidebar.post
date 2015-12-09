@@ -20,6 +20,7 @@ id: sidebar
 {{ post_link('classes') }}
 {{ post_link('about') }}
 {{ post_link('blog') }}
+{{ post_link('other') }}
 {{ link('Resume', 'resume', '/assets/corey_walsh_resume.pdf', true)}}
 </div>
 

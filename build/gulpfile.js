@@ -63,6 +63,8 @@ var paths = {
 	client: {
 		sass: "../src/sass/**/*.scss",
 		js: "../src/js/**/*.js",
+		// buffon: "../src/js/buffon.js",
+		buffon: "../src/js/buffon_physics2.js",
 		html: "../src/**/*.html",
 		templates: "../src/templates/*.hbs",
 		assets: '../assets/**/*',
@@ -107,7 +109,16 @@ var bundleAll = function(arr){ _.each(arr, bundle); };
 
 gulp.task('browserify', function() {
 	bundleAll([
-		paths.client.root.js + '/main.js'
+		paths.client.root.js + '/main.js',
+	]);
+});
+
+gulp.task('browserify-buffon', function() {
+	bundleAll([
+		// paths.client.root.js + '/buffon.js',
+		paths.client.buffon
+		// paths.client.root.js + '/ammo.js',
+		// paths.client.root.js + '/physijs_worker.js'
 	]);
 });
 
@@ -190,14 +201,15 @@ gulp.task('content', function() {
 
 gulp.task('watch', function() {
 	gulp.watch(paths.client.sass, ['sass', 'reload']);
-	gulp.watch(paths.client.js,   ['browserify']);
+	gulp.watch([paths.client.js, '!'+paths.client.buffon], ['browserify']);
+	gulp.watch(paths.client.buffon,   ['browserify-buffon']);
 	gulp.watch(paths.client.assets,   ['assets', 'reload']);
 	gulp.watch(paths.client.content,   ['content']);
 	gulp.watch(paths.client.html,   ['html', 'reload']);
 	gulp.watch(paths.client.templates,   ['templates']);
 });
 
-gulp.task('build', ['sass', 'browserify', 'templates', 'assets', 'html']);
+gulp.task('build', ['sass', 'browserify', 'browserify-buffon', 'templates', 'assets', 'html']);
 gulp.task('dev', ['build', 'watch']);
 
 

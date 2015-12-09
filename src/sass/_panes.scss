@@ -35,7 +35,7 @@
 		img {
 			max-width: 100%;
 		}
-		img:not(.external-icon) {
+		img:not(.external-icon):not(.no-shadow) {
 			@include box-shadow(0, 0, 15px, rgba(0,0,0,.3));
 		}
 		.title {

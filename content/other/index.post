@@ -1,0 +1,10 @@
+subtitle: Other things
+id: other
+title: Other
+template: index
+---
+{% from 'macros.html' import article_link %}
+
+{% for child in posts.by_date(children) %}
+{{ article_link(posts.get_post(child)) }}
+{% endfor %}
