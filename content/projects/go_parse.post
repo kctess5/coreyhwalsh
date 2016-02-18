@@ -1,0 +1,25 @@
+title: Parsing things with Go
+subtitle: And getting meta...
+date: 2015-07-04
+id: go_parse
+template: post
+href: https://github.com/kctess5/Go-lexer-parser
+---
+I made a simple (but fun) parser combinator library in Go. It could probably use a bit more work before it's super useful, but it was a fun weekend project that's not terribly slow.
+
+As explained in the [README](https://github.com/kctess5/Go-lexer-parser), I also made a parser combinator shorthand for writing concise [context-free grammars](https://www.cs.rochester.edu/~nelson/courses/csc_173/grammars/cfg.html) like this
+
+	var math = parse.Grammar{
+		"digit":    "'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'",
+		"sign":     ` '+'|'-' `,
+		"operator": " '*'|'/'|'+'|'-'|'^' ",
+		"digits":   "digit & [digit] ",
+		"number": ` { digits & 'e' & digits } | digits 
+				  | { '(' & (sign) & digits & ')' }`,
+		"component":  "number | { '(' & expression & ')' }",
+		"expression": "component & [{operator & component}]",
+	}
+
+Of course, that was written with the help of the parser combinators.
+
+I think I need to go deeper... Next up: writting a shorthand parser in parser shorthand.

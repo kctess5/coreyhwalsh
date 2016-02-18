@@ -6,5 +6,7 @@ template: index
 {% from 'macros.html' import article_link %}
 
 {% for child in posts.by_date(children) %}
+{% if posts.get_post(child).metadata.public != false %}
 {{ article_link(posts.get_post(child)) }}
+{% endif %} 
 {% endfor %}

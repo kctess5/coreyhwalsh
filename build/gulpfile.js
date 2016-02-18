@@ -69,6 +69,7 @@ var paths = {
 		templates: "../src/templates/*.hbs",
 		assets: '../assets/**/*',
 		content: '../content/**/*.post',
+		places: '../src/js/places.js',
 		root: {
 			sass: "../src/sass",
 			js: "../src/js",
@@ -119,6 +120,12 @@ gulp.task('browserify-buffon', function() {
 		paths.client.buffon
 		// paths.client.root.js + '/ammo.js',
 		// paths.client.root.js + '/physijs_worker.js'
+	]);
+});
+
+gulp.task('browserify-places', function() {
+	bundleAll([
+		paths.client.places
 	]);
 });
 
@@ -203,13 +210,16 @@ gulp.task('watch', function() {
 	gulp.watch(paths.client.sass, ['sass', 'reload']);
 	gulp.watch([paths.client.js, '!'+paths.client.buffon], ['browserify']);
 	gulp.watch(paths.client.buffon,   ['browserify-buffon']);
+	gulp.watch(paths.client.places,   ['browserify-places']);
 	gulp.watch(paths.client.assets,   ['assets', 'reload']);
 	gulp.watch(paths.client.content,   ['content']);
 	gulp.watch(paths.client.html,   ['html', 'reload']);
 	gulp.watch(paths.client.templates,   ['templates']);
 });
 
-gulp.task('build', ['sass', 'browserify', 'browserify-buffon', 'templates', 'assets', 'html']);
+gulp.task('browserify-all', ['browserify', 'browserify-buffon', 'browserify-places']);
+
+gulp.task('build', ['sass', 'browserify-all', 'templates', 'assets', 'html', 'content']);
 gulp.task('dev', ['build', 'watch']);
 
 

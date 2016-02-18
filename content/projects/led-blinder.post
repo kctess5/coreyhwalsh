@@ -4,5 +4,8 @@ date: 2011-07-13
 id: led-blinder
 template: post
 --- 
+{% from 'macros.html' import responsive_youtube %}
+
 I made this sophomore year of high school so that I could have the coolest room lighting system on the block. While fairly unreliable, it proved to be a somewhat successful project. It was the inspiration behind the Processing Beat Detection algorithm which is actually running on the laptop on the wall in this video.
 
+{{ responsive_youtube("ZxeKui1IL0w") }}

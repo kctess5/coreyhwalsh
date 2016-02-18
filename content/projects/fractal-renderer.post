@@ -1,0 +1,41 @@
+title: Real-time Progressive Fractal Renderer
+subtitle: Infinite fields of trippyness
+date: 2015-11-05
+id: fractal-renderer
+template: post
+href: https://github.mit.edu/chwalsh/renderer
+---
+{% from 'macros.html' import responsive_youtube %}
+
+![](/assets/mandelbulb_fractal.jpg)
+
+For fun and final projects, I created a system for progressively rendering [distance equations](http://iquilezles.org/www/articles/distfunctions/distfunctions.htm). It's still definitely a work in progress, but I think it has come far enough along to be interesting. This project was awarded the second place in-class prize of an Oculus Rift (when it comes out)!
+
+I wrote this system in C++ and Cuda C with the help of Nvidia Optix (for artfully compiling GPU-kernels) and Qt (for displaying everything). There's an XML scene parser that spits out valid OptiX contexts, and a fly-camera implementation for moving around. I added a few fractal distance equations - namely the Julia, Menger Sponge, and Mandelbulb fractals - along with a few basic shading effects. Here's a few videos of it in action - but alas, it's more fun to play with in person than to watch on the internet!
+
+This one is a bit old, before I implemented progressive rendering, but I like this scene a lot:
+{{ responsive_youtube("0dCRqrxKf7s") }}
+
+Here it is, with progressive rendering enabled. You can see the quality improve the longer I don't move the camera:
+{{ responsive_youtube("PhF4qsi0Kcs") }}
+
+Infinite spheres!
+{{ responsive_youtube("APLJTSTGxi8") }}
+
+As long as the camera parameters don't change, I improve various rendering parameters - maximum ray-marching steps, fractal parameters, and so on. This is all combined into a persistent GPU buffer, and spat out to the display every 30ms or so.
+
+In the next few weeks I'm hoping to clean it up a bit for human consumption with READMEs and so forth, so check back soon if you're interested in getting into the code. I have many future plans for this, namely:
+
+- A better scene description language which supports things like looping, creating functions, variables, etc. a-la [POV-Ray](http://www.povray.org/documentation/3.7.0/r3_3.html)
+- Support for real-time parameter control, similar to Tom Beddard's [Fractal Lab](http://sub.blue/fractal-lab)
+- General code cleanup. Things got a bit messier than preferred in the crunch to finish final projects :(
+- More cameras (with a better inheritance pattern)
+- More fractals
+- Better progressive rendering
+	- importance first sampling
+	- [noise reduction](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6127845&tag=1)
+- 3D point cloud camera (so that I can output to 3D printers)
+- Documentation
+- the list could go on for a long time if I don't stop now
+
+It's safe to say this will probably be an active area of development in the upcoming months...

@@ -2,6 +2,10 @@
     {% if 'date' in post.metadata %}<span class="date">- {{ post.metadata['date'] }}</span>{% endif %}
 {%- endmacro %}
 
+{% macro end_date(post) -%}
+    {% if 'end_date' in post.metadata %}<span class="date">- {{ post.metadata['end_date'] }}</span>{% endif %}
+{%- endmacro %}
+
 {% macro wrap_link(post) -%}
 {% if post.has_content() == true %}
 <a href="#{{ post.id() }}">{{ caller() }}</a>
@@ -13,8 +17,16 @@
 {%- macro article_link(post) -%}
 {% call wrap_link(post) %}
 <div data-target="{{ post.id() }}" class="article-link{% if post.has_content() %} detailed{% endif %}">
-<h3 class="article-title">{{ post.metadata['title'] }}{{ date(post) }}</h3>
+<h3 class="article-title">{{ post.metadata['title'] }} {{ date(post) }}</h3>
 <p class="article-description">{{ post.metadata['subtitle'] }}</p>
+</div>
+{% endcall %}
+{%- endmacro %}
+
+{%- macro city_link(post) -%}
+{% call wrap_link(post) %}
+<div data-target="{{ post.id() }}" class="article-link{% if post.has_content() %} detailed{% endif %}">
+<h3 class="article-title">{{ post.metadata['title'] }} {{ date(post) }} {{ end_date(post) }}</h3>
 </div>
 {% endcall %}
 {%- endmacro %}
@@ -26,3 +38,8 @@
 </div>
 {% endcall %}
 {%- endmacro %}
+
+{%- macro responsive_youtube(vid) -%}
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/{{vid}}' frameborder='0' allowfullscreen></iframe></div>
+{%- endmacro %}
+

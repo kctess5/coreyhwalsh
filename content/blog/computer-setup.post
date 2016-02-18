@@ -1,0 +1,50 @@
+title: My Computer Setup
+subtitle: crunching the numbers
+date: 2016-02-01
+id: computer-setup
+template: post
+---
+
+As a computer scientist, computer systems make me feel warm and fuzzy inside. Mine may not be the baddest build on the block, but it has been great to work with and provides all the power I generally need. Classes just started, so I figured I might as well write about random things on the internet...
+
+![](/assets/computer/monitors.jpg)
+
+## The Desktop
+
+GPUs are awesome - they're basically super computers compared to your standard quad-core CPU. In fall of 2016 I took a computer graphics class at MIT, and decided it was a good excuse to buy a really powerful GPU. I ended up building a computer because I discovered that doing so was much cheaper than buying one off the shelf, and I could spend money in just the areas I wanted.
+
+**NVIDIA GTX 970** - This is one of NVIDIA's beasts. It's not their fastest, but it's currently the best bang for your buck in my opinion. 1664 CUDA cores make this thing incredibly powerful, which is handy when trying to run [real-time fractal rendering](/#projects/fractal-renderer)...
+
+**Quad-core I5-4590 @ 3.3GHz** - Not the most powerful process ever, but it does its job and keeps the GPU happy
+
+**8 GB of main memory** - Hoping to upgrade to 16 GB soon...
+
+**100 GB solid state Intel SSD** - This is a development machine, so I don't need much storage, but I dat random read performance is excellent
+
+![](/assets/computer/desktop.jpg)
+
+Big thanks to my homie Skyler for hooking me up with this awesome case. I used to have the motherboard sitting naked on my desk...
+
+## The Monitors
+
+There are, of course, three of them. I got two of them for free from the bowels of the Stata Center, and the largest from a friend. I change around the configuration fairly often, but right now I'm using the middle and right monitors for the desktop, and the right one as a secondary display for my laptop when necessary.
+
+## The Keyboard
+
+![](/assets/computer/keyboard.jpg)
+
+I splurged and got a [Corsair K70 with Cherry MX Blues](http://www.corsair.com/en-us/vengeance-k70-fully-mechanical-gaming-keyboard-anodized-black-na-layout). The red backlight is actually pretty nice for easily seeing the keys in dim rooms. Luckily, the SO doesn't seem to mind the noise.
+
+## The Laptop
+
+My laptop is a Macbook Pro 15" with Retina display. I bought it second hand for almost half off list price in fantastic condition, and its been an awesome day-to-day machine ever since. It has an NVIDIA GT 650M GPU, which isn't the greatest, but it can run CUDA code which is a plus for me and it can run most games decently well. Unsurprisingly, the screen is beautiful in person.
+
+## Software
+
+On my desktop, my GNU/Linux distro of choice is [Ubuntu](http://www.ubuntu.com/) because it's compatible with basically everything. I use [i3](https://i3wm.org/) as my window manager because it's easy to use and very lightweight, plus it supports multiple monitors natively.
+
+I use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) and [SSHFS](https://github.com/libfuse/sshfs) quite a lot. It's very useful to mount all of my computers as remote disks with SSHFS so that I can access all my files from any computer. This is especially nice when developing code on the laptop while actually running the heavy processing tasks on the desktop.
+
+[Sublime Text 3](https://www.sublimetext.com/3) is my text editor of choice. This is mostly because I think it's sufficiently customizable and fairly lightweight. I use a number of plugins for some basic IDE functionality, and automate away my compilation/repetitive tasks with Bash/Python scripts.
+
+I use [Spotify](https://www.spotify.com/us/) for the majority of my music needs. It's actually one of the only services that I pay for because I think it's so awesome.

@@ -1,0 +1,53 @@
+title: Handy file watcher
+subtitle: Automate your life away with this simple Python file
+date: 2016-02-15
+id: watch
+template: post
+href: https://github.com/kctess5/file_watcher
+---
+
+Inevitably, in the development process there are repetitive tasks that need to be done when something changes. This usually entails some form of build step, and some form of run step.
+
+For a while, I did what I see a lot of people doing:
+
+	# Hack
+	# Move mouse to terminal
+	$ 'Up'
+	$ 'Enter'
+
+But this gets pretty old pretty quickly, especially if you make a very small number of changes between your compilations.
+
+After I started using Node, NPM, and Gulp, I discovered [node-watch](https://www.npmjs.com/package/node-watch), which is a handy way to do things whenever files change. I used this for a while to manage all of my web development projects. When I started development, I would run some 'dev' gulp task which would fire up all of my watch tasks and off I went. I even made it automatically refresh the web browser when things changed. This worked great, but it was pretty awful in terms of setup. Every build system had to be written (at least partially) in Javascript, and just setting up all of the watch tasks for a new project was a big pain.
+
+Being the developer that I am, and believing in [The Unix Way](https://en.wikipedia.org/wiki/Unix_philosophy) as I do, I decided to make something more flexible and customizable. Enter Python and a few lines later, [file_watcher](https://github.com/kctess5/file_watcher) is born.
+
+Here's the usage:
+
+	File Watcher - written by Corey Walsh
+	usage: ./watch.p [options] [file globs] "echo $command-to-run" 
+	  -h : display this message
+	  -v : verbose
+	  -i [int] : milliseconds between file polling
+	  -o [filename] : file to dump stdout (appends)
+	  -c : clear output before running command
+
+	Standard unix file globs are used for file specification, ex: hello_*.txt
+
+	The following command keywords will be replaced with their corresponding value for the changed file:
+	  [filename]
+	  [filepath]
+
+Disclaimer, there are [other things](http://entrproject.org/) that do exactly this, but I made my own because it was easy, marginally entertaining, and more customizable.
+
+When I use this, I generally watch:
+
+- all relevant source files to trigger the corresponding make commands
+- linting commands (like [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint)) that always run in the background for quick debugging. 
+- a few key files (main.cpp) which will trigger my re-run commands for the thing I'm developing
+- any test cases. Only the saved test case gets executed so there's not too much output in the terminal.
+
+All of these things happen in tiled command line instances on a secondary monitor, so I can see any relevant output in real time as I edit code without ever leaving the text editor. One cool thing is that because it is all based on file changes, various watch instances cascade as expected - for example, any code generation commands will first generate code and then the changed generated code files trigger a recompilation, and then the application relaunches - all with a single file save.
+
+
+
+

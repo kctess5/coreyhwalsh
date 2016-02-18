@@ -5,4 +5,5 @@ id: kitchen-lights
 template: post
 ---
 
-<div class='embed-container'><iframe src='http://www.youtube.com/embed/hW9ygYUFkhk' frameborder='0' allowfullscreen></iframe></div>
+{% from 'macros.html' import responsive_youtube %}
+{{ responsive_youtube("hW9ygYUFkhk") }}

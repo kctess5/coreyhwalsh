@@ -1,0 +1,29 @@
+title: Software project managment system
+subtitle: Lightweight template based project scaffolding
+date: 2016-02-15
+id: project_management
+template: post
+---
+As a student and a software developer, I end up creating a lot of new projects. While I often use the same set of tools and general functionality, it's difficult to reuse the frameworks of similar projects because doing so would require first stripping out everything that is unneeded. In involved projects with significant build systems, this can be a pain. 
+
+Due to this difficulty, starting new projects for quick one off jobs or for testing an idea sometimes a involves a lot of overhead getting re-oriented with whatever set of tools I choose. I think it would be nice if I had some form of template library that would store skeleton code for the basic things that I use in almost every project. In that scenario, I could just generate a few key files to get a new project started and get into writing code quickly. I've tried just having a directory of "templates" which are actually just very early versions of random projects that are easy to modify, but it's not the best method of organization or user interface.
+
+Here's some of the functionality that I use in a large fraction of my {Python, C++, Node, Go, other} software projects:
+
+- Command line interfaces
+- GPU integration - CUDA/OpenGL
+- Libraries - OpenCV, QT, etc
+- Development environment automation scripts
+- Readmes
+- Install scripts
+- Build systems
+- Documentation
+- Parsers
+
+If I could generate a skeleton that could optionally include 'hello, world!' style implementations of each of the above features in any of my languages of choice along with some handy comments, then I could get new projects going MUCH faster than possible now. JUST getting GPU integration usually requires a fair bit of configuration and hair pulling. Better to do that once during template generation than over and over for every new project.
+
+A scaffolding system to do all that could also be quite handy for installing files that I frequently move from computer to computer easier - dotfiles and [watch scripts](#projects/watch) for example.
+
+[Yeoman](http://yeoman.io/) comes to mind, but it is very web-centric and it seems to be somewhat difficult to create new scaffolds. [Khaos](https://github.com/segmentio/khaos) is closer to what I want, but it's lacking quite a few features that I think could be very nice. I have forked their source and have been adding some things (ability to install packages from local directories, for example) but I might just roll my own system. Handlebars and Python play nicely together, and text substitution and conditional inclusion are not that hard.
+
+If I end up making something useful, I'll move this over to the project systems.

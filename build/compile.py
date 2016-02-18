@@ -79,6 +79,9 @@ class Post(object):
 		if self.id() == 'projects':
 			print self.content
 
+	def metadata(self, key):
+		return self.metadata[key]
+
 	def id(self):
 		return self.metadata['id']
 

@@ -4,7 +4,11 @@ date: 2013-03-15
 id: beat-detection
 template: post
 ---
+{% from 'macros.html' import responsive_youtube %}
+
 The 2.0 version of the algorithm. It is a predictive algorithm that monitors many frequency bands at the same time for "local beats" and then combines all of that information to detect "global beats."  
+
+{{ responsive_youtube("QVX2F6kUaRQ") }}
   
 This version of the code (above) was used by Frog Design at the 2013 SxSW kickoff party.  
   
@@ -12,3 +16,4 @@ Interested? Check out the source code on [Github](https://github.com/kctess5/Pro
 
 The earlier iteration of the algorithm. Basically just an implementation of the Minim audio analysis library.
 
+{{ responsive_youtube("GtMZPCQ84Qc") }}

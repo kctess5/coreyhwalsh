@@ -356,3 +356,9 @@ body.inverted {
     height: 100% !important;
     width: 100% !important;
 }
+
+p, h1, h2, h3 {
+    &.center {
+        text-align: center;
+    }
+}

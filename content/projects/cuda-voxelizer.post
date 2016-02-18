@@ -1,0 +1,63 @@
+title: Cuda-Accelerated Voxelizer
+subtitle: Making cubes quickly
+date: 2016-02-14
+id: cuda-voxelizer
+template: post
+href: https://github.com/kctess5/voxelizer
+---
+{% from 'macros.html' import responsive_youtube %}
+
+Our first assignment in [6.807](#classes/6.807) was to make a voxelizer in C++. The general purpose of a voxelizer is to convert a standard [.obj mesh](https://en.wikipedia.org/wiki/Wavefront_.obj_file) into a 3D [voxel grid](https://en.wikipedia.org/wiki/Voxel).
+
+Original .obj mesh of a bunny:
+
+<img class="no-lightbox no-shadow center" alt="bunny obj mesh" src="/assets/bunny.jpg">
+
+Voxelized bunny: 128^3, 5 direction samples (6.54 seconds)
+
+<img class="no-lightbox no-shadow center" alt="voxelized bunny" src="/assets/bunny_128_5.jpg">
+
+There are a few algorithms to do this, the one that we were supposed to implement for the class is a conceptually simple process based off of ray casting.
+
+1. Discretize space to some step size
+2. Iterate over discretized space
+3. Cast ray in some direction, count intersections
+4. If the number of intersections is odd, then the voxel is inside the mesh. If the number of intersections is even (including 0), then the voxelizer is outside of the mesh.
+
+This algorithm relies on the mesh being entirely closed, because if it is not, it would be possible for a ray to cross the mesh without correctly incrementing the intersection count. This problem can be mitigated by casting rays in many randomized directions, and using the most commonly agreed upon value of 
+
+	intersections % 2
+
+to determine the voxel occupancy. 
+
+The main problem with this algorithm is the computational complexity of the naive implementation, which looks something like this:
+
+	for i in x_resolution: # generally 16-1000
+		for j in y_resolution: # generally 16-1000
+			for k in y_resolution: # generally 16-1000
+				for ray in direction_samples: # generally 1-15
+					intersections = 0
+					for triangle in .obj mesh: # generally 1000 - 1000000
+						intersections += (intersects(triangle, ray) ? 1 : 0);
+					# do something with intersection % 2
+
+Anyone who has seen quintuple nested for loops over non-trivially sized sets knows, this will take a LONG time. A reasonable instance would be a 1000^3 discretization of a broken mesh with 100,000 triangles requiring 11 ray samples to 'close' the mesh. That computation would involve:
+
+	11 * 100000 * 1000 * 1000 * 1000 = 1.1*10^15
+
+That's 1.1 quadrillion(!) ray triangle intersections! If the CPU could do one ray/triangle intersection per clock cycle (spoiler, it can't) then this would still take 3750000 seconds (43 days).
+
+Implementing a BVH to accelerate mesh/ray intersection would significantly reduce this number to something closer to:
+
+	11 * (n * log(100000, 2)) * 1000 * 1000 * 1000 = n * 176,660,000,000	
+
+intersection operations, where n is some small constant. This is still quite a few, but presumably it would be on the order of minutes rather than days.
+
+Another option would be to exploit the [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) nature of this problem by implementing it on the GPU. This is what I did recently for 6.807. Rather than having a triple nested for loop for x/y/z, I create one GPU thread per voxel which computes the occupancy of that voxel by iterating over the mesh. Since there is conceptually almost no [execution divergence](https://cvw.cac.cornell.edu/gpu/thread_div), and every thread iterates over the mesh in the same order so there's very no [memory read divergence](https://cvw.cac.cornell.edu/gpu/coalesced), the GPU is able to hit almost peak processing capability with (in [my case](#blog/computer-setup)) 1664 CUDA cores. In other words, the GPU can eat ray-triangle intersections for breakfast, lunch, and dinner.
+
+In this configuration, that 43 days (CPU version, roughly approximated) for 1.1 quadrillion intersections would be over in something closer to a few hours in the GPU on beast-mode.
+
+Of course, this is in some sense only a band-aid, because the GPU version still has the same algorithmic complexity (1.1 quadrillion is still 1.1 quadrillion) as the CPU version. To get better performance, a BVH would still be highly beneficial. Unfortunately, I haven't done this yet because CUDA BVH construction and traversal is non-trivial, and would result in both execution and memory read divergence unless VERY carefully implemented. I would probably defer to NVIDIA OptiX if I wanted to go down that route (dem ray-packeted acceleration data structures.) On the bright side, the naive GPU is (potentially much) faster than the BVH CPU algorithm when the mesh is relatively small (<5000 triangles) because BVH traversal is more divergent then streaming the triangles through the GPU.
+
+My code can either spit out .obj files that look like the voxelized version, or the much more compact [.binvox](http://www.cs.princeton.edu/~min/binvox/) format. To see the source code, usage information, benchmarks, and some random other stuff, check out [the github repo](https://github.com/kctess5/voxelizer).
+

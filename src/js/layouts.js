@@ -15,7 +15,7 @@ OptimalLayout.prototype.max = function() {
 	return this.n * this.s.maxWidth;
 };
 
-OptimalLayout.prototype.makeLayout = function(viewportWidth) {
+OptimalLayout.prototype._makeLayout = function(viewportWidth) {
 	var small = (this.n - 1) * this.s.minWidth + this.s.targetWidth;
 	var medium = this.n * this.s.targetWidth;
 	if (viewportWidth.between(this.min(), small)) {
@@ -92,6 +92,19 @@ OptimalLayout.prototype.makeLayout = function(viewportWidth) {
 	return null;
 };
 
+OptimalLayout.prototype.makeLayout = function(viewportWidth) {
+	var dims = this._makeLayout(viewportWidth);
+	if (dims) {
+		return {
+			flavor: "optimal",
+			dims: dims
+		};
+	} else {
+		return dims;
+	}
+};
+
+
 var FoldedLayout = function(numpanes, s) {
 	this.n = numpanes;
 	this.s = s;
@@ -105,7 +118,7 @@ FoldedLayout.prototype.max = function() {
 	return this.n * this.s.maxWidth;
 };
 
-FoldedLayout.prototype.makeLayout = function(viewportWidth) {
+FoldedLayout.prototype._makeLayout = function(viewportWidth) {
 	var smallest = this.min();
 	var small = (this.n-1) * this.s.minPreview + this.s.targetWidth;
 	var large = (this.n-1) * this.s.minWidth + this.s.maxWidth;
@@ -171,6 +184,18 @@ FoldedLayout.prototype.makeLayout = function(viewportWidth) {
 	return null;
 };
 
+FoldedLayout.prototype.makeLayout = function(viewportWidth) {
+	var dims = this._makeLayout(viewportWidth);
+	if (dims) {
+		return {
+			flavor: "folded",
+			dims: dims
+		};
+	} else {
+		return dims;
+	}
+};
+
 var MobileLayout = function(numpanes, s) {
 	this.n = numpanes;
 	this.s = s;
@@ -184,13 +209,25 @@ MobileLayout.prototype.max = function() {
 	return this.s.maxWidth;
 };
 
-MobileLayout.prototype.makeLayout = function(viewportWidth) {
+MobileLayout.prototype._makeLayout = function(viewportWidth) {
 	return rng(this.n).map(function(i) {
 		return {
 			l: 0,
 			r: viewportWidth
 		};
 	}.bind(this));
+};
+
+MobileLayout.prototype.makeLayout = function(viewportWidth) {
+	var dims = this._makeLayout(viewportWidth);
+	if (dims) {
+		return {
+			flavor: "mobile",
+			dims: dims
+		};
+	} else {
+		return dims;
+	}
 };
 
 module.exports = {

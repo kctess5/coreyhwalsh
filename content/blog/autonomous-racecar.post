@@ -1,0 +1,13 @@
+title: Autonomous Racecar Competition
+subtitle: Going in circles, quickly
+date: 2016-01-20
+id: autonomous-racecar
+template: post
+---
+{% from 'macros.html' import responsive_youtube %}
+
+This winter during what MIT calls Independent Activities Period (we call it IAP), I participated in the second offering of the [Rapid Autonomous Complex-Environment Competing Ackermann-steering Robot](http://news.mit.edu/2015/students-autonomous-robots-race-mit-tunnels-0406) (RACECAR) competition. Basically, we made 1/10th scale electric cars complete a loop in the Stata Center's basement. The objective was to get the fastest time possible during a single-car timed trial with no human guidance. We didn't ever run them all at the same time for fear of high speed collisions, but I think that would have been quite entertaining.
+
+The cars were effectively modified RC cars, with [NVIDIA Jetson TX1](http://www.nvidia.com/object/jetson-tx1-module.html)'s on-board. While the cars were equipped with a laser scanner, two depth cameras, and an IMU, we were only really able to use the laser scanner for our sensing needs. This ended up to be not too much of a problem though, because those data were quite usable on their own. The competition gave me a chance to play with fast robots, path planning, and [Robot Operating System](http://www.ros.org/).
+
+Unfortunately my team did not win, but we did consistently complete the track without crashing into things, which is a plus! There was a lot of video taken at the event, including from a camera mounted on top of the cars. I'll be sure to link that here as soon as it is made available.

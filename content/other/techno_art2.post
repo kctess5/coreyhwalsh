@@ -1,0 +1,225 @@
+title: CMS.S62 Final Project
+subtitle: On technology's ever expanding umwelt
+date: 2015-12-9
+id: techno_art2
+template: post
+public: false
+---
+
+notes:
+- [old version](/#techno_art)
+- [this person](http://www.nbi.dk/~emmeche/cePubl/2001d.robumwelt.html) discusses robot umwelts, but their take on it is significantly different from mine
+- not sure exactly how to integrate/wrap up the bit about the aura and what impact the new methods will have on that 
+- I removed the bit about fractals because I didn't think it was very relevant to my central point
+
+{% from 'macros.html' import responsive_youtube %}
+
+During my first semester Junior year at MIT, I took a very interesting class by [Ethan Zuckerman](https://en.wikipedia.org/wiki/Ethan_Zuckerman) and [Chris Peterson](http://mitadmissions.org/blogs/author/chrispeterson) called Internet as a Social Artifact - or CMS.S62, as the cool kids call it. This my (rather lengthy) final paper, enjoy if you dare!
+
+## Abstract
+
+Jakob von Uexk&uuml;ll's idea of the umwelt asserts that organisms construct for themselves a self-centered phenomenal world. The ability to have an umwelt is predicated upon both the ability to sense the surrounding environment, and the ability to unite and interpret semiotic processes into high level model of the world. I assert that while modern technologies have excelled at the sensory part of this requirement, they have for the most part been lacking in higher level understanding. Modern machine learning algorithms allow computers to build a high level understanding of sensed data in a way that resembles Uexk&uuml;ll's concept of the self-centered world. 
+
+Algorithms such as the convolutional neural network used in Neural Style by [Leon Gatys et al.](http://arxiv.org/pdf/1508.06576v2.pdf) - fueled by recent improvements in computational power - potentially represent the beginnings of what I refer to as the technological umwelt. I argue that a technology's ability to generate novel artistic works is a good proxy for understanding the bredth of its technological umwelt - how deeply it is able to understand the work that it is reproducing. Historically, selective reproduction of artistic works has allowed human operators to mold that work's meaning. Modern generative methods such as Neural Style in this sense are not entirely new, but rather a continuation and automation of this long standing concept. I explore the implications of such advancement in terms of algorithmic ability to reproduce artistic works in ways that could be considered highly uncanny.
+
+### My involvement
+
+This is a topic of great interest to myself, as a person both highly involved in the field of computer science and interested in aesthetic qualities of my work. I recently created a fully custom real-time fractal geometry renderer (the results of which are pictured below,) and have first-hand experience with most of the other technologies discussed here.
+
+---
+
+While there has been much debate over the purpose or classification of artistic works, a common theme is that the creation of art is a task requiring human creativity.
+
+Under this broad definition of art as human expression, a wide range of endeavors can be considered art - photography, painting, music, literature, new media, and much more. There is, however, potentially another category of highly artistic work that is neglected by such a classification: machine generated art. By this, I refer to apparently artistic works created by machines with little to no human interaction. The existence of such work raises the question of whether or not such things could be considered art alongside the product of human creativity. Unfortunately, the answer to this question is almost certainly impossible to solve in the general case, due to its subjective nature.
+
+We can, however, explore the historical relationship between art and technology, and examine new technologies on a case by case basis through that lens. In this way, we can better understand and predict the impact that today's emergent technology may have on art as a whole.
+
+
+## History of art and technology 
+
+As Walter Benjamin discusses in [The Work of Art in the Age of Mechanical Reproduction](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm), the origins of many kinds of early art lie in ritualistic or 'cult' values. Items were created to serve ritualistic purposes and imbued with a perceived intrinsic power, often intended for the sole purpose of religious or spiritual symbolism. These objects existed for reasons other than human enjoyment, so they were not designed to be shared with or perceived by other humans. As noted by Benjamin, this is why some cathedrals have meticulously crafted sculptures entirely hidden from view.
+
+The value of these works is highly dependent on the materiality of the object - its specific existence, and the motivation for its existence - what Benjamin describes as the 'aura.' Seeing as the work was not created for its aesthetic value, attempting to replicate the physical manifestation of a work by creating copies - digital or otherwise - would fail to capture the essence of the work and the context in which it existed. A picture of a holy shrine is not a copy of the original object as much as it is a likeness.
+
+Of course, in addition to cult value, over time many people gained an interest in the aesthetic qualities of art, and many works were created with portability and/or visibility in mind - paintings as opposed to murals, busts as opposed to immovable statues. Before high quality artistic reproduction was viable, this interest in art for aesthetic purposes was constrained by the availability and expense of original artwork. As humanity moved forward in time and technology, methods for reproducing and spreading artistic work increased in number and accuracy. First came our ability to stamp or cast metals and other primitive methods of replication. Eventually more complex methods were found for duplicating written or drawn work such as ink printing and lithography. With the introduction of film photography humanity took a large step forward in its ability to capture and reproduce arbitrary events or objects.
+
+> *Historically, [mechanical reproduction of art has] advanced intermittently and in leaps at long intervals, but with accelerated intensity.* - Walter Benjamin
+
+The internet, digital recording devices, and modern display systems propelled the speed and reach of communication to previously unparalleled heights, allowing nearly any form of art to be perceived remotely given the proper equipment.
+
+New media has not only paved the way for the reproduction of art, but has also historically opened pathways with which to channel human expression and creativity. Photography allows the artists perception of a beautiful instance to be captured, without taking the time to draw or otherwise reproduce that perception. Internet technologies allow artists to coalesce the thoughts and deeds of the masses into a unified artistic output. One excellent example of this is [Scott Draves'](http://scottdraves.com) [Electric Sheep](http://www.electricsheep.org) - a distributed "cyborg mind" which generatively combines the works of a network of almost half a million users to produce a single dynamic output.
+
+Of course, every one of our methods for artistic reproduction - both old and new - are imperfect in some sense. Digital imaging allows a work to transcend the space and time in which it was conceived, but it strips out important aspects of what makes the work meaningful and powerful. That which comprises Benjamin's concept of aura - the physicality an object, its history and story, temporal degradation, and so forth - are lost when the visual likeness of a thing is compressed onto a 2D plane of colors.
+
+## Current artistic reproduction techniques
+
+Today's primary method of artistic reproduction relies on digital imaging systems which seek to capture a visual likeness of the original work. Color reproduction itself has been the subject of much research and consideration. While in this day and age we often consider computer screens or physical prints to be "full color," this is in fact a simplification of a fairly complex topic. Both color displays and color printing rely on peculiarities of the human visual system to recreate colors that appear to be the same as the captured images.
+
+In order to better understand the digital representation of artistic works, it is important to understand both the physical reality of the problem at hand, and the inner workings of the human visual system.
+
+### The spectrum of light
+
+Electromagnetic (EM) radiation is the result of oscillating electric and magnetic fields that travel through space. The range of frequencies at which the EM waves oscillate is known as the electromagnetic spectrum, or light spectrum. We have come to know and love a very narrow range of frequencies - 390nm to 700nm - often referred to as visible light. While there is not much inherently special about these specific wavelengths, they trigger receptors in the human eye, so we are familiar and infatuated with them. 
+
+The EM spectrum is continuous, which is to say that there are an infinite number of possible frequencies. Certain physical phenomena - such as our sun - emit a wide distribution of EM radiation. Additionally, every material around us has as certain reflectance spectrum, which describes the percentage of light that is absorbed or reflected for any given wavelength.
+
+<img class="no-lightbox no-shadow center" alt="Illumination and reflectance" src="/assets/techno_art/illumination.jpg">
+
+As EM radiation travels through space, it bounces off of objects. The objects' reflective properties dictate how much of the radiation continues on its journey and how much is absorbed as heat. In this way, the light forms a certain spectral distribution depending on what materials are bounced off or passed through. 
+
+### The human visual system
+
+When electromagnetic radiation reaches our eyes, the waves that lie within the visible range are perceived as color. The human visual system contains two important structures that allow us to sense light - rods and cones. The rods are primarily for night vision and not color, so I'll focus mostly on the cones. There are (normally) three varieties of cones - long, medium, and short - each of which detect one of what we perceive to be red, green, and blue. Each cone has a certain spectral response, which means the relative intensity of stimulus generated by any given electromagnetic wavelength.
+
+<img class="no-lightbox no-shadow center" alt="Cone Response" src="/assets/techno_art/cone_response.jpg">
+<p class="center"><i>Typical response for the long, medium, and short cone</i></p>
+
+When the distribution of spectral wavelengths impinges upon the human eye, each cone effectively integrates the light spectrum over the its own response, and the final integral product determines the level to which each cone is electrically stimulated. These electrical signals travel to the visual cortex, where the differing ratios of stimulus for each type of cone is interpreted as variations in color.
+
+The cones and rods represent the first step in a larger system for semantic understanding of the the sensed world - the later parts of this system will be discussed later in this discourse.
+
+### Imaging systems
+
+Early imaging systems were based off of photographic film. When exposed to light, silver-halide crystals on the surface of the film react, and cause a chemical change on the film's surface. Color reproduction is achieved by layering different chemicals to capture red, green, and blue individually. After being developed to stabilize the reactants, these chemical variations can be amplified and duplicated a large number of times as photographic prints.
+
+Digital imaging systems, [first developed by Kodak engineer Steve Sasson](http://archive.is/CzyL9) in 1975, are different. Sasson's device utilized an image sensor known as a charge-coupled device, or CCD for short. The device senses visible range EM radiation with a grid of small light sensors. In order to view the world in color, a grid of color filters is laid over the sensor to allow only a narrow band of wavelengths through to the underlying CCD sensor. A special algorithm is then used to process these three color channels into a single red-green-blue image.
+
+<img class="no-lightbox no-shadow center" alt="Sony CCD model ICX493AQA" src="/assets/techno_art/sony_ccd.jpg">
+<p class="center"><i>A modern Sony CCD, model ICX493AQA - courtesy of [wikipedia](https://en.wikipedia.org/wiki/Charge-coupled_device)</i></p>
+
+This kind of sensor has two primary physical limitations, first of these is spatial resolution - the number of individual sensors in its imaging array. Susson's original sensor captured 10000 samples in a 2D grid, which pales in comparison to the 8 million captured by an iPhone 6's rear facing camera. Camera resolution has advanced to the point where it is not generally a limitation in visual reproduction.
+
+Unfortunately, the quality of visual reproduction is affected by the compression of the infinitely divisible EM spectrum into only three colors. This dimensional reduction is necessarily insufficient to fully capture the spectral distribution of the incoming light, because doing so would consume infinite computer memory. In other words, this form of camera is physically incapable of describing the full range of the light spectrum that would be required to rigorously capture the visual likeness of an object.
+
+### Display systems
+
+On the other end of the digital reproduction pipeline is the digital display, replete with its own physical limitations and imperfections. Digital displays are generally in one way or another composed of grids of very small lights. In early systems, this was accomplished via a cathode ray tube (CRT) designed to accurately fire a stream of electrons at a phosphorescent screen. This screen glows brightly when struck with electrons, displaying the desired pattern to an outside observer. Similar to digital imaging systems, CRT displays utilized different color filters outside of the phosphorescent material to control the ratio of red, green, and blue produced on the surface.
+
+<img class="no-lightbox no-shadow center" alt="CRT Illustration" src="/assets/techno_art/crt.jpg">
+<p class="center"><i>An illustration of a CRT monitor, courtesy of [yourdictionary.com](http://www.yourdictionary.com/cathode-ray-tube)</i></p>
+
+Modern displays generally perform a similar function, but with a matrices of colored light emitting diodes either directly modulated to achieve the perception of varied brightness, or attenuated via active filtering systems such as the [liquid-crystal](https://en.wikipedia.org/wiki/Liquid-crystal_display) array.
+
+In all cases, each unit in the display grid - known as a pixel - aims to reproduce the full range of the visible spectrum. Of course, this is not possible in the general sense, due to the infinite dimensionality of the continuous color space. 
+
+In order to convey the idea of a continuous range of colors, these lights are blended together in a very specific way to exploit a peculiarity in the human visual system. This combination of colored lights stimulates the three cones in a viewer's visual system to the same degree as the original continuous spectral distribution. This is accomplished by utilizing an idea called [*metamerism*](https://en.wikipedia.org/wiki/Metamerism_(color)), which is the concept that two different distributions of wavelengths can stimulate the exact same electrical signals in the cones of an observer. Since our brain is only capable of the deciphering electrical signals presented to it, if two wavelength distributions are metamers, then they appear completely indistinguishable.
+
+Unfortunately, achieving metameric stimulus is highly dependent on many factors, namely the spectral distribution of the light sources for each pixel, and the spectral response of the viewer's cones. The latter of these two factors is significant in attempting to produce metamers, because cone response varies from person to person. This variation is apparent in color blind people, who have less than the standard three types of cones, but lesser variations are present in all people.
+
+Even the most beautiful high resolution display is inherently limited in ability - it will never be able to perfectly recreate the spectral emission of another physical object, let alone a work of art created with a nearly infinite range of possible pigment mixtures. However slight the distinction may be, the uniqueness of every individual's visual system implies that each person has an entirely unique visual experience of an original art work (or any other object) which will not be perfectly replicated by modern means. 
+
+Knowing what we do about the physical reality behind color reproduction and the human visual system, one may perceive that despite the extensive work of many talented engineers, digital recreations of artistic works are facsimiles at best. Benjamin's concept of aura is lost in the pictorial replication of an artistic work, but in a literal sense this is an understatement - an infinite number of spectral frequencies are neglected entirely. Luckily, for most of us, human centric metameric reproduction (sorry, felines) is sufficient to capture and convey the likeness of an artistic work, which enabled the widespread proliferation of the technique. 
+
+## Uexk&uuml;ll's umwelt and its applicability to technology
+
+Jakob von Uexk&uuml;ll described the perceptual world that any given organism experiences as it's *umwelt* - a German word, roughly meaning "self-centered world." The umwelt is primarily defined by an organism's physical ability to sense its environment - humans are constrained to sight, touch, smell, hearing, and taste. It is clear that different organisms experience entirely different *umwelten* depending on their physical toolkit - the Star-nosed Mole has no concept of visual perception because it lacks eyes - and therefore different organisms can have highly differing conceptions of what the world is or is not.
+
+Furthermore, the ability to experience an umwelt is predicated upon an organisms ability to construct for itself a reality - a higher level model of the surrounding world. Without an ability to unite and interpret semiotic processes, an organism will operate inefficiently and be unable to effectively make goal-oriented decisions. The human brain is incredibly adept at this task, and is the reason that the human umwelt is much broader than that of a goat, despite having similar sensory equipment.
+
+Over the years, our methods of artistic reproduction have grown very adept at sensing their subjects - imaging systems have in some ways (though certainly not all) surpassed the abilities of our own biological sensors. However adept these systems my be at sensing their environment, they can't be said to have umwelten because they fail to build any high level model of the world with that sensed data. 
+
+Today, there exist systems using modern algorithmic techniques and that appear to be capable of the requisite form of intelligence to construct some form of a higher level semantic understanding. These systems seem to indicate that in our search for better machines, we have begun to construct in the 'minds' of our computers some form of self-centered world.
+
+### Neural nets
+
+Notably, recent advances in computational power has opened the door a class of biologically inspired algorithms called *neural networks*. The concept of the neural network originated as theorists' speculation as to how brain neurons could be computational emulated. As computers became more mainstream, researchers started implementing these ideas in code, but the technology was still too computationally intensive to be particularly useful. Since the new millennium, computers have matured to the point where neural networks are becoming viable both in correctness and speed. 
+
+Early neural networks were designed to tackle a set of problems that previously required human like reasoning and decision making - problems like image classification, language translation, or stock market prediction. In addition to solving a host of problems related to vision and perception, it has recently been noted that neural net algorithms are extremely adept at understanding and replicating the style of any given input image. [Leon Gatys et al.](http://arxiv.org/pdf/1508.06576v2.pdf) made the remarkable discovery that the style and content of an image processed by a deep neural network were separable. By applying the biologically inspired "very deep" VGG neural network to digital representations of artistic works, the researchers found a novel way of re-applying the same artistic style to different image content in an algorithmic procedure known as Neural Style.
+
+<img class="no-lightbox no-shadow center" alt="Golden gate processed with Starry Night" src="/assets/golden_gate_starry.png">
+<p class="center"><i>A photo of the Golden Gate bridge generated with [Neural Style](https://github.com/jcjohnson/neural-style) against [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night)</i></p>
+
+#### Demystifying the neural network
+
+Before we can seek to understand the potential artistic implications of this Neural Style algorithm, it's imporant to understand how the system works.
+
+Artificial neural networks are massive networks of millions or even billions of basic computational building blocks referred to as neurons. Each neuron has some number of inputs, and a single output. The inputs and outputs are chained together to form a larger interconnected web of computation that can be taught to perform arbitrary higher level functions.
+
+The output behavior of a neural network is dependent on several factors, most notably the topological design of the network, the input data, and a multiplicity of algorithmic constants biasing the output of each neuron. These constants are not prescribed by hand, as in the traditional hand crafted algorithm, but rather learned during a long training phase.
+
+<img class="no-lightbox no-shadow center" alt="Neural net illustration" src="/assets/techno_art/neural_net.jpg">
+<p class="center"><i>A three layered network, courtesy of [Stanford's CS231](http://cs231n.github.io/neural-networks-1/)</i></p>
+
+The topology of these networks can usually be described as a series of layers, where the output of each layer of neurons feeds into the next, as demonstrated by the above illustration. A "deep" neural network is simply one with a large number of intermediate layers between the input and output. The reason for this is largely utilitarian - more complex layouts are more difficult to design, train, and reason about.
+
+Once trained, a neural network applies some computation to unseen data in order to produce the desired output. The details of this computation are usually incredibly complex and unknown to the user, but the overall behavior and goals are directly dictated by the user.
+
+#### Relation to human biology
+
+What is remarkable about these algorithms is the likeness to human physiology - indeed, such techniques were conceived after careful analysis of human brain function. Basic computational elements in the network correspond to neurons in the brain, and perform very similar roles; depending on the characteristics of the signal given to the connected synapses, a neuron in the brain will either fire or not fire an output signal to the next neuron in the network, just like the basic computational neuron.
+
+<img class="no-lightbox no-shadow center" alt="XKCD #1605" src="/assets/techno_art/dna.png">
+<p class="center"><i>[XKCD #1605](http://xkcd.com/1605/): DNA</i></p>
+
+The primary differences between the artificial neural network and the human brain seems to be two factors - network topology, and training. As the above XKCD comic argues, human biology was a result of highly effective and parallelized algorithm running for billions of years. This process was very effective at designing and training what can be seen as a general purpose computational device (the human body) to optimally deal with the vast range of situations encountered on earth. Compared to mother nature, mother humanity has been forcing networks of billions of basic building blocks to do our bidding for but a blink of an eye. 
+
+While these biologically inspired algorithms have proved to be powerful tools vital to the modern day computer scientist, it would be a mistake to consider them on par with the power and complexity of the human brain. However, this may be a temporary condition because we have the benefit of hindsight - we can examine and emulate our own inner workings and learn profound secrets from biology. This is clearly an advantage that Mother Nature did not have in designing human bodies. As we continue to advance our raw computational ability and - importantly - our ability to refine algorithmic topology, it is possible that we will one day make a computer with comparable throughput and complexity to our own brains.
+
+#### Relation to human visual system
+
+While neural nets might not parallel the entire human brain quite yet, one important realization about the *convolutional* neural network (CNN) - a special type of neural net commonly used in image processing - is the striking similarity to the visual cortex architecture.
+
+<img class="no-lightbox no-shadow center" alt="The visual cortex" src="/assets/techno_art/visual_system.jpg">
+<p class="center"><i>High level visual cortex architecture, courtesy of the [Computational Cognitive Neuroscience Wiki](https://grey.colorado.edu/CompCogNeuro/index.php/CCNBook/Perception)</i></p>
+
+The electrical stimulus of the rods and cones in the eyes feeds into the primary visual cortex (V1) which transforms the signal into a description of a set of short, oriented bars. This information is further processed by the V2, which parses the information into a set of continuous edges. As the signal continues to progress through the visual cortex, higher and higher level representations are determined. All of this processing happens unconsciously and continuously as we move through the world. This is a good thing, as it allows us to perceive a moving bus as a source of danger without having to stop and think about it for a while, or to read words without having to consider each letter individually.
+
+Analyzing the flow of data through successful CNN systems reveals that a similar progression occurs at each layer in the network. Lower levels of the networks correspond to edge detection like the primary visual cortex, and higher levels correspond to semantic scene representations. 
+
+#### Neural Style
+
+[Neural Style](http://arxiv.org/pdf/1508.06576v2.pdf) is able to generate images with the style of one image and content of another by utilizing the hierarchical nature of neural net image representation. Brush strokes, texture, colors and other low level visual queues integral to conveying artistic style tend to reside in the lower levels of the networks. New images may be created by extracting these lower levels from the "style" image, pairing them with the higher level layers from the "content" image, and optimizing the generated image to closely match all layers in the composite network.
+
+This process tends to preserve the global position and orientation of objects in the scene, while drastically modifying the visual qualities of those objects. In many cases, the result is quite visually impressive. Previously, this sort of artistic transfer was limited to human artists with deep knowledge of the artistic style being transfered. 
+
+In fact, the ability to compose and choose from a variety of styles in the creation of artistic work is a common theme among all forms of artists. Picasso went through many phases of artistic style, but this is not just an attribute found among fine art. In the following example, contemporary comic artist and animator Desiree Ann Lim discusses her own exploration of a variety of artistic styles on Tapastic.
+
+<img class="no-lightbox no-shadow center" alt="A variety of styles" src="/assets/techno_art/styles2.jpg">
+<p class="center"><i>[Three drawings by Desiree Ann Lim](http://tapastic.com/episode/212808) using variety of related yet distinct artistic styles</i></p>
+
+By capturing and understanding high level concepts from the imaged scene, this Neural Style is able to do something entirely new: reproduce higher level concepts, such as an artistic style. Previously, imaging systems were limited to characterizing the light that reflected off of other objects - simple perception. With this new technology, such imaging systems can be augmented by focusing on developing the other side of the umwelt - comprehension.
+
+It would seem that our recent exponential increase in computational power, and discovery of key biologically inspired algorithms has allowed our computers to garner a deeper semantic understanding of sensed data. With this algorithmic understanding comes a construction of a self-centered world in code and data - a technological umwelt.
+
+There is perhaps no better way to visualize the state of the technological umwelt then by asking a technology to reproduce art. The efficacy of artistic reproduction method is first and foremost limited by the umwelt of the equipment used in capturing the artistic likeness. The sensory part of this limitation is easy to see - a system that cannot differentiate light wavelengths will be limited to making pictures with various shades of gray. Likewise, a low resolution camera will be limited to reproducing a small amount of detail. 
+
+In addition to sensor fidelity, artistic reproduction can make apparent how deeply an underling system understands its "world". In a traditional digital imaging system which exhibits no high level understanding, any details seen in the reproduced work will be present in the original sensed image. In contrast, an artistic reproduction system which maintains deep understanding of its subject could be reasonably expected to in some way reproduce the high level concepts which it understood. 
+
+While not every technology that constructs a high level understanding of the world is necessarily suited towards artistic generation, most will know how to recognize some high level concepts. If a concept can be recognized, then it can also be generated by using the discerning technology to drive another generative method to produce more of what it consideres to evoke that concept. Neural Style is a great example of an implementation of this generation method - it functions by iteratively modifying a generated image until it closely resembles its concept of artistic style from the input image. This process is very computationally intensive, but with modern graphics processing units such computation can be run in parallel at very high rates, so it is a viable method of image generation.
+
+## The Uncanny Valley
+
+When Masahiro Mori notably [discussed](http://spectrum.ieee.org/automaton/robotics/humanoids/the-uncanny-valley) the goal of making robots more human, he spoke of the apparent uncanny valley - the idea that as we attempt to make robots look human, our affinity towards them sharply decreases. If one is able to detect that something is not human, even though it was designed to mimic human physiology, we regard it as eerie. While he considered the uncanny valley as it relates to robots themselves, this concept seems to also be applicable to machine generated artistic works.
+
+Neural Style mimics human physiology in order to generate new artistic works of a given style, and it does a surprisingly good job. That said, this technology is still *not* as adept at discerning meaning as a human; its technological umwelt is not broad enough to perceive things as high level as human emotion, for instance.
+
+<img class="center" alt="Golden gate processed with The Scream" src="/assets/techno_art/golden_gate_scream.png">
+<p class="center"><i>A photo of the Golden Gate bridge processed with [Neural Style](https://github.com/jcjohnson/neural-style) against [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night)</i></p>
+
+As a telling example, Neural Style may be able to duplicate the warm flowing brush strokes of Edvard Munch's [*The Scream*](https://en.wikipedia.org/wiki/The_Scream), but at least for the time being, it contains no notion of the moment of horror and existential crisis captured in the original. (below) 
+
+<img style="width: 50%" class="center" alt="The Scream" src="/assets/techno_art/the_scream.jpg">
+<p class="center"><i>[*The Scream*](https://en.wikipedia.org/wiki/The_Scream) by Edvard Munch</i></p>
+
+This human-like, yet still obviously sub-human ability to generate images of similar style to another work implies that Neural Style is at risk of falling into the uncanny valley. 
+
+## Future artistic reproduction
+
+{{ responsive_youtube("0pDE4VX_9Kk?start=789") }}
+<br>
+[John Berger](https://www.youtube.com/watch?v=0pDE4VX_9Kk) aptly points out in his 1972 series *Ways of Seeing* that our presentation of art allows us to significantly modify the way that it is perceived. In fact, simply by modifying a camera's zoom, position, and the aural backdrop, it is possible to assign many entirely disparate meanings to a single work of art.
+
+The extent to which we have been able to explore this newfound plasticity of art was greatly advanced by the advent of photography. The ability to transmit and recreate any instance of time and space in any context allows unique presentations of a single work, whereas previously it was limited to the context in which it was perceived by it's creator or owner.
+
+The new media described herein is a logical continuation of this idea. By teaching computers how to recognize and amplify high level concepts, we are able to mold the visual essence of an artistic work with an unprecedented level of control. The more semantic information about the input a computer can gain, the more control we will have in reproducing high level concepts contained within artistic works.
+
+Historically, the introduction of new technologies has opened the doors to both new methods of artistic reproduction, and new avenues for artistic expression and creation. This is a human centric view of artistic creation: humans create art, and humans reproduce or distribute art with the aid of digital tools such as imaging and display systems. The human centric view of artistic generation is potentially challenged by the recent advent of algorithmic methodologies - such as Neural Style - which appear to blur the distinction between artistic reproduction and generation. These methods create novel works by selectively reproducing aspects from prior human work in such a way that begets a high level concept.
+
+When a human views a compelling work of art from a well regarded artist, we expect to *feel* something. When we view an algorithmically generated visual creation, we expect to experience something entirely different - maybe awe at the near infinite complexity that a computer is able to conceive, but not anguish, or anger, or other complex emotions that art has traditionally been known to evoke. 
+
+As we continue to broaden the technological umwelt of our systems for artistic reproduction, it is conceivable that one day such devices might be trained to perceive and reproduce such abstract and complex concepts as human emotion. If that could happen, computer aided artistic reproduction and artistic generation will be nearly indistinguishable, and such systems could conceivably produce works so convincing that they transcend the uncanney valley.
+
+If a fully computer generated work could evoke these same feelings in a viewer through deep semantic understanding - as does a human artist - would it be perceived as meaningful in the same way? Can anything which can be infinitely generated by a computer have the same meaning as the result of an artist responding to their understanding of the human condition?
+
+I don't pretend to know the answer to this question, but if such a thing were possible, it would certainly imply that what was traditionally *heimlich* about the process of artistic generation was made *unheimlich*, in the [Freudian](http://web.mit.edu/allanmc/www/freud1.pdf) sense of the term.
+

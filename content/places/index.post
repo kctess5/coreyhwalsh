@@ -1,0 +1,105 @@
+subtitle: I get around to
+id: places
+title: Places
+template: index
+script: /js/places.min.js
+---
+{% from 'macros.html' import city_link %}
+
+<div style="width:100%; height:400px; position:relative" id="places_container"></div>
+<br>
+I've been fortunate enough to be able to travel quite a bit, these are the cities and other places that I have been to so far. Some of them I've spent a long time in, and others I was just there for a day. 
+
+{% for child in posts.by_date(children) %}
+{% if posts.get_post(child).metadata.public != false %}
+{{ city_link(posts.get_post(child)) }}
+{% endif %} 
+{% endfor %}
+
+## USA
+
+    - San Diego, California
+    - Phoenix, Arizona
+    - Boston, Massachusetts
+    - Cape Cod, Massachusetts
+    - Newport, Rhode Island
+    - Los Angeles, California
+    - New York
+    - Portland
+    - Seattle
+    - New Orleans
+    - San Jose, California
+    - San Francisco, California
+    - Juno, Alaska
+    - Anchorage, Alaska
+    - Tahoe, California
+    - Bend, Oregon
+    - Astoria, Oregon
+    - Denver, Colorado
+    - Kailua-Kona (Big Island), Hawaii
+
+## UK
+
+	- London
+
+## France
+
+	- Paris
+	- Eze
+	- Normandy
+
+## Israel
+
+	- Tel Aviv
+	- Jerusalem
+
+## Mexico
+
+	- Cabo San Lucas
+
+## Spain
+
+	- Barcelona
+
+## Norway
+
+	- Oslo
+
+## Denmark
+
+	- Copenhagen
+
+## Poland
+
+	- Krakow
+
+## Italy
+
+	- Rome
+	- Pisa
+	- Naples
+	- Pompeii
+
+## Australia
+
+	- Sydney
+	- New Castle
+
+## Austria
+
+	- Vienna
+
+## Czech Republic
+
+	- Prague
+
+## Georgia
+
+	- Tbilisi
+	- Batumi
+	- Gudauri
+
+## Europe
+	
+	- Monaco
+	- Lake Bled, Slovenia

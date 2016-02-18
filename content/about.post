@@ -3,7 +3,23 @@ id: about
 title: About
 ---
 <h1 class="title">About</h2>
-<p class='down-2'>Hi there! I'm Corey. I like to make things, learn things, and break things. I have a bad habit of building speakers, and can't wait until cars are autonomous. You'll usually find me in California, though I tend to wander around.</p><img class='down-1' src='/assets/drawing.jpg'>
+<p class='down-2'>Hi there! I'm Corey. I like to make things, learn things, and break things. I have a bad habit of building speakers, and can't wait until cars are autonomous. You'll usually find me in California, though I tend to wander around.</p>
+<br>
+<p class='push-2'><a class='meta' href='http://rayban.vision'>rayban.vision</a> is my adorable little internet dumping ground and <a class='meta' href='#blog/blog-refactor'>side-project</a>. Check out <a class='meta' href='#projects'>my projects</a> or <a class='meta' href='#blog'>my blog</a> for random interesting things!</p>
+
+
+<!-- Check out the sidebar for more interesting things. I use this site to post random things about my various projects and experiences. -->
+
+<img class='down-2' src='/assets/drawing.jpg'>
+<p class="center"><i>Using <a class='meta' href='#projects/infract'>Infract.js</a> at xFair 2015</i></p>
+
+
+<!-- <h1 class='about-title'>- Selected Projects -</h1>
+<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Progressive Real-time Progressive Fractal Renderer</a></h2>
+<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Real-time Gesture Recognition</a></h2>
+<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Infract.js</a></h2> -->
+
+
 <h1 class='about-title'>- Education -</h1>
 <h2 class='subtitle'><span class='mred'>MIT</span> - 2013 to Now</h2>
 <p>I'm a Junior at the Massachusetts Institute of Technology, studying Computer Science and Engineering, and graduating in May of 2017. Right now, I'm working on learning all about machine learning and computer vision.</p>

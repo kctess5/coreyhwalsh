@@ -5,6 +5,12 @@ id: stadium-sound
 template: post
 ---
 
+{% from 'macros.html' import responsive_youtube %}
+
+{{ responsive_youtube("AIgY99MDAqI") }}
+<br>
+{{ responsive_youtube("BOwhWyn5ymE") }}
+<br>
 ![](/assets/senior/1.jpg)
 ![](/assets/senior/2.jpg)
 ![](/assets/senior/3.jpg)

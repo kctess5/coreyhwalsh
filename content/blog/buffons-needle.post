@@ -1,9 +1,10 @@
 title: Estimating Pi with Buffon's Needle
-subtitle: because why notspo
+subtitle: because why not
 date: 2015-11-18
 id: buffons-needle
 template: post
 script: /js/buffon_physics2.min.js
+public: false
 ---
 Recently while wandering the halls of Hacker News, I was pricked by Buffon's Needle. I solved it, and then decided it would be a fun thing to simulate and analyze a bit, so here it goes...
 
