@@ -7,7 +7,7 @@ href: https://github.com/kctess5/voxelizer
 ---
 {% from 'macros.html' import responsive_youtube %}
 
-Our first assignment in [6.807](#classes/6.807) was to make a voxelizer in C++. The general purpose of a voxelizer is to convert a standard [.obj mesh](https://en.wikipedia.org/wiki/Wavefront_.obj_file) into a 3D [voxel grid](https://en.wikipedia.org/wiki/Voxel).
+Our first assignment in [6.807](/#!/classes/6.807) was to make a voxelizer in C++. The general purpose of a voxelizer is to convert a standard [.obj mesh](https://en.wikipedia.org/wiki/Wavefront_.obj_file) into a 3D [voxel grid](https://en.wikipedia.org/wiki/Voxel).
 
 Original .obj mesh of a bunny:
 
@@ -53,7 +53,7 @@ Implementing a BVH to accelerate mesh/ray intersection would significantly reduc
 
 intersection operations, where n is some small constant. This is still quite a few, but presumably it would be on the order of minutes rather than days.
 
-Another option would be to exploit the [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) nature of this problem by implementing it on the GPU. This is what I did recently for 6.807. Rather than having a triple nested for loop for x/y/z, I create one GPU thread per voxel which computes the occupancy of that voxel by iterating over the mesh. Since there is conceptually almost no [execution divergence](https://cvw.cac.cornell.edu/gpu/thread_div), and every thread iterates over the mesh in the same order so there's very no [memory read divergence](https://cvw.cac.cornell.edu/gpu/coalesced), the GPU is able to hit almost peak processing capability with (in [my case](#blog/computer-setup)) 1664 CUDA cores. In other words, the GPU can eat ray-triangle intersections for breakfast, lunch, and dinner.
+Another option would be to exploit the [embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) nature of this problem by implementing it on the GPU. This is what I did recently for 6.807. Rather than having a triple nested for loop for x/y/z, I create one GPU thread per voxel which computes the occupancy of that voxel by iterating over the mesh. Since there is conceptually almost no [execution divergence](https://cvw.cac.cornell.edu/gpu/thread_div), and every thread iterates over the mesh in the same order so there's very no [memory read divergence](https://cvw.cac.cornell.edu/gpu/coalesced), the GPU is able to hit almost peak processing capability with (in [my case](/#!/blog/computer-setup)) 1664 CUDA cores. In other words, the GPU can eat ray-triangle intersections for breakfast, lunch, and dinner.
 
 In this configuration, that 43 days (CPU version, roughly approximated) for 1.1 quadrillion intersections would be over in something closer to a few hours in the GPU on beast-mode.
 

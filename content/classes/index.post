@@ -7,31 +7,31 @@ template: index
 
 <h3 class='divider'>Junior Spring - 2016</h3>
 {% for child in posts.by_semester(children, 6) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 
 <h3 class='divider'>Junior Fall - 2015</h3>
 {% for child in posts.by_semester(children, 5) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 
 <h3 class='divider'>Sophomore Spring - 2015</h3>
 {% for child in posts.by_semester(children, 4) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 
 <h3 class='divider'>Sophomore Fall - 2014</h3>
 {% for child in posts.by_semester(children, 3) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 
 <h3 class='divider'>Freshman Spring - 2014</h3>
 {% for child in posts.by_semester(children, 2) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 
 <h3 class='divider'>Freshman Fall - 2013</h3>
 {% for child in posts.by_semester(children, 1) %}
-{{ class_link(posts.get_post(child)) }}
+{{ class_link(posts.get_post(child), "class/") }}
 {% endfor %}
 

@@ -1,0 +1,5 @@
+Match local links that are not using the hashbang.
+	markdown links:
+		\[.*?\]\(((?!http)(?!\/assets)(?!\/\#\!)[^"]+?)\)
+	html links:
+		<a.*?\s+href=(\"|')((?!http)[^"]+?)(\"|')[^>]*?>

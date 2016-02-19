@@ -5,35 +5,34 @@ title: About
 <h1 class="title">About</h2>
 <p class='down-2'>Hi there! I'm Corey. I like to make things, learn things, and break things. I have a bad habit of building speakers, and can't wait until cars are autonomous. You'll usually find me in California, though I tend to wander around.</p>
 <br>
-<p class='push-2'><a class='meta' href='http://rayban.vision'>rayban.vision</a> is my adorable little internet dumping ground and <a class='meta' href='#blog/blog-refactor'>side-project</a>. Check out <a class='meta' href='#projects'>my projects</a> or <a class='meta' href='#blog'>my blog</a> for random interesting things!</p>
+<p class='push-2'><a class='meta' href='http://rayban.vision'>rayban.vision</a> is my adorable little internet dumping ground and <a class='meta' href='/#!/blog/blog-refactor'>side-project</a>. Check out <a class='meta' href='/#!/projects'>my projects</a> or <a class='meta' href='/#!/blog'>my blog</a> for random interesting things!</p>
 
 
 <!-- Check out the sidebar for more interesting things. I use this site to post random things about my various projects and experiences. -->
 
 <img class='down-2' src='/assets/drawing.jpg'>
-<p class="center"><i>Using <a class='meta' href='#projects/infract'>Infract.js</a> at xFair 2015</i></p>
+<p class="center"><i>Using <a class='meta' href='/#!/projects/infract'>Infract.js</a> at xFair 2015</i></p>
 
 
 <!-- <h1 class='about-title'>- Selected Projects -</h1>
-<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Progressive Real-time Progressive Fractal Renderer</a></h2>
-<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Real-time Gesture Recognition</a></h2>
-<h2 class='subtitle center'><a class='meta' href='#projects/infract'>Infract.js</a></h2> -->
+<h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Progressive Real-time Progressive Fractal Renderer</a></h2>
+<h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Real-time Gesture Recognition</a></h2>
+<h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Infract.js</a></h2> -->
 
 
 <h1 class='about-title'>- Education -</h1>
 <h2 class='subtitle'><span class='mred'>MIT</span> - 2013 to Now</h2>
 <p>I'm a Junior at the Massachusetts Institute of Technology, studying Computer Science and Engineering, and graduating in May of 2017. Right now, I'm working on learning all about machine learning and computer vision.</p>
 <h2 class='subtitle'>La Costa Canyon - 2009 to 2013</h2>
-<p>I attended La Costa Canyon High School in lovely Carlsbad, California. While I was there, I made <a class='meta' href='#projects/stadium-sound'>an astonishingly loud sound system</a> for the football field.</p>
+<p>I attended La Costa Canyon High School in lovely Carlsbad, California. While I was there, I made <a class='meta' href='/#!/projects/stadium-sound'>an astonishingly loud sound system</a> for the football field.</p>
 <h1 class='about-title'>- Work Experience -</h1>
 <h2 class='subtitle'><span class='gblue'>G</span><span class='gred'>o</span><span class='gyellow'>o</span><span class='gblue'>g</span><span class='ggreen'>l</span><span class='gred'>e</span> - Summer 2015</h2>
 <p>I architected, proposed, and initiated the refactoring of a large and complex codebase, handling billions of requests per day. The changes improved the maintainability of the system by reducing code duplication and complexity, and by facilitating fine grained unit testing.</p>
 <p><b>Tech: Java, Python</b>
 </p>
-<h2 class='subtitle'><span class='hgreen'>Hulu</span> - Summer 2014</h2>
-<p>I created a metadata generation service in Python which is still in use today. If you've seen a Google search result for a Hulu video recently, my system created that text!</p>
-<p>In addition to my project, I helped to maintain Hulu's existing web systems and front-ends. <a href='http://www.hulu.com/about/executive_team' target='_blank'>Check out that random web page I made!</a>
-</p>
+<h2 class='subtitle'><span class='hgreen'>hulu</span> - Summer 2014</h2>
+<p>I created a metadata generation service in Python which is still in use today. If you've seen a Google search result for a Hulu video recently, my system created that text! In addition to my project, I helped to maintain Hulu's existing web systems and front-ends.</p>
+
 <p><b>Tech: Ruby on Rails, Python, JavaScript, HTML/SASS</b>
 </p>
 <h2 class='subtitle'><span class='mcred'>MeringCarson</span> - Summer 2013</h2>

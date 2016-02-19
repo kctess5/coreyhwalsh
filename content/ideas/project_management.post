@@ -22,7 +22,7 @@ Here's some of the functionality that I use in a large fraction of my {Python, C
 
 If I could generate a skeleton that could optionally include 'hello, world!' style implementations of each of the above features in any of my languages of choice along with some handy comments, then I could get new projects going MUCH faster than possible now. JUST getting GPU integration usually requires a fair bit of configuration and hair pulling. Better to do that once during template generation than over and over for every new project.
 
-A scaffolding system to do all that could also be quite handy for installing files that I frequently move from computer to computer easier - dotfiles and [watch scripts](#projects/watch) for example.
+A scaffolding system to do all that could also be quite handy for installing files that I frequently move from computer to computer easier - dotfiles and [watch scripts](/#!/projects/watch) for example.
 
 [Yeoman](http://yeoman.io/) comes to mind, but it is very web-centric and it seems to be somewhat difficult to create new scaffolds. [Khaos](https://github.com/segmentio/khaos) is closer to what I want, but it's lacking quite a few features that I think could be very nice. I have forked their source and have been adding some things (ability to install packages from local directories, for example) but I might just roll my own system. Handlebars and Python play nicely together, and text substitution and conditional inclusion are not that hard.
 

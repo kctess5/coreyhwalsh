@@ -48,6 +48,8 @@ When I use this, I generally watch:
 
 All of these things happen in tiled command line instances on a secondary monitor, so I can see any relevant output in real time as I edit code without ever leaving the text editor. One cool thing is that because it is all based on file changes, various watch instances cascade as expected - for example, any code generation commands will first generate code and then the changed generated code files trigger a recompilation, and then the application relaunches - all with a single file save.
 
+I usually just leave all of the watch instances related to a single project in their own terminal. Then when I'm done developing I just minimize it and forget about it. When I go back to do more editing, the development environment is already good to go!
+
 
 
 

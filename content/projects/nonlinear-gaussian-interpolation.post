@@ -21,7 +21,7 @@ npm install
 npm run-script watch --silent # re-runs on saves
 ```
 
-### Examples: [more...](./example)
+### Examples: [more...](https://github.com/kctess5/Golang-Sample-Interpolation-Engine/example)
 
 ![ex2](/assets/example/26.07.2015.04.49.34.548.png)
 ![ex4](/assets/example/test_6.png)

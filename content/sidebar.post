@@ -9,7 +9,7 @@ id: sidebar
 
 {% macro post_link(post_id) -%}
 {% set post =  posts.get_post(post_id) %}
-{{ link(post.title(), post.id(), '#' + post.id(), false)}}
+{{ link(post.title(), post.id(), '/#!/' + post.id(), false)}}
 {%- endmacro %}
 
 <h1 class="main title"><a href="/">{{ metadata['title'] }}</a></h1>

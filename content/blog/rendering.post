@@ -4,10 +4,10 @@ date: 2015-07-28
 id: rendering
 template: post
 ---
-I recently stumbled upon some [very interesting literature]() on ray tracing
+I recently stumbled upon some very interesting literature on ray tracing
 and other rendering techniques. I looked into it a bit; it turns out that
 there is a
-[lot](http://maverick.inria.fr/Publications/2005/CPPSS05/cerezo.pdf) of
+[*lot*](http://maverick.inria.fr/Publications/2005/CPPSS05/cerezo.pdf) of
 excellent research out there on the subject.
 
 After reading some more papers, including an [excellent 2005

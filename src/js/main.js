@@ -175,8 +175,6 @@ function open(ids, data, parameters) {
 	layoutPanes();
 	updateSidebar(ids);
 	bindEvents(ids, data);
-
-	console.log(location.pathname + location.search  + location.hash);
 	
 	ga('send', 'pageview', {
  		'page': location.pathname + location.search  + location.hash

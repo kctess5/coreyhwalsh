@@ -7,6 +7,6 @@ template: index
 
 {% for child in posts.by_date(children) %}
 {% if posts.get_post(child).metadata.public != false %}
-{{ article_link(posts.get_post(child)) }}
+{{ article_link(posts.get_post(child), "blog/") }}
 {% endif %} 
 {% endfor %}

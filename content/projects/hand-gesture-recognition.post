@@ -7,9 +7,9 @@ public: false
 ---
 {% from 'macros.html' import responsive_youtube %}
 
-This year I once again participated in [xFair](http://xfair.io/) with a vision and human-computer interaction related project. I thought it was high time to extend my [ongoing search](/#projects/infract) for alternative computer interface methods into the third dimension. My project was to track a user's hand position, and to infer hand gesture in order to control 3D graphics applications (or anything else really...) projected onto a custom rear-projection light table.
+This year I once again participated in [xFair](http://xfair.io/) with a vision and human-computer interaction related project. I thought it was high time to extend my [ongoing search](/#!/projects/infract) for alternative computer interface methods into the third dimension. My project was to track a user's hand position, and to infer hand gesture in order to control 3D graphics applications (or anything else really...) projected onto a custom rear-projection light table.
 
 Last semester in 6.869 (Advances in Computer Vision) I worked on a system to infer hand position and orientation from two shadows. Alas my light setup made my camera a bit squirly with the saturation and the model based optimization algorithm needed quite a lot of work, so I discovered that that method would not be ready in time for xFair. Determined to press on, I switched gears and acquired a Kinect and hacked it onto my existing light table setup.
 
-After the [RACECAR competition](/#blog/autonomous-racecar) I finally got around to figuring the system out, and I'm happy to say that it is now quite funcitonal.
+After the [RACECAR competition](/#!/blog/autonomous-racecar) I finally got around to figuring the system out, and I'm happy to say that it is now quite funcitonal.
 

@@ -13,7 +13,7 @@ As a computer scientist, computer systems make me feel warm and fuzzy inside. Mi
 
 GPUs are awesome - they're basically super computers compared to your standard quad-core CPU. In fall of 2016 I took a computer graphics class at MIT, and decided it was a good excuse to buy a really powerful GPU. I ended up building a computer because I discovered that doing so was much cheaper than buying one off the shelf, and I could spend money in just the areas I wanted.
 
-**NVIDIA GTX 970** - This is one of NVIDIA's beasts. It's not their fastest, but it's currently the best bang for your buck in my opinion. 1664 CUDA cores make this thing incredibly powerful, which is handy when trying to run [real-time fractal rendering](/#projects/fractal-renderer)...
+**NVIDIA GTX 970** - This is one of NVIDIA's beasts. It's not their fastest, but it's currently the best bang for your buck in my opinion. 1664 CUDA cores make this thing incredibly powerful, which is handy when trying to run [real-time fractal rendering](/#!/projects/fractal-renderer)...
 
 **Quad-core I5-4590 @ 3.3GHz** - Not the most powerful process ever, but it does its job and keeps the GPU happy
 
