@@ -6,25 +6,15 @@ template: post
 public: false
 ---
 
-notes:
-- [old version](/#!/techno_art)
-- [this person](http://www.nbi.dk/~emmeche/cePubl/2001d.robumwelt.html) discusses robot umwelts, but their take on it is significantly different from mine
-- not sure exactly how to integrate/wrap up the bit about the aura and what impact the new methods will have on that 
-- I removed the bit about fractals because I didn't think it was very relevant to my central point
-
 {% from 'macros.html' import responsive_youtube %}
 
-During my first semester Junior year at MIT, I took a very interesting class by [Ethan Zuckerman](https://en.wikipedia.org/wiki/Ethan_Zuckerman) and [Chris Peterson](http://mitadmissions.org/blogs/author/chrispeterson) called Internet as a Social Artifact - or CMS.S62, as the cool kids call it. This my (rather lengthy) final paper, enjoy if you dare!
+During my first semester Junior year at MIT, I took a very interesting class by [Ethan Zuckerman](https://en.wikipedia.org/wiki/Ethan_Zuckerman) and [Chris Peterson](http://mitadmissions.org/blogs/author/chrispeterson) called Internet as a Social Artifact - or CMS.S62, as the cool kids call it. This my final paper from that class.
 
 ## Abstract
 
-Jakob von Uexk&uuml;ll's idea of the umwelt asserts that organisms construct for themselves a self-centered phenomenal world. The ability to have an umwelt is predicated upon both the ability to sense the surrounding environment, and the ability to unite and interpret semiotic processes into high level model of the world. I assert that while modern technologies have excelled at the sensory part of this requirement, they have for the most part been lacking in higher level understanding. Modern machine learning algorithms allow computers to build a high level understanding of sensed data in a way that resembles Uexk&uuml;ll's concept of the self-centered world. 
+Jakob von Uexk&uuml;ll's idea of the umwelt asserts that organisms construct for themselves a self-centered phenomenal world. The ability to have an umwelt is predicated upon both the ability to sense the surrounding environment, and the ability to unite and interpret semiotic processes into high level model of the world. A change is occurring in modern computing - sensory technologies have long excelled at capturing the environment, but with little to no high level understanding of the subject. With recent advances in machine learning, it is possible to discuss the ways in which machines may be able to build some form of deeper understanding.
 
 Algorithms such as the convolutional neural network used in Neural Style by [Leon Gatys et al.](http://arxiv.org/pdf/1508.06576v2.pdf) - fueled by recent improvements in computational power - potentially represent the beginnings of what I refer to as the technological umwelt. I argue that a technology's ability to generate novel artistic works is a good proxy for understanding the bredth of its technological umwelt - how deeply it is able to understand the work that it is reproducing. Historically, selective reproduction of artistic works has allowed human operators to mold that work's meaning. Modern generative methods such as Neural Style in this sense are not entirely new, but rather a continuation and automation of this long standing concept. I explore the implications of such advancement in terms of algorithmic ability to reproduce artistic works in ways that could be considered highly uncanny.
-
-### My involvement
-
-This is a topic of great interest to myself, as a person both highly involved in the field of computer science and interested in aesthetic qualities of my work. I recently created a fully custom real-time fractal geometry renderer (the results of which are pictured below,) and have first-hand experience with most of the other technologies discussed here.
 
 ---
 
@@ -194,7 +184,7 @@ When Masahiro Mori notably [discussed](http://spectrum.ieee.org/automaton/roboti
 Neural Style mimics human physiology in order to generate new artistic works of a given style, and it does a surprisingly good job. That said, this technology is still *not* as adept at discerning meaning as a human; its technological umwelt is not broad enough to perceive things as high level as human emotion, for instance.
 
 <img class="center" alt="Golden gate processed with The Scream" src="/assets/techno_art/golden_gate_scream.png">
-<p class="center"><i>A photo of the Golden Gate bridge processed with [Neural Style](https://github.com/jcjohnson/neural-style) against [The Starry Night](https://en.wikipedia.org/wiki/The_Starry_Night)</i></p>
+<p class="center"><i>A photo of the Golden Gate bridge processed with [Neural Style](https://github.com/jcjohnson/neural-style) against [*The Scream*](https://en.wikipedia.org/wiki/The_Scream)</i></p>
 
 As a telling example, Neural Style may be able to duplicate the warm flowing brush strokes of Edvard Munch's [*The Scream*](https://en.wikipedia.org/wiki/The_Scream), but at least for the time being, it contains no notion of the moment of horror and existential crisis captured in the original. (below) 
 

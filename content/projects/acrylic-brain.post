@@ -1,0 +1,20 @@
+title: Laser Cut Acrylic Brain
+subtitle: Have DICOM files - will travel
+date: 2016-04-01
+id: acrylic-brain
+template: post
+---
+Alright internet, I did another weird thing.
+
+![](/assets/brain/iso.jpg)
+![](/assets/brain/slice.jpg)
+
+Thanks to the good people at the [Adolescent Brain Imaging Project](http://pubs.niaaa.nih.gov/publications/arh284/205-212.htm), I have [DICOM files](https://en.wikipedia.org/wiki/DICOM) of my brain! I also happen to have access to (more than one!) laser cutter at the moment here at MIT. What happened next, was of course a *no-brainer*.
+
+![](/assets/brain/front.jpg)
+
+There are 29 slices, engraved and cut from a 2'x4' piece of .25" thick acrylic. It is 1:1 scale, and took around ~6-7 hours of laser cutter time. As you may have guessed, it's pretty heavy.
+
+The density is displayed with a [dithered error diffusion halftoning pattern](https://en.wikipedia.org/wiki/Dither), generated via Photoshop. I learned that batch operations are a thing that you can program into Photoshop, which came in very handy for cropping, scaling, and processing the files quickly! Unfortunately, segmenting the brain from the rest of the skull had to be done by hand for each frame, which definitely took a couple of hours.
+
+Have DICOM files and want laser cut slices of your brain (or other organ)? [Contact me!](http://localhost:8000/#contact)
