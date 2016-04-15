@@ -71,13 +71,13 @@ class Post(object):
 		raw_markdown = self.get_template().render(
 			content=self.content, children=self.children,
 			parent=self.parent, metadata=self.metadata, posts=posts)
-		if self.id() == 'nonlinear-gaussian-interpolation':
-			print 'test', raw_markdown
+		# if self.id() == 'nonlinear-gaussian-interpolation':
+		# 	print 'test', raw_markdown
 		self.content = markdown.markdown(raw_markdown)
-		if self.id() == 'nonlinear-gaussian-interpolation':
-			print 'test', self.content
-		if self.id() == 'projects':
-			print self.content
+		# if self.id() == 'nonlinear-gaussian-interpolation':
+		# 	print 'test', self.content
+		# if self.id() == 'projects':
+		# 	print self.content
 
 	def metadata(self, key):
 		return self.metadata[key]
@@ -89,8 +89,8 @@ class Post(object):
 		return self.metadata['title']
 
 	def has_content(self):
-		if self.id() == 'nonlinear-gaussian-interpolation':
-			print self.content
+		# if self.id() == 'nonlinear-gaussian-interpolation':
+		# 	print self.content
 		# print self.id(),  len(self.content.strip(' '))
 		return len(self.content.strip(' ')) > 0
 

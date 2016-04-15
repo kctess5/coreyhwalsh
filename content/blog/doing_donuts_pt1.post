@@ -1,0 +1,148 @@
+title: Doing donuts for science (part 1)
+subtitle: Going in circles, even more quickly
+date: 2016-04-14
+id: doing_donuts_pt1
+template: post
+script: 
+- https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+- /js/high_charts.min.js
+- /js/high_charts-3d.min.js
+- /js/car_charts.min.js
+
+---
+
+{% from 'macros.html' import responsive_youtube %}
+
+This semester at MIT, I am taking a class called 6.141 - otherwise known as *Robotics: Science and Systems* - which is centered around autonomous robotic control software. We work with a very nifty RC car platform, tricked out with an Nvidia Jetson TX1, and a suite of sensors including a Hokuyo laser scanner. 
+
+<!-- ![Car picture](/assets/car.jpg) -->
+<img class="center" alt="Slip speed vs steering angle" src="/assets/car.jpg" style="width: 80%">
+
+On the RACECAR platform, control is handled via two parameters (*speed*, *theta*) that may be directly set in software. *speed* corresponds to linear velocity, and *theta* corresponds to steering angle in radians. If you would like to determine what circle arc you will drive with a certain *theta*, the [Ackerman steering model](https://www.ri.cmu.edu/pub_files/2009/2/Automatic_Steering_Methods_for_Autonomous_Automobile_Path_Tracking.pdf) gives:
+
+\\\[ tan(theta) = \\frac{L}{R} \\\]
+
+Where *R* is the circular path arc radius, and *L* is the wheelbase length of the car. From this it is possible to predict the car's motion as a result of setting any steering angle. This is all very nifty, but the assumption that wheel slip is non-existent, and thus that circular arc radius is independent of velocity, is clearly false - RC cars slide a lot! 
+
+Between manual control, and my experience with the [IAP competition](/#!/autonomous-racecar), is that it is **very** easy to slide on the slippery Stata basement floor. In this post, I will describe my endeavors in quantifying that tire slip.
+
+## Finding the slip speed
+
+I decided to find the point where the Ackerman model starts to break down through empirical testing. I set up the car on the first floor of the Stata center during a low traffic time period, and started driving in circles.
+
+After writing a small controller that would increase the car's speed over time, all I had to do was enable the controller via the Bluetooth joystick, and then disable it once the car's path radius started to rapidly expand. I repeated this process over a wide range of steering angles - limited primarily by the amount of space I had available - and found the following data.
+
+<img class="no-lightbox no-shadow center" alt="Slip speed vs steering angle" src="/assets/dynamics/slip_angle.png" style="width: 80%">
+
+A few things of note about these data. First of all, it was not always immediately obvious when the car began slipping because the car's arc radius increases slowly at first. Considering that alone, I was pleasantly surprised when the data I gathered formed a fairly coherent curve. Another thing to consider is that such measurements are highly dependent on the coefficient of friction of the ground, as well as whether or not the ground is rough. Though I have not yet measured Stata's floor's coefficient of friction, I know that it is quite smooth polished concrete. It's safe to say that these results would almost certainly not hold for asphalt or another high friction material.
+
+<img class="no-lightbox no-shadow center" alt="Slip speed vs steering angle" src="/assets/dynamics/slip_angle_fit.png" style="width: 80%">
+
+A little bit of curve fitting, and voila, a model is born. In particular, I found the relationship to be well modeled as:
+
+\\\[ slip\\\_speed = -115.37\*theta^3 + 107.42\*theta^2-34.54\*theta+5.86 \\\]
+
+To take this model for a spin, I modified my testing controller to slowly increase steering angle while setting speed to slightly below the slip_speed. The result was a very nice, low slip inwards spiral:
+
+{{ responsive_youtube("w78W3vRLRoE") }}
+<br>
+This may be predictable, but it is still quite slow as compared to what the car is capable of - around 40mph (~18m/s) in a straight line without limitations! If the controller could account for [drifting (warning loud video)](https://youtu.be/lFF2bkiHNVQ?t=2m42s), it could perform the same path quite a lot faster.
+
+## Building a better model
+
+Considering the obviously consistent relationship between speed, theta, and path arc radius, I concluded that there must be a better way to model our car's dynamics than Ackerman. If I could track the car accurately in world space, fitting some control model to the gathered data would be a piece of cake (relatively). Unfortunately, the on-board IMU doesn't give data that is sufficiently reliable to accurately track the car's position, but I had just the thing in mind. A carefully calibrated camera can be used to track the RC car's with a bit of video processing.
+
+Below, I will describe the general processing pipeline that I used to gather and process data. In the next post (which will probably appear nebulously in the future) I plan to talk about the model formulation and fitting - mostly because I haven't finished that yet.
+
+### Data collection
+
+The first step was to find a sensor. I initially planned on using a webcam via ROS, as that would make temporally aligning the multiple data sources easy, but alas that proved more difficult than it was worth. Somewhere along the way, I remembered that the GoPro my S.O. gave me would be (nearly) perfect for video collection, due to it's high resolution, frame rate, and large FOV. I even had necessary mounting hardware to mount the camera to a wall! I say nearly perfect, because the GoPro also has a significant fish-eye distortion effect. I will discuss how I dealt with that in the Data Extraction section below.
+
+<img class="no-lightbox no-shadow center" alt="Slip speed vs steering angle" src="/assets/dynamics/gopro.jpg" style="width: 40%">
+
+One day during lab, I took the car down to the Stata basement (where the race will eventually occur), stuck my camera high on a wall, and drove the car in *even more* circles. Once again, I set a static steering angle and manually increased speed by small increments, except this time I caught all the action on e-film, and also logged the control state settings and timestamps whenever I modified the car's control. Here's what it looked like from my point of view:
+
+{{ responsive_youtube("ja-LzC3Iqsg") }}
+<br>
+
+Note the QR codes - the rectangular pattern on the floor is of known dimensions, and was to be used for camera calibration. The code on the car was to aid in finding the position and orientation of the car in the video frames (though I ended up not using it). I was also careful to measure the hallway width so that I could later validate the camera calibration against the rectangular floor pattern.
+
+### Camera Calibration
+
+{{ responsive_youtube("kHPjNIsfYFM") }}
+<br>
+
+An important next step was to prepare the video data for image processing. Due to the large fish-eye distortion effect, and the side-wall camera position, finding a mapping between world coordinate space and each image pixel is non-trivial, given the raw footage. To sort this issue out, I decided to correct the camera distortion, and then used the QR codes on the ground to convert each frame into a top-down view configuration via a projective transformation matrix.
+
+Enter Matlab.
+
+I can't say that I *love* every part of Matlab's design, but I must say that it is very useful for rapid data processing. The libraries, and language level matrix support, make it a very powerful tool for problems such as this one. MIT provides free student licenses, so it was an obvious choice for the part of the processing. Unfortunately, it is not free for everyone. Considering this, I used Python for as much of the processing pipeline as possible. If you aim to do something similar, but can't afford Matlab, [my scripts](https://github.com/kctess5/car_dynamics) should serve as a good reference as most Matlab functions have corresponding libraries in other languages such as Python.
+
+[Lensdistort](http://uk.mathworks.com/matlabcentral/fileexchange/37980-barrel-and-pincushion-lens-distortion-correction/content/lensdistort/lensdistort.m) came in handy for correcting the GoPro's fish-eye distortion (with settings k=-0.32, ftype=3). Finally, I made a small GUI to help pinpoint the QR code centers on the floor, and the necessary projection matrix is created. Here's the final result:
+
+{{ responsive_youtube("AWkEPoQYES8") }}
+<br>
+
+I verified the correctness of this calibration by comparing the found pixel dimensions to the three known dimensions of the QR codes and and wall width. Among these three dimensions, I found a 1% standard deviation from mean (229.2) in the three pixel/meter estimations obtained.
+
+### Data extraction
+
+At this point, I had a 26 minute long video file of the car doing circles, but I was not out of the woods yet. I still needed to extract the position of the car in each frame, and there was enough data that doing it by hand was not an option. Instead, I decided to apply some image processing. I was planning on writing this myself, but then I found the Matlab [multiObjectTracking](http://www.mathworks.com/help/vision/examples/motion-based-multiple-object-tracking.html) script which applied the exact processing pipeline I was going to implement, with the added bonus of a Kalman filter to track segmented blobs.
+
+In general, the multiObjectTracking script uses background subtraction to find the moving objects, and then applies [morphological filtering](http://www.vincent-net.com/luc/papers/92cssp_filtering.pdf) to find contiguous blobs. With some tuning of the Kalman filter, this script was able to reliably detect the location of the racecar. I output a set of data points including frame number, object centroid from each frame, and a unique tracking ID. I will call all the data associated with a single tracking ID a "track."
+
+Unfortunately, the car was not the only thing it detected - I was also in the frame, and it would frequently track multiple objects that were not the car. I knew that I needed some automated data cleaning, as I did not feel like hand checking each tracked object. 
+
+Enter Python.
+
+The good news was that the car tracks are quite distinctive, so identifying them is not too difficult.
+
+First, I aligned the video temporally with the car controller logs, and then pre-filtered all of the tracking data to limit the detected points to only include large regions (>5s, ~150 frames) of constant car control. Under constant control, the car moves in a very consistent circular path. I used this fact to further filter tracks to only include those which had a low variance in distance between each individual tracking point, and the average position of all tracking points in that track. To rate each track I used:
+
+	def normalized_centroid_deviation(track):
+		centroids = np.array(map(lambda x: x['centroid'], track))
+		centroid = np.mean(centroids, 0)
+		deltas = centroids - centroid
+		dists = np.sqrt(np.sum(deltas*deltas, 1))
+		return np.std(dists) / np.mean(dists)
+
+The nomenclature is a bit confusing, as I am calculating the overall track "centroid" from the set of "centroids" which are the x,y pixel positions of the center of the car in the calibrated video.
+
+The returned value was found to be very low for valid car tracks, as they tend to be oriented in a circle, and very high for all other tracks - most of which had mostly random motion. I kept all tracks for which the normalized centroid deviation (as computed from above) was < 0.13. Spot checking reveals that all of the resulting tracks do in fact belong to the RC car, during time frames with constant control settings.
+
+Once the data was filtered, sorted, and generally cleaned came the interesting part - target data extraction. To find path arc length, I used a least squares optimization algorithm against the points in each track - this also provides the circle centers. To find angular (and thereby linear) velocity, I converted each point in the track to polar coordinates in the reference frame of the circle center, and then simply computed median angular velocity directly from the frame numbers and theta in polar coordinates.
+
+All of this work took a bit of data massaging, with many on the spot sanity checks and YAML data dumps. The scripts are all in [the repo](https://github.com/kctess5/car_dynamics), though be warned: I commented/uncommented various sections as I was doing processing, so they will not necessarily do everything "out of the box," but the main functions are there.
+
+I am fairly confident this data is clean, as I also computed the standard deviations of my data for the various computed quantities. I found that the data was quite consistent, with generally low normalized standard deviations (<0.1). In real world terms, I believe that this implies my results are repeatable and consistent, given a similar hardware configuration.
+
+When I have a bit of time, I will overlay some of the extracted data onto the source video for amusement purposes and post it here.
+
+### Preliminary analysis
+
+Finally, at this stage I have obtained 63 data points which include (but is not limited to) the following, over a wide range of steering angles and wheel speeds:
+
+	Car steering angle
+	Car wheel speed
+	Median measured angular velocity
+	Mean measured path arc radius
+
+I have not yet settled on a formal model, though I will likely investigate using the dynamic model described [here](https://www.ri.cmu.edu/pub_files/2009/2/Automatic_Steering_Methods_for_Autonomous_Automobile_Path_Tracking.pdf) as an optimization target for my data. For now, I can appease you all with very pretty graphs.
+
+<img class="no-lightbox no-shadow center" alt="Slip speed vs steering angle" src="/assets/dynamics/chart_25.jpg" style="width: 80%">
+
+It looks to me that in general for a constant steering angle there is a linear range, where the car's path arc does not significantly change, followed by a range with a quadratic relationship between speed and path arc radius. It seems to be a safe assumption that the linear range corresponds to the Ackerman model, whereas the quadratic range is a result of non-linear tire slip forces which the Ackerman model ignores. 
+
+One reassuring feature, is that the slip speed model agrees with my measurements! For each angle, the transition between linear and quadratic regions occurs at roughly the speed predicted by the slip speed model. The found slip speed is denoted as the vertical red line above. I do plan to use this fact to dynamically switch between motion models as necessary. Given my experience in the IAP RACECAR competition, I think it's safe to say that the car will be operating primarily in the non-linear region as it tries to quickly navigate the Stata basement. 
+
+Finally, here's all the data, plotted in 3D! There's a good amount of coverage, but this view highlights where it would be beneficial to gather more data. In some cases, doing so is limited by available testing space.
+
+<div id="container" style="width:100%"></div>
+<p class="center" style="font-size: .7em"><i>3D Chart via <a href="http://www.highcharts.com/">Highcharts</a> under a <a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a> license.</i></p>
+
+### Notes
+
+One thing that I am aware of, is that my measurement and data extraction pipeline does not capture the dynamics of rapidly changing control settings. For now, I plan to define sane limitations on how quickly we modify control by choosing reasonable maximums for linear and angular acceleration. If this proves to be a large inadequacy of the determined model, I can use a different data collection technique which allows me to capture the effects of rapidly changing control. I'm hoping to avoid that, as it would involve a much more complex and highly dimensional model.
+
+
+** More on model selection and fitting next time... **

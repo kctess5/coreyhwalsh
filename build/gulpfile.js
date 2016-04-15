@@ -111,6 +111,7 @@ var bundleAll = function(arr){ _.each(arr, bundle); };
 gulp.task('browserify', function() {
 	bundleAll([
 		paths.client.root.js + '/main.js',
+		paths.client.root.js + '/car_charts.js'
 	]);
 });
 

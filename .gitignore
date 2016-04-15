@@ -6,3 +6,4 @@ s3_website.yml
 deploy.sh
 _archive/
 _compiled/
+build/server.sh

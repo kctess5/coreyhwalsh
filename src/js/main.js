@@ -191,13 +191,24 @@ function updateSidebar(ids) {
 	});
 }
 
+function _load_scripts(scripts) {
+	$.getScript(scripts[0], function(){
+		debug('Fetched Script:', scripts[0]);
+		scripts.shift();
+		if (scripts.length > 0) {
+			_load_scripts(scripts);
+		}
+	});
+}
+
 // load the script for a post, as specified by the 'script' metadata attribute
 function load_scripts(data) {
 	if (data.metadata && data.metadata.script) {
-		debug("Loading script: " + data.metadata.script);
-		$.getScript(data.metadata.script, function(){
-		    // console.log('Fetched Script:', data.metadata.script);
-		});
+		if (data.metadata.script.constructor === Array) {
+			_load_scripts(data.metadata.script)
+		} else {
+			_load_scripts([data.metadata.script]);
+		}
 	}
 }
 
