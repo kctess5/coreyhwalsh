@@ -1,0 +1,9 @@
+default:
+  meta_description: L33t Haxor, student, and philosoraptor.
+  meta_title: Corey H. Walsh
+  meta_image: /favicons/apple-touch-icon-180x180.png
+  sidebar_title: Corey Walsh
+
+url: http://rayban.vision/
+# this is added to the end of each pages subtitle attribute to make the meta description tag
+meta_description_suffix: ""

@@ -10,6 +10,31 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 // var ga = require('./ga').ga;
 var debug = false;
 var last_debug = true;
+var CONFIG = {};
+
+function load_config(data) {
+	CONFIG = data['config'];
+}
+
+function updateMetadata(post) {
+	// correctly set the following:
+	//   ~ title
+	//   ~ description
+	//   ~ canonical URL
+
+	// compute attributes
+	var description = post.metadata.subtitle || CONFIG.default.meta_description;
+	description = description + CONFIG.meta_description_suffix;
+	var title = post.metadata.title || CONFIG.default.meta_title;
+	var canonical = CONFIG.url + "#!/" + post.metadata.id;
+
+	// update attributes
+	$('meta[name=description]').attr("content", description);
+	$('link[rel=canonical]').attr("href", canonical);
+	$('title').text(title);
+	$('meta[property="og:title"]').attr("content", title);
+	$('meta[property="og:url"]').attr("content", canonical);
+}
 
 function setDebugMode(shouldDebug) {
 	if (shouldDebug) 
@@ -170,6 +195,9 @@ function open(ids, data, parameters) {
 		// load any javascripts specified by the 'scripts' parameter of the metadata
 		load_scripts(data[ids[pane]]);
 	}
+
+	// update the site's metadata acording to the most deeply nested pane
+	updateMetadata(data[ids[ids.length - 1]]);
 	// window.onhashchange = function() {};
 	setUrl(ids, parameters);
 	layoutPanes();
@@ -233,6 +261,7 @@ function init() {
 	reload_selectors();
 	helpers.registerHelpers(hbsHelpers);
 	helpers.loadJSON("data/posts.json", function(obj) {
+		load_config(obj);
 		load_sidebar(obj);
 		reload_selectors();
 		open(getURL(), obj, getParameters());
@@ -252,6 +281,36 @@ function hide_sidebar(data) {
 function showing_sidebar() {
 	debug("Showing sidebar.");
 	return $SIDEBAR.hasClass('unhidden');
+}
+
+function focusPane(index) {
+	debug("Focusing pane:", index);
+
+	var viewportWidth = $CONTENT.width();
+	var panes = $CONTENT.children('div').length;
+	var settings = {
+		minWidth: 300,
+		targetWidth: 500,
+		maxWidth: 800,
+		targetPreview: 80,
+		minPreview: 60,
+	};
+	var fl = new layouts.Folded(panes, settings);
+	var layout = fl.makeLayout(viewportWidth, index);
+
+	if (layout) {
+		$CONTENT.children('div').each(function(i) {
+			$(this).css("left", layout.dims[i].l);
+			$(this).css("right", viewportWidth - layout.dims[i].r);
+			$(this).attr("layout", layout.flavor);
+
+			if (i == index) {
+				$(this).attr("focused", "true");
+			} else {
+				$(this).attr("focused", "false");
+			}
+		});
+	}
 }
 
 function layoutPanes() {
@@ -344,6 +403,8 @@ function bindEvents(current_ids, data) {
 			e.preventDefault();
 		}
 
+		var last_focus = (new Date()).getTime();
+
 		// hide mobile sidebar when link is clicked
 		if($(e.target).parents('#sidebar').length > 0) {
 			hide_sidebar();
@@ -370,6 +431,20 @@ function bindEvents(current_ids, data) {
 			open(current_ids.slice(0, tree_base).concat(targets), data, getParameters());
 		}
 	});
+
+	// auto-expand panes on mouseover
+	// $('.pane').off('mouseover').mouseover( function(e) {
+	// 	if ($(e.target).closest('.pane').attr("layout") == "folded"
+	// 		&& $(e.target).closest('.pane').attr("focused") != "true") {
+	// 		var pane_id = $(e.target).closest('.pane').attr("id");
+	// 		var active_panes = [];
+	// 		$CONTENT.children("div.pane").each(function(){
+	// 			active_panes.push($(this).attr('id')); 
+	// 		});
+			//  focus whichever pane index is hovered over
+			// focusPane(active_panes.indexOf(pane_id));
+	// 	}
+	// });
 
 	$("#menu-icon").click(function() {
 		$SIDEBAR.toggleClass('unhidden');

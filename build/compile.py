@@ -11,6 +11,8 @@ from jinja2 import Template, Environment, DictLoader, ChoiceLoader, FileSystemLo
 
 EXT = '.post'
 
+config = yaml.load(file('../config.yaml', 'r'))
+
 def clear():
 	print("\x1b[2J\x1b[H")
 	os.system('clear')
@@ -184,7 +186,7 @@ class Posts(object):
 		return filter(lambda post: self.get_post(post).metadata['semester'] == which, posts)
 
 	def to_json(self):
-		data = {}
+		data = { "config": config }
 		for pid, post in self.posts.iteritems():
 			data[pid] = post.to_obj()
 		return json.dumps(data)

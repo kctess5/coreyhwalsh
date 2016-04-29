@@ -26,6 +26,8 @@ var gulp       = require('gulp'),
 	size       = require('gulp-size'),
 	notifier   = require('node-notifier'),
 	handlebars = require('gulp-handlebars'),
+	compile_handlebars = require('gulp-compile-handlebars'),
+	yaml       = require('yamljs'),
 	declare    = require('gulp-declare'),
 	wrap       = require('gulp-wrap'),
 	concat     = require('gulp-concat');
@@ -54,6 +56,7 @@ if (process.argv[2] === "deploy-prod") {
 }
 
 var paths = {
+	config: '../config.yaml',
 	pub: {
 		css: "../_compiled/css",
 		js: "../_compiled/js",
@@ -74,9 +77,12 @@ var paths = {
 			sass: "../src/sass",
 			js: "../src/js",
 			html: "../src"
-		}	
+		},
+		index: "../src/index.hbs"
 	}
 };
+
+var config = yaml.load(paths.config);
 
 var bundle = function(path) {
 	var filename = path.split("/").pop();
@@ -107,6 +113,11 @@ var bundle = function(path) {
 		});
 };
 var bundleAll = function(arr){ _.each(arr, bundle); };
+
+gulp.task('update-config', function() {
+	config = yaml.load(paths.config);
+	return
+});
 
 gulp.task('browserify', function() {
 	bundleAll([
@@ -184,6 +195,15 @@ gulp.task('html', function() {
 		.pipe(gulp.dest(paths.pub.html));
 });
 
+gulp.task('index-page', function() {
+	console.log("Compiling index page.");
+	return gulp.src([paths.client.index])
+		.pipe(compile_handlebars(config))
+		.pipe(rename('index.html'))
+		.pipe(gulpif(options.minified === true, minifyhtml()))
+		.pipe(gulp.dest(paths.pub.html));
+});
+
 function reload() {
 	require("child_process").exec("osascript " +
 		"-e 'tell application \"Google Chrome\" " +
@@ -216,11 +236,12 @@ gulp.task('watch', function() {
 	gulp.watch(paths.client.content,   ['content']);
 	gulp.watch(paths.client.html,   ['html', 'reload']);
 	gulp.watch(paths.client.templates,   ['templates']);
+	gulp.watch(paths.config, ['update-config', 'index-page', 'content', 'reload'])
 });
 
 gulp.task('browserify-all', ['browserify', 'browserify-buffon', 'browserify-places']);
 
-gulp.task('build', ['sass', 'browserify-all', 'templates', 'assets', 'html', 'content']);
+gulp.task('build', ['sass', 'browserify-all', 'templates', 'assets', 'html', 'index-page', 'content']);
 gulp.task('dev', ['build', 'watch']);
 
 

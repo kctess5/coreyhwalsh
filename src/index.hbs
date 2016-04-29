@@ -2,9 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset='utf-8'/>
-		<title>Corey H Walsh</title>
-		<meta name="description" content="L33t Haxor, student, and philosoraptor.">
+		<title>{{ default.meta_title }}</title>
+		<meta name="description" content="{{ default.meta_description }}">
 		<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=2.0">
+		<link rel="canonical" href="{{ url }}" />
 		
 		<!-- for development only -->
 		<!-- <meta http-equiv="Cache-Control" content=	"no-cache, no-store, must-revalidate" />
@@ -31,21 +32,21 @@
 		<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png?v=3">
 		<meta name="msapplication-config" content="/favicons/browserconfig.xml">
 
-		<meta property="og:title" content="Corey H. Walsh" />
+		<meta property="og:title" content="{{ default.meta_title }}" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:url" content="http://rayban.vision" />
-		<meta property="og:image" content="/favicons/apple-touch-icon-180x180.png" />
+		<meta property="og:url" content="{{ url }}" />
+		<meta property="og:image" content="{{ default.meta_image }}" />
 
 
 		<link href="/css/main.min.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="/css/print.min.css" media="print" rel="stylesheet" type="text/css" />
-		<script type="text/javascript">window.siteName = "http://rayban.vision/"</script>
+		<script type="text/javascript">window.siteName = "{{ url }}/"</script>
 
 	</head>
 
 	<body class="">
 		<ul id='mobile-header'>
-    		<li id='mobile-title'><a href="/"><h1>Corey Walsh</h1></a></li>
+    		<li id='mobile-title'><a href="/"><h1>{{ default.sidebar_title }}</h1></a></li>
     		<li id='mobile-menu'><a id="menu-icon"><img src="/assets/menu27.png"><h3>Menu</h3>
 			</a></li>
 			<!-- <li><div class="inverter"></div></li> -->

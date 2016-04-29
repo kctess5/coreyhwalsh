@@ -1,4 +1,4 @@
-subtitle: 
+subtitle: Projects, blog, and whatever else I feel like
 id: about
 title: About
 ---
@@ -18,7 +18,6 @@ title: About
 <h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Progressive Real-time Progressive Fractal Renderer</a></h2>
 <h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Real-time Gesture Recognition</a></h2>
 <h2 class='subtitle center'><a class='meta' href='/#!/projects/infract'>Infract.js</a></h2> -->
-
 
 <h1 class='about-title'>- Education -</h1>
 <h2 class='subtitle'><span class='mred'>MIT</span> - 2013 to Now</h2>
