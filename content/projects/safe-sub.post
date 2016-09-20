@@ -1,0 +1,30 @@
+title: The Safewoofer
+subtitle: Mini-safe + Dayton 12" Subwoofer = a match made in heaven
+date: 2016-09-20
+id: safe-sub
+template: post
+---
+
+This project is not actually all that new, but I haven't posted about it yet so I figure what the heck - now's good.
+
+A while back, I got my hands on one of Dayton's excellent [12" Reference HF subwoofer](http://www.daytonaudio.com/index.php/rss315hfa-8-12-reference-hf-subwoofer-8-ohm.html) drivers for a rocking price. After a bit of putzing around, I set about to build myself an enclosure to accompany the driver. Given that the Dayton is a nice driver, with a good range of motion, I decided that a sealed design would give me the best sound quality while still getting into the 30hz range in my dorm room. My calculations showed that a 1.5 cubic foot box would do the trick, so I set about procuring a sheet of MDF.
+
+Fast forward about a week... I noticed a very interesting [reuse@](http://mit.edu/reuse/) email divulging the existence of an unwanted miniature safe. Such a bounty I could not refuse. I dashed to its place of residence and extracted the mini safe. It looked like this, banana for scale.
+
+![](/assets/safe/DSC_1385.jpg)
+
+I didn't really know why I needed a safe, but I did, and now I had one. Unfortunately, the safe wasn't really in working order, so using it for real wasn't possible. Before disposing of it, I decided to measure the internal dimensions - lo and behold, it was exactly 1.5 cubic ft. It was around this time that I had one of my better ideas in life: *put the Dayton driver in the safe.* There was just one problem - the door was in the way. No problem, I have a Dremel tool!
+
+![](/assets/safe/DSC_1403.jpg)
+
+Or so I thought... turns out a Dremel tool does not cut it in this scenario. I discovered this after around an hour of hopelessly grinding away, making only a few millimeters of progress. Luckily, I already had the door open, and was able to pry the hinges off with a crowbar and some sweat equity. The hole where the door used to be was just about the perfect size for my 12" driver, so I found myself a small piece of MDF, cut it to the right size to fill the door's void, and stuck the driver in there. I also had a 12" driver cover laying around, so I screwed that on to offer some protection to the money bits.
+
+![](/assets/safe/IMG_4792.jpg)
+
+I fired it up, and wow did it work well! Very smooth response down into the 30hz range.
+
+![](/assets/safe/IMG_4793.jpg)
+
+To this day it's one of my favorite sounding subwoofers. I suppose this shouldn't come as a huge surprise, as the safe is made out of metal and ceramic walls which are completely dead - there's no detectable vibration even when the sub is turned to 11. The thing weighs well over 100 pounds, which makes it one of the heaviest builds I've ever done.
+
+After poking around the internets, I was unable to find any other repurposed safewoofers. If you have seen one, please [let me know!](/#!/contact)
