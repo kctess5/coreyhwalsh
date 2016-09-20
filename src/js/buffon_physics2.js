@@ -333,7 +333,7 @@ var updateDisplay = function() {
 
 
 var needleFxn;
-var physics = true;
+var physics = false;
 
 if (physics) {
 	initScene($("#buffon-demo"), L, true);

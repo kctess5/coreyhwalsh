@@ -1,0 +1,12 @@
+title: Kinect Static Gesture Recognition + Hand Tracking
+subtitle: Combining OpenNI with machine learning
+date: 2016-09-20
+id: gesture-recognition
+template: post
+---
+
+Last year I did [XFair](http://xfair.io/) [ProjX](https://projx.mit.edu/), again. For those unfamiliar, the gist of it is that an MIT group will give you $500 to complete an arbitrary project (subject to their approval, of course). Previously, I worked on Infract.js for this, so I thought it was a good idea to continue the trend of nifty HCI projects, so I bought a Kinect.
+
+I was underwhelmed with the Microsoft SDK on Linux (it's nonexistant), and basically all available hand tracking/gesture software available, so I decided to bake my own with C++.
+
+Geez golly whiz, [that looks like me!](https://www.facebook.com/mitprojx/photos/a.268236596846548.1073741829.183184922018383/268236643513210/?type=3&theater)

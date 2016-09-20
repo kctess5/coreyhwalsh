@@ -1,0 +1,28 @@
+title: Sublime TextSync
+subtitle: Real-time text synchronization for Sublime Text
+date: 2016-09-20
+id: sublime-textsync
+template: post
+---
+
+I love Sublime Text. I also love Google Docs. Wouldn't it be cool if you could have the real-time collaboration aspect of Google Docs, with the power-user features of Sublime, for free?
+
+That's what I thought, which is why I made a Sublime Text plugin called Sublime TextSync (STS) which does exactly that. The wonderous [Google Diff Match Patch (DMP)](https://code.google.com/p/google-diff-match-patch/) algorithm a la [Neil Fraser](https://neil.fraser.name/software/) provides robust synchronization primitives, which provides the secret sauce for my plugin.
+
+This is still a work in progress, but importantly - *it works*. It's taken me a while to release STS, primarily due to life getting in the way of me adding all the features I would like to. Given how long this process has taken, I have decided to expedite things by throwing it out there as is.
+
+## Installation
+
+## Running the server
+
+## Syncing a directory
+
+## TODO
+
+- More documentation
+- More commands - make it easier to control without manually editing config files
+- Easier onboarding
+
+One of the large struggles I have had with developing this plugin is making the user experience as seamless as possible. Unfortunately (albeit understandably), DMP requires a central server. This means that someone has to run the server in order to use Sublime TextSync. For a while, I considered exploring a SAAS model where I provide server space for all the users, but I really don't want to deal with that. There would also be a host of security concerns with that method, so I would rather not go down that long and windy road. Instead, I think it's best for users to run their own servers. The security problems still exist, but they can be handled at the network level - if possible, using a local LAN network that is inaccessible to the outside internet is a good option. Another option would be to run the server inside of a VPN in order to limit access. To mitigate the pains associated with installing and running the server, I have included it inside the plugin, accessible from Sublime's menus. It is of course still possible to run the server via the command line, for those who are familiar.
+
+I have also thought long and hard about file sync configuration is managed. The easiest thing to do would be to require per-file configuration, but that would not be particularly user friendly. Instead, I use file globs to specify a set of files for synchronization via a config file. This way, configuration can be set once per project and stored in git.
