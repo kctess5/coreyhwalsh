@@ -24,16 +24,27 @@ title: About
 <p>I'm a Junior at the Massachusetts Institute of Technology, studying Computer Science and Engineering, and graduating in May of 2017. Right now, I'm working on learning all about machine learning and computer vision.</p>
 <h2 class='subtitle'>La Costa Canyon - 2009 to 2013</h2>
 <p>I attended La Costa Canyon High School in lovely Carlsbad, California. While I was there, I made <a class='meta' href='/#!/projects/stadium-sound'>an astonishingly loud sound system</a> for the football field.</p>
+
+
 <h1 class='about-title'>- Work Experience -</h1>
+
+<h2 class='subtitle'><span class='vred'>Verily Life Sciences</span> - Summer 2016</h2>
+<p>At Verily Life Sciences, I am helping apply technology to better understand heath and sickness. I work with research scientists to visualize and process data in a variety of medical contexts.</p>
+
+<p><b>Tech: Machine Learning, Image Processing, Python</b>
+</p>
+
 <h2 class='subtitle'><span class='gblue'>G</span><span class='gred'>o</span><span class='gyellow'>o</span><span class='gblue'>g</span><span class='ggreen'>l</span><span class='gred'>e</span> - Summer 2015</h2>
 <p>I architected, proposed, and initiated the refactoring of a large and complex codebase, handling billions of requests per day. The changes improved the maintainability of the system by reducing code duplication and complexity, and by facilitating fine grained unit testing.</p>
 <p><b>Tech: Java, Python</b>
 </p>
+
 <h2 class='subtitle'><span class='hgreen'>hulu</span> - Summer 2014</h2>
 <p>I created a metadata generation service in Python which is still in use today. If you've seen a Google search result for a Hulu video recently, my system created that text! In addition to my project, I helped to maintain Hulu's existing web systems and front-ends.</p>
 
 <p><b>Tech: Ruby on Rails, Python, JavaScript, HTML/SASS</b>
 </p>
+
 <h2 class='subtitle'><span class='mcred'>MeringCarson</span> - Summer 2013</h2>
 <p>Between high school and college, I was one of three developers at MeringCarson, a small but loud branding/design/marking firm in San Diego. I got my hands very dirty with front end technologies and PHP creating a custom content management system and making pixel-perfect versions of Photoshop designs.</p>
 <p><b>Tech: PHP, JavaScript, HTML/SASS</b>

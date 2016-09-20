@@ -97,4 +97,14 @@ require('./TrackballControls');
 		);
 	}
 
+	function createPin(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius, segments, segments), 
+			new THREE.MeshBasicMaterial({
+				map:  THREE.ImageUtils.loadTexture('/assets/earth_images/galaxy_starfield.png'), 
+				side: THREE.BackSide
+			})
+		);
+	}
+
 }($("#places_container")));

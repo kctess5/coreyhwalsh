@@ -27,6 +27,7 @@
 
 	$gBlue: #0266C8;
 	$gRed: #F90101;
+	$vRed: rgba(200,49,89,1);
 	$gYellow: #F2B50F;
 	$gGreen: #00933B;
 
@@ -35,6 +36,9 @@
 	}
 	span.gred {
 		color: $gRed;
+	}
+	span.vred {
+		color: $vRed;
 	}
 	span.gyellow {
 		color: $gYellow;
