@@ -21,6 +21,8 @@ This is still a work in progress, but importantly - *it works*. It's taken me a 
 2. Move or copy the example settings file to [sublime text packages folder]/User/textsync.sublime-settings
 3. Reload Sublime Text
 
+If installation goes well, you should see a variety of non-greyed out options under 'Tools > TextSync'.
+
 ## Running the server
 
 To synchronize files, we first need to set up the central [DMP](https://code.google.com/p/google-diff-match-patch/) server which is bundled with Sublime TextSync. This server is not uber-secure, so run this on a computer in your local network that is not directly accessible to the outside world. If you need remote access, then run it on the inside of a VPN.
@@ -63,8 +65,6 @@ Once the plugin is installed, and the server is running, all that's left to do i
     }
 
 Enable synchronization by clicking 'Tools > TextSync > Enable Synchronization'
-
-
 
 ## Troubleshooting:
 
