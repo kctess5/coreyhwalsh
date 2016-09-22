@@ -1,28 +1,98 @@
-title: Sublime TextSync
+title: Sublime TextSync (beta)
 subtitle: Real-time text synchronization for Sublime Text
 date: 2016-09-20
 id: sublime-textsync
 template: post
 ---
+{% from 'macros.html' import responsive_youtube %}
 
 I love Sublime Text. I also love Google Docs. Wouldn't it be cool if you could have the real-time collaboration aspect of Google Docs, with the power-user features of Sublime, for free?
 
-That's what I thought, which is why I made a Sublime Text plugin called Sublime TextSync (STS) which does exactly that. The wonderous [Google Diff Match Patch (DMP)](https://code.google.com/p/google-diff-match-patch/) algorithm a la [Neil Fraser](https://neil.fraser.name/software/) provides robust synchronization primitives, which provides the secret sauce for my plugin.
+That's what I thought, which is why I made a Sublime Text plugin called Sublime TextSync (STS) which does exactly that. The wondrous [Google Diff Match Patch (DMP)](https://code.google.com/p/google-diff-match-patch/) algorithm a la [Neil Fraser](https://neil.fraser.name/software/) provides robust synchronization primitives, which provides the secret sauce for my plugin. Demo inbound...
 
-This is still a work in progress, but importantly - *it works*. It's taken me a while to release STS, primarily due to life getting in the way of me adding all the features I would like to. Given how long this process has taken, I have decided to expedite things by throwing it out there as is.
+{{ responsive_youtube("MucOaGhCwp0") }}
 
-## Installation
+<br>
+This is still a work in progress, but importantly - *it works*. It's taken me a while to release STS, primarily due to life getting in the way of me adding all the features I would like to. Given how long this process has taken, I have decided to expedite things by throwing it out there as is. Life permitting, I plan to clean up the existing code to debugify the existing features, and add a few more features to make the user experience better. For now, here's an early beta version provided AS-IS.
+
+## Plugin Installation
+
+1. Copy the source directory to your Sublime Text packages directory
+2. Move or copy the example settings file to [sublime text packages folder]/User/textsync.sublime-settings
+3. Reload Sublime Text
 
 ## Running the server
 
+To synchronize files, we first need to set up the central [DMP](https://code.google.com/p/google-diff-match-patch/) server which is bundled with Sublime TextSync. This server is not uber-secure, so run this on a computer in your local network that is not directly accessible to the outside world. If you need remote access, then run it on the inside of a VPN.
+
+**Note:** this installation flow is a work in progress.
+
+### Install the appengine development server
+
+[Download and install the SDK for App Engine](https://cloud.google.com/appengine/docs/python/download) - this provides a development server that will let you run the TextSync version of the diff-match-patch server.
+
+### Run the development server
+
+Once you have appengine installed, run the dev server. On my desktop machine with a static IP address, the command is:
+
+	$ cd /[Sublime Text Packages Directory]/User/textsync/server/appengine
+	$ /[Google Cloud SDK install location/bin/dev_appserver.py \\
+	   --port=9998 --admin_port=8001 --api_port=64494 --host=[my static IP address] app.yaml
+
+** Note: ** You should see a lot of output in the development server log when clients correctly connect. If you do not see this, then chances are you need to do a bit of debugging to make sure the development server is accessible from your clients, and all the configuration URLs are correctly set. The server should print out a few key internet addresses when started, check to see if those are accessible from your clients. 
+
+There is preliminary support for starting the server from the menu options of Sublime TextSync, but they are not yet robust enough to be considered reliable.
+
 ## Syncing a directory
+
+Once the plugin is installed, and the server is running, all that's left to do is to add a configuration folder with the files you want to sync.
+
+    {
+        "exclude": [        
+            "**/__init__.py"        
+        ],        
+        "include": [        
+            "*.txt",        
+            "*.py"        
+        ],       
+        "username": "CoreyServer",        
+        "send_ghost_cursors": true,        
+        "show_ghost_cursors": true,        
+        "gateway": "http://[my server IP]:9998",        
+        "id": "thisisatest"
+    }
+
+Enable synchronization by clicking 'Tools > TextSync > Enable Synchronization'
+
+
+
+## Troubleshooting:
+
+As this is very beta, getting set up might take a bit of troubleshooting. One thing that can help is enabling "debug": true in the settings file, and opening up the Sublime console with 'View > Show Console'.
+
+** Greyed out menu options/Weird issues: ** Try saving the file called "textsync.py" and then the file called "commands.py" in the plugin source directory. This will trigger a plugin reload. Don't do this with any shared files open.
+
+** Trouble connecting to the server ** Try using nmap on your server's IP address from the client machine, this should help pinpoint firewall/network issues.
+
+## Known bugs
+
+- File initialization is a bit wonky in new clients, works best if you initialize a new client at the current file state
+- Small lag in updating ghost cursor ranges on edits, does not cause cursor position loss
+- Collaboration interference if your edits are too close to someone else's
+- Some of the menu options don't totally work yet
+- [I have more written on a list somewhere]
 
 ## TODO
 
 - More documentation
+- A round of general debugging
 - More commands - make it easier to control without manually editing config files
-- Easier onboarding
+- Easier onboarding and installation
 
 One of the large struggles I have had with developing this plugin is making the user experience as seamless as possible. Unfortunately (albeit understandably), DMP requires a central server. This means that someone has to run the server in order to use Sublime TextSync. For a while, I considered exploring a SAAS model where I provide server space for all the users, but I really don't want to deal with that. There would also be a host of security concerns with that method, so I would rather not go down that long and windy road. Instead, I think it's best for users to run their own servers. The security problems still exist, but they can be handled at the network level - if possible, using a local LAN network that is inaccessible to the outside internet is a good option. Another option would be to run the server inside of a VPN in order to limit access. To mitigate the pains associated with installing and running the server, I have included it inside the plugin, accessible from Sublime's menus. It is of course still possible to run the server via the command line, for those who are familiar.
 
 I have also thought long and hard about file sync configuration is managed. The easiest thing to do would be to require per-file configuration, but that would not be particularly user friendly. Instead, I use file globs to specify a set of files for synchronization via a config file. This way, configuration can be set once per project and stored in git.
+
+## Questions?
+
+If you really want to give this a try, but have issues with the install? Thoughts, suggestions? [Drop me a line](/#!/contact) and I'll try to get back with you. Please include any relevant error messages, and a description of the problems you're having.
