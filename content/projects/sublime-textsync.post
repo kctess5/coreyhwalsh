@@ -17,10 +17,9 @@ This is still a work in progress, but importantly - *it works*. It's taken me a 
 
 ## Plugin Installation
 
-1. Copy the source directory to your Sublime Text packages directory
-2. Move or copy the example settings file to [sublime text packages folder]/User/textsync.sublime-settings
-3. Reload Sublime Text
-
+1. **Copy the source directory to the new folder [your Sublime Text packages directory]/textsync** -> [Sublime Text config folder]/Packages/textsync/textsync.py should exist once this step is done 
+2. **Move or copy textsync/example_config/textsync.sublime-settings to [sublime text packages folder]/User/textsync.sublime-settings** Follow the instructions below to configure your settings file.
+3. **Reload Sublime Text** 
 If installation goes well, you should see a variety of non-greyed out options under 'Tools > TextSync'.
 
 ## Running the server
@@ -47,7 +46,7 @@ There is preliminary support for starting the server from the menu options of Su
 
 ## Syncing a directory
 
-Once the plugin is installed, and the server is running, all that's left to do is to add a configuration folder with the files you want to sync.
+Once the plugin is installed, and the server is running, all that's left to do is to add a configuration folder with the files you want to sync. Copy this configuration file over to all the computers you want to edit with. In both clients, create a file that you want to edit which matches the "include" blob, and open it (this setup flow should be improved eventually). Make sure that all your clients have different usernames, or you will enter undefined behavior land. The "id" field is appended to the filename in the diff-match-patch server, so make sure it's consistent across all clients.
 
     {
         "exclude": [        
@@ -64,15 +63,15 @@ Once the plugin is installed, and the server is running, all that's left to do i
         "id": "thisisatest"
     }
 
-Enable synchronization by clicking 'Tools > TextSync > Enable Synchronization'
+Enable synchronization by clicking 'Tools > TextSync > Enable Synchronization' in Sublime. Open the synced files and if all has gone well, the text should sync across all clients.
 
 ## Troubleshooting:
 
 As this is very beta, getting set up might take a bit of troubleshooting. One thing that can help is enabling "debug": true in the settings file, and opening up the Sublime console with 'View > Show Console'.
 
-** Greyed out menu options/Weird issues: ** Try saving the file called "textsync.py" and then the file called "commands.py" in the plugin source directory. This will trigger a plugin reload. Don't do this with any shared files open.
+**Greyed out menu options/Weird issues:** Try saving the file called "textsync.py" and then the file called "commands.py" in the plugin source directory. This will trigger a plugin reload. Don't do this with any shared files open.
 
-** Trouble connecting to the server ** Try using nmap on your server's IP address from the client machine, this should help pinpoint firewall/network issues.
+**Trouble connecting to the server:** Try using nmap on your server's IP address from the client machine, this should help pinpoint firewall/network issues.
 
 ## Known bugs
 
